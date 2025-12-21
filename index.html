@@ -1,77 +1,145 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>مهر سلیمان | پلتفرم خدمات آموزشی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="پلتفرم ارائه خدمات آموزشی، مهارتی و مشاوره‌ای ویژه فرزندان کارکنان هلدینگ سولیکو">
 
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
-
-  <script defer src="assets/js/main.js"></script>
 </head>
+
 <body>
 
+<!-- Header -->
 <header>
   <div class="container nav">
-    <h1>مهر سلیمان</h1>
-    <ul>
-      <li><a href="index.html">خانه</a></li>
-      <li><a href="services.html">خدمات</a></li>
-      <li><a href="news.html">اخبار</a></li>
-      <li><a href="about.html">درباره ما</a></li>
-      <li><a href="contact.html">تماس</a></li>
-    </ul>
+    <div class="logo">
+      <strong>مهر سلیمان</strong>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">خانه</a></li>
+        <li><a href="services.html">خدمات</a></li>
+        <li><a href="news.html">اخبار</a></li>
+        <li><a href="about.html">درباره ما</a></li>
+        <li><a href="contact.html">تماس با ما</a></li>
+        <li><a href="login.html" class="btn btn-primary">ورود</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<main class="container">
-
-  <!-- Hero Section -->
-  <section style="margin-top:2rem;">
-    <h2>آموزش با کیفیت، با کمترین هزینه</h2>
-    <p>
-      پلتفرم مهر سلیمان با هدف ارائه خدمات آموزشی، مهارتی و مشاوره‌ای
-      ویژه فرزندان کارکنان هلدینگ سولیکو طراحی شده است.
-    </p>
-    <a href="register.html" class="btn btn-primary">ثبت‌نام در سامانه</a>
-  </section>
-
-  <!-- Services Preview -->
-  <section style="margin-top:3rem;">
-    <h3>خدمات آموزشی</h3>
-
-    <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:1rem;">
-      
-      <div class="card">
-        <span class="badge">اقساطی</span>
-        <h4>دوره تقویتی ریاضی</h4>
-        <p>مخصوص دانش‌آموزان متوسطه</p>
-      </div>
-
-      <div class="card">
-        <span class="badge">تخفیف ویژه</span>
-        <h4>کلاس آنلاین زبان انگلیسی</h4>
-        <p>سطوح مقدماتی تا پیشرفته</p>
-      </div>
-
-      <div class="card">
-        <span class="badge">کسر از حقوق</span>
-        <h4>مشاوره تحصیلی</h4>
-        <p>ویژه انتخاب رشته و برنامه‌ریزی</p>
-      </div>
-
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-content">
+    <div>
+      <h1>آموزش با کیفیت، دسترس‌پذیر برای همه</h1>
+      <p>
+        مهر سلیمان بستری برای ارائه خدمات آموزشی، مهارتی و مشاوره‌ای
+        با قیمت مناسب و شرایط پرداخت ویژه فرزندان کارکنان هلدینگ سولیکو است.
+      </p>
+      <a href="register.html" class="btn btn-primary">ثبت‌نام در سامانه</a>
     </div>
-  </section>
+  </div>
+</section>
 
-</main>
+<!-- Features -->
+<section class="features container">
+  <div class="feature-card card">
+    <h3>قیمت‌گذاری منصفانه</h3>
+    <p>ارائه خدمات آموزشی با حداقل هزینه و بیشترین کیفیت</p>
+  </div>
+  <div class="feature-card card">
+    <h3>پرداخت اقساطی</h3>
+    <p>امکان پرداخت مرحله‌ای متناسب با شرایط کارکنان</p>
+  </div>
+  <div class="feature-card card">
+    <h3>کسر از حقوق</h3>
+    <p>سهولت پرداخت با هماهنگی سازمانی</p>
+  </div>
+</section>
 
+<!-- Service Categories -->
+<section class="container">
+  <h2>دسته‌بندی خدمات</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>آموزشی</h4>
+      <p>دوره‌های درسی و تقویتی</p>
+    </div>
+    <div class="card">
+      <h4>مهارتی</h4>
+      <p>مهارت‌های کاربردی و آینده‌محور</p>
+    </div>
+    <div class="card">
+      <h4>مشاوره‌ای</h4>
+      <p>تحصیلی، شغلی و روانشناسی</p>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Services -->
+<section class="container">
+  <h2>خدمات ویژه</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="badge">اقساطی</span>
+      <h4>کلاس آنلاین ریاضی</h4>
+      <p>ویژه مقطع متوسطه</p>
+    </div>
+    <div class="card">
+      <span class="badge">تخفیف ویژه</span>
+      <h4>آموزش زبان انگلیسی</h4>
+      <p>از مقدماتی تا پیشرفته</p>
+    </div>
+    <div class="card">
+      <span class="badge">پرطرفدار</span>
+      <h4>مشاوره تحصیلی</h4>
+      <p>برنامه‌ریزی و انتخاب رشته</p>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section class="why-us">
+  <div class="container">
+    <h2>چرا مهر سلیمان؟</h2>
+    <p>
+      این سامانه با نظارت مدیریتی و انتخاب دقیق ارائه‌دهندگان خدمات،
+      بستری امن، شفاف و قابل اعتماد برای خانواده‌ها فراهم می‌کند.
+    </p>
+  </div>
+</section>
+
+<!-- News -->
+<section class="container">
+  <h2>اخبار و اطلاعیه‌ها</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>آغاز ثبت‌نام دوره‌های تابستانه</h4>
+      <p>جزئیات ثبت‌نام و زمان‌بندی</p>
+    </div>
+    <div class="card">
+      <h4>افزودن خدمات جدید مهارتی</h4>
+      <p>دوره‌های مهارت‌محور جدید اضافه شد</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
   <div class="container">
-    <p>© تمامی حقوق محفوظ است – مهر سلیمان</p>
-    <p>ویژه کارکنان هلدینگ سولیکو</p>
+    <div>
+      <strong>مهر سلیمان</strong>
+      <p>پلتفرم خدمات آموزشی ویژه خانواده سولیکو</p>
+    </div>
+    <div>
+      <p>© تمامی حقوق محفوظ است</p>
+    </div>
   </div>
 </footer>
 
