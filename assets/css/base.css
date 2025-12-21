@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <meta charset="UTF-8">
-  <title>مهر سلیمان</title>
-</head>
-<body>
-  <h1>Mehr Soleyman</h1>
-</body>
-</html>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  direction: rtl;
+  font-size: 16px;
+}
+
+body {
+  font-family: "Vazirmatn", "IRANSans", sans-serif;
+  background-color: #f7f9fc;
+  color: #1f2937;
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
