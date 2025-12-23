@@ -28,15 +28,27 @@
             </div>
             <input type="search" name="q" placeholder="جستجوی دوره، کلاس، آزمون..." aria-label="جستجو">
           </form>
-        </div>
-        <div class="user-actions">
+            </div>
+      <div class="user-actions">
+        <!-- Guest -->
+        <div id="authGuest" style="display:flex; gap:10px; align-items:center;">
           <a class="auth-button" href="login.html">ثبت نام / ورود</a>
-          <a class="cart-button" href="#">
-            <span class="cart-icon" aria-hidden="true">🛒</span>
-            <span class="cart-text">سبد خرید</span>
-          </a>
         </div>
+      
+        <!-- Logged-in -->
+        <div id="authUser" style="display:none; gap:10px; align-items:center;">
+          <a class="auth-button" href="dashboard.html">داشبورد</a>
+          <button class="cart-button" type="button" id="logoutBtn" style="cursor:pointer;">
+            خروج
+          </button>
+        </div>
+      
+        <a class="cart-button" href="#">
+          <span class="cart-icon" aria-hidden="true">🛒</span>
+          <span class="cart-text">سبد خرید</span>
+        </a>
       </div>
+
 
       <div class="header-bottom">
         <nav class="main-nav" aria-label="منوی اصلی">
