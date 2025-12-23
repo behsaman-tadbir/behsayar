@@ -162,54 +162,66 @@ img {
 
 ---------------------------------------------------------------------------------
 هدر صفحه اصلی:
-    .holding-header {
-      height: 90px;
-      background: radial-gradient(circle at center, #475569 0%, #020617 70%);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+/* ===============================
+   HEADER LAYOUT
+   =============================== */
+
+/* -------- Holding Header -------- */
+.holding-header {
+  height: 90px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #3b82f6 0%,
+      #1e40af 35%,
+      #0a2a66 70%
+    );
+
+  color: #ffffff;
 }
 
-    .holding-header h1 {
-      font-size: 1.1rem;
-      font-weight: 500;
-      position: absolute;
-      right: 20px;
-      opacity: 0.9;
-    }
+.holding-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.08),
+    rgba(0,0,0,0.25)
+  );
+  pointer-events: none;
+}
+
+/* عنوان هلدینگ (سمت راست) */
 .holding-title {
   position: absolute;
   right: 20px;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #e5e7eb;
   opacity: 0.9;
+  z-index: 2;
 }
 
-.holding-header {
-  height: 90px;
-  background: radial-gradient(
-    circle at center,
-    #475569 0%,
-    #020617 70%
-  );
+/* لوگوی هلدینگ (مرکز) */
+.holding-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  z-index: 2;
 }
-
 
 .holding-logo img {
   height: 48px;
   width: auto;
   object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
 }
-
-
     /* =======================
        HEADER LAYER 2 (Product)
        ======================= */
