@@ -162,22 +162,15 @@ img {
 
 ---------------------------------------------------------------------------------
 هدر صفحه اصلی:
-.holding-header {
-  height: 90px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background:
-    radial-gradient(
-      circle at center,
-      #3b82f6 0%,
-      #1e40af 35%,
-      #0a2a66 70%
-    );
-
-  color: #ffffff;
+    .holding-header {
+      height: 90px;
+      background: radial-gradient(circle at center, #475569 0%, #020617 70%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 }
 
     .holding-header h1 {
@@ -196,11 +189,22 @@ img {
   opacity: 0.9;
 }
 
-.holding-logo {
+.holding-header {
+  height: 90px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #3b82f6 0%,
+      #1e40af 35%,
+      #0a2a66 70%
+    );
+
+  color: #ffffff;
 }
 
 .holding-logo img {
