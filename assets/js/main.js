@@ -421,3 +421,25 @@ document.addEventListener("DOMContentLoaded", () => {
   render();
   start();
 });
+function updateHeaderDashboardLink() {
+  const headerAuthLink = document.getElementById("headerAuthLink");
+  const headerAuthText = document.getElementById("headerAuthText");
+  if (!headerAuthLink || !headerAuthText) return;
+
+  const session = getSession();
+  const loggedIn = !!(session && session.username);
+
+  if (loggedIn) {
+    headerAuthText.textContent = "داشبورد";
+    headerAuthLink.setAttribute("aria-label", "داشبورد");
+
+    // هدایت بر اساس نقش
+    if (session.role === "admin") headerAuthLink.href = "dashboard-admin.html";
+    else if (session.role === "teacher") headerAuthLink.href = "dashboard-teacher.html";
+    else headerAuthLink.href = "dashboard.html";
+  } else {
+    headerAuthText.textContent = "ثبت‌نام / ورود";
+    headerAuthLink.href = "login.html";
+    headerAuthLink.setAttribute("aria-label", "ثبت‌نام / ورود");
+  }
+}
