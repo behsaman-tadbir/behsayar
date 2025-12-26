@@ -1,88 +1,126 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>داشبورد مدیریتی | مهر سلیمان</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>داشبورد مدیریتی | به‌سایار</title>
 
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
 
-  <script>
-    if (localStorage.getItem("loggedIn") !== "true" ||
-        localStorage.getItem("role") !== "admin") {
-      window.location.href = "login.html";
-    }
-  </script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 
 <body class="dashboard-body">
+  <div class="dashboard">
 
-<div class="dashboard">
+    <aside class="sidebar">
+      <div class="sidebar-logo">به‌سایار (مدیر)</div>
+      <ul class="sidebar-menu">
+        <li class="active">داشبورد مدیریتی</li>
+        <li>تعریف سازمان‌ها و اعتبار</li>
+        <li>تعریف پلن‌های اقساط</li>
+        <li>مدیریت محصولات</li>
+        <li>گزارش فروش</li>
+        <li>گزارش آموزشی</li>
+        <li>مدیریت محتوا</li>
+        <li><a href="index.html" style="color:inherit;text-decoration:none;">بازگشت به سایت</a></li>
+        <li><a href="#" id="logoutBtn" style="color:inherit;text-decoration:none;">خروج</a></li>
+      </ul>
+    </aside>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">مدیریت مهر سلیمان</div>
-    <ul class="sidebar-menu">
-      <li class="active">داشبورد</li>
-      <li>کاربران</li>
-      <li>دوره‌ها</li>
-      <li>پرداخت‌ها</li>
-      <li>گزارش‌ها</li>
-      <li onclick="logout()">خروج</li>
-    </ul>
-  </aside>
+    <main class="dashboard-main">
 
-  <!-- Main -->
-  <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div>
+          <h1>سلام، مدیر سیستم</h1>
+          <span class="subtitle">کنترل اعتبار سازمانی، اقساط و گزارش‌ها</span>
+        </div>
+        <div class="header-actions">
+          <span class="notification">🔔 ۴</span>
+          <span class="user-avatar">🛡️</span>
+        </div>
+      </header>
 
-    <header class="dashboard-header">
-      <div>
-        <h1>پنل مدیریتی</h1>
-        <span class="subtitle">نمای کلی سامانه آموزشی</span>
-      </div>
-    </header>
+      <section class="stats">
+        <div class="stat-card">
+          <h3>سازمان‌های فعال</h3>
+          <span>6</span>
+        </div>
+        <div class="stat-card">
+          <h3>کاربران</h3>
+          <span>128</span>
+        </div>
+        <div class="stat-card">
+          <h3>خریدهای امروز</h3>
+          <span>12</span>
+        </div>
+      </section>
 
-    <!-- Admin Stats -->
-    <section class="stats">
-      <div class="stat-card">
-        <h3>کل کاربران</h3>
-        <span>۲۴۵</span>
-      </div>
-      <div class="stat-card">
-        <h3>دوره‌های فعال</h3>
-        <span>۱۸</span>
-      </div>
-      <div class="stat-card">
-        <h3>درآمد ماه</h3>
-        <span>۱۲۵M</span>
-      </div>
-    </section>
+      <section class="panel">
+        <h2>وضعیت اعتبار سازمانی (نمونه)</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>سازمان</th>
+              <th>اعتبار کل</th>
+              <th>مصرف شده</th>
+              <th>باقی‌مانده</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>کاله</td>
+              <td>۲۰,۰۰۰,۰۰۰</td>
+              <td>۷,۵۰۰,۰۰۰</td>
+              <td><span class="badge success">۱۲,۵۰۰,۰۰۰</span></td>
+            </tr>
+            <tr>
+              <td>سایر</td>
+              <td>۱۵,۰۰۰,۰۰۰</td>
+              <td>۱۴,۲۰۰,۰۰۰</td>
+              <td><span class="badge warning">۸۰۰,۰۰۰</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- Users Table -->
-    <section class="panel">
-      <h2>آخرین کاربران</h2>
+      <section class="panel">
+        <h2>پلن‌های اقساط (نمونه)</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>نام پلن</th>
+              <th>تعداد قسط</th>
+              <th>کارمزد</th>
+              <th>وضعیت</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>۳ ماهه</td>
+              <td>3</td>
+              <td>0%</td>
+              <td><span class="badge success">فعال</span></td>
+            </tr>
+            <tr>
+              <td>۶ ماهه</td>
+              <td>6</td>
+              <td>2%</td>
+              <td><span class="badge success">فعال</span></td>
+            </tr>
+            <tr>
+              <td>۱۲ ماهه</td>
+              <td>12</td>
+              <td>4%</td>
+              <td><span class="badge warning">پیشنویس</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>نام</th>
-            <th>نقش</th>
-            <th>وضعیت</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>علی رضایی</td>
-            <td>دانش‌آموز</td>
-            <td><span class="badge success">فعال</span></td>
-          </tr>
-          <tr>
-            <td>مریم احمدی</td>
-            <td>پرسنل</td>
-            <td><span class="badge success">فعال</span></td>
-          </tr>
-          <tr>
-            <td>حسین کریمی</td>
-            <td>اولیا</td>
-            <td><s
+    </main>
+  </div>
+</body>
+</html>
