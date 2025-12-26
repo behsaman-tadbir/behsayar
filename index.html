@@ -17,60 +17,86 @@
 
 <header class="site-header">
   <div class="container">
+
+    <!-- ===== Header Top ===== -->
     <div class="header-top">
-
       <div class="brand-area">
-        <!-- Row 1: Brand -->
-        <div class="brand-box">
-          <div class="brand-logo" aria-hidden="true">ب</div>
-          <div class="brand-name">بسامان تدبیر</div>
-        </div>
+        <div class="brand-logo" aria-hidden="true">ب</div>
+        <div class="brand-name">به‌سایار</div>
 
-        <!-- Row 1: Search -->
         <form class="header-search" role="search">
           <div class="search-label">
             <span class="label-text">جستجو</span>
             <span class="label-icon" aria-hidden="true">🔍</span>
           </div>
-          <input type="search" name="q" placeholder="جستجوی دوره، کلاس، آزمون..." aria-label="جستجو">
+          <input
+            type="search"
+            name="q"
+            placeholder="جستجوی دوره، کلاس، آزمون…"
+            aria-label="جستجو"
+          >
         </form>
-
-        <!-- Row 2: Nav (زیر جستجو) -->
-        <nav class="header-nav" aria-label="منوی اصلی">
-          <ul>
-            <li class="nav-item has-dropdown">
-              <button class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false">
-                دسته‌بندی‌ها
-                <span class="chevron" aria-hidden="true">▾</span>
-              </button>
-              <div class="dropdown-menu">
-                <a href="services.html">دبستان و پیش دبستان</a>
-                <a href="services.html">متوسطه اول</a>
-                <a href="services.html">متوسطه دوم</a>
-                <a href="services.html">کنکور تا دکتری</a>
-                <a href="services.html">کلاس‌های آنلاین</a>
-              </div>
-            </li>
-
-            <li class="nav-item"><a class="nav-link" href="contact.html">ارتباط با ما</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
-            <li class="nav-item"><a class="nav-link" href="services.html">راهنمای خرید</a></li>
-          </ul>
-        </nav>
       </div>
 
-      <!-- Actions (دسکتاپ) -->
+      <!-- ===== Auth + Cart ===== -->
       <div class="user-actions">
-        <a class="auth-button" href="login.html">ثبت نام / ورود</a>
+        <a
+          class="auth-button"
+          id="headerAuthLink"
+          href="login.html"
+          aria-label="ثبت‌نام / ورود"
+        >
+          <span id="headerAuthText">ثبت‌نام / ورود</span>
+        </a>
+
         <a class="cart-button" href="#">
           <span class="cart-icon" aria-hidden="true">🛒</span>
           <span class="cart-text">سبد خرید</span>
         </a>
       </div>
-
     </div>
+
+    <!-- ===== Header Bottom / Main Nav ===== -->
+    <div class="header-bottom">
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <ul>
+          <li class="nav-item has-dropdown">
+            <button
+              class="nav-link nav-dropdown-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+              دسته‌بندی‌ها
+              <span class="chevron" aria-hidden="true">▾</span>
+            </button>
+
+            <div class="dropdown-menu">
+              <a href="services.html">پیش‌دبستان و دبستان</a>
+              <a href="services.html">متوسطه اول</a>
+              <a href="services.html">متوسطه دوم</a>
+              <a href="services.html">کنکور و دانشگاه</a>
+              <a href="services.html">کلاس‌های آنلاین</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">محصولات</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">تماس با ما</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">درباره به‌سایار</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
   </div>
 </header>
+
 
 
   <!-- =========================
