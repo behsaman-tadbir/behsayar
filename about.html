@@ -10,12 +10,88 @@
   <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
-  <main class="home-section">
-    <div class="container">
-      <h1 class="section-title">درباره مهر سلیمان</h1>
-      <p class="section-subtitle">اطلاعات بیشتر به‌زودی تکمیل می‌شود.</p>
+<header class="site-header">
+  <div class="container">
+
+    <!-- ===== Header Top ===== -->
+    <div class="header-top">
+      <div class="brand-area">
+        <div class="brand-logo" aria-hidden="true">ب</div>
+        <div class="brand-name">به‌سایار</div>
+
+        <form class="header-search" role="search">
+          <div class="search-label">
+            <span class="label-text">جستجو</span>
+            <span class="label-icon" aria-hidden="true">🔍</span>
+          </div>
+          <input
+            type="search"
+            name="q"
+            placeholder="جستجوی دوره، کلاس، آزمون…"
+            aria-label="جستجو"
+          >
+        </form>
+      </div>
+
+      <!-- ===== Auth + Cart ===== -->
+      <div class="user-actions">
+        <a
+          class="auth-button"
+          id="headerAuthLink"
+          href="login.html"
+          aria-label="ثبت‌نام / ورود"
+        >
+          <span id="headerAuthText">ثبت‌نام / ورود</span>
+        </a>
+
+        <a class="cart-button" href="#">
+          <span class="cart-icon" aria-hidden="true">🛒</span>
+          <span class="cart-text">سبد خرید</span>
+        </a>
+      </div>
     </div>
-  </main>
+
+    <!-- ===== Header Bottom / Main Nav ===== -->
+    <div class="header-bottom">
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <ul>
+          <li class="nav-item has-dropdown">
+            <button
+              class="nav-link nav-dropdown-toggle"
+              type="button"
+              aria-expanded="false"
+            >
+              دسته‌بندی‌ها
+              <span class="chevron" aria-hidden="true">▾</span>
+            </button>
+
+            <div class="dropdown-menu">
+              <a href="services.html">پیش‌دبستان و دبستان</a>
+              <a href="services.html">متوسطه اول</a>
+              <a href="services.html">متوسطه دوم</a>
+              <a href="services.html">کنکور و دانشگاه</a>
+              <a href="services.html">کلاس‌های آنلاین</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">محصولات</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">تماس با ما</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">درباره به‌سایار</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
   <!-- ===== Mobile Bottom Navigation (<=768px) ===== -->
   <nav class="bottom-nav" aria-label="ناوبری پایین">
     <a class="bn-item" data-nav="home" href="index.html">
