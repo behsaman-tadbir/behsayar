@@ -288,6 +288,20 @@
   .header-search {
     max-width: 100%;
     min-width: 0;
+
+    /* Mobile compact search (app-like) */
+    padding: 6px 10px;
+    gap: 10px;
+    border-radius: 12px;
+    background: #ffffff;
+  }
+
+  .header-search .label-text { display: none; }
+  .header-search .label-icon { font-size: 1rem; }
+
+  .header-search input {
+    font-size: 0.85rem;
+    padding: 2px 0;
   }
 
   body { padding-bottom: 78px; }
