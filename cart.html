@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>محصولات | بهسایار</title>
+  <title>سبد خرید | بهسایار</title>
 
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -84,74 +84,46 @@
 
 <main class="page-main">
 <section class="container" style="padding:18px 0 24px;">
-  <h1 style="margin:0 0 10px;font-weight:1000;">محصولات آموزشی</h1>
-  <p style="margin:0 0 14px;color:rgba(15,23,42,.72);font-weight:650;line-height:1.9;">
-    این صفحه دمو است. شما می‌توانید محصولات را ببینید، اما نهایی‌سازی خرید فقط پس از ورود امکان‌پذیر است.
-  </p>
-
-  <div class="filters" style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;">
-    <input class="input" type="search" placeholder="جستجو در محصولات…" aria-label="جستجو در محصولات" style="max-width:360px;">
-    <select class="input" aria-label="فیلتر دسته‌بندی" style="max-width:220px;">
-      <option>همه دسته‌ها</option>
-      <option>ابتدایی</option>
-      <option>متوسطه اول</option>
-      <option>متوسطه دوم</option>
-      <option>کنکور</option>
-    </select>
-    <select class="input" aria-label="مرتب‌سازی" style="max-width:220px;">
-      <option>پیشنهادی</option>
-      <option>جدیدترین</option>
-      <option>ارزان‌ترین</option>
-      <option>گران‌ترین</option>
-    </select>
-  </div>
-
-  <div class="product-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;">
-    <article class="card" style="border-radius:18px;">
-      <div style="height:140px;border-radius:16px;background:rgba(56,189,248,.18);"></div>
-      <div style="padding:12px 12px 14px;">
-        <div style="font-weight:950;">پکیج ریاضی دهم (گاج)</div>
-        <div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 12 جلسه • سطح متوسط</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;">
-          <div style="font-weight:1000;">1,250,000</div>
-          <a class="btn btn-primary" href="product.html" style="padding:10px 12px;border-radius:14px;">مشاهده</a>
+  <h1 style="margin:0 0 10px;font-weight:1000;">سبد خرید</h1>
+  <div style="display:grid;grid-template-columns:1.4fr .6fr;gap:14px;align-items:start;">
+    <div class="card" style="border-radius:18px;padding:14px;">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <div style="width:88px;height:70px;border-radius:16px;background:rgba(56,189,248,.18);"></div>
+        <div style="flex:1;min-width:220px;">
+          <div style="font-weight:950;">پکیج ریاضی دهم (دمو)</div>
+          <div style="color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;margin-top:4px;">گاج • 12 جلسه</div>
         </div>
+        <div style="font-weight:1000;">1,250,000</div>
       </div>
-    </article>
+    </div>
 
-    <article class="card" style="border-radius:18px;">
-      <div style="height:140px;border-radius:16px;background:rgba(163,230,53,.22);"></div>
-      <div style="padding:12px 12px 14px;">
-        <div style="font-weight:950;">پکیج زیست یازدهم (خیلی سبز)</div>
-        <div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 18 جلسه • سطح پیشرفته</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;">
-          <div style="font-weight:1000;">1,980,000</div>
-          <a class="btn btn-primary" href="product.html" style="padding:10px 12px;border-radius:14px;">مشاهده</a>
-        </div>
+    <aside class="card" style="border-radius:18px;padding:14px;position:sticky;top:96px;">
+      <div style="font-weight:950;margin-bottom:10px;">جمع‌بندی</div>
+      <div style="display:flex;justify-content:space-between;color:rgba(15,23,42,.72);font-weight:650;">
+        <span>جمع کالاها</span><span>1,250,000</span>
       </div>
-    </article>
-
-    <article class="card" style="border-radius:18px;">
-      <div style="height:140px;border-radius:16px;background:rgba(167,139,250,.20);"></div>
-      <div style="padding:12px 12px 14px;">
-        <div style="font-weight:950;">پکیج ادبیات کنکور (قلم‌چی)</div>
-        <div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 24 جلسه • سطح جامع</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;">
-          <div style="font-weight:1000;">2,450,000</div>
-          <a class="btn btn-primary" href="product.html" style="padding:10px 12px;border-radius:14px;">مشاهده</a>
-        </div>
+      <div style="display:flex;justify-content:space-between;color:rgba(15,23,42,.72);font-weight:650;margin-top:6px;">
+        <span>تخفیف (دمو)</span><span>0</span>
       </div>
-    </article>
-  </div>
+      <div style="height:1px;background:rgba(15,23,42,.10);margin:10px 0;"></div>
+      <div style="display:flex;justify-content:space-between;font-weight:1000;">
+        <span>مبلغ قابل پرداخت</span><span>1,250,000</span>
+      </div>
 
-  <div style="margin-top:14px;color:rgba(15,23,42,.62);font-weight:650;font-size:.92rem;">
-    ادامه لیست محصولات در نسخه نهایی تکمیل می‌شود (مخصوص MVP نمایشی).
+      <a class="btn btn-primary" href="checkout.html" style="width:100%;margin-top:12px;padding:12px 14px;border-radius:14px;justify-content:center;">
+        ادامه فرایند خرید
+      </a>
+      <div style="margin-top:10px;color:rgba(15,23,42,.62);font-weight:650;font-size:.92rem;line-height:1.8;">
+        این مرحله نمایشی است و پرداخت واقعی ندارد.
+      </div>
+    </aside>
   </div>
 </section>
 
 <style>
 @media (max-width: 768px){
-  .product-grid{ grid-template-columns: 1fr !important; }
+  .container > div{ grid-template-columns: 1fr !important; }
+  aside{ position: static !important; top:auto !important; }
 }
 </style>
 </main>
