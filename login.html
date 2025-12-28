@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ورود | به‌سایار</title>
+  <title>ورود | بهسایار</title>
 
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -45,134 +45,53 @@
 
 
     <!-- ===== Mobile Bottom Navigation (<=768px) ===== -->
-  <nav class="bottom-nav" aria-label="نوار ابزار موبایل">
-    <a class="bn-item is-active" href="index.html" aria-label="خانه">
+  <nav class="bottom-nav" aria-label="ناوبری پایین">
+    <a class="bn-item" data-nav="home" href="index.html">
       <span class="bn-ico" aria-hidden="true">🏠</span>
       <span class="bn-txt">خانه</span>
     </a>
-
-    <button class="bn-item" type="button" id="bnCatsBtn" aria-label="دسته‌بندی‌ها" aria-expanded="false">
-      <span class="bn-ico" aria-hidden="true">🗂️</span>
-      <span class="bn-txt">دسته‌ها</span>
+  
+    <button class="bn-item" data-nav="cats" type="button" id="bnCats">
+      <span class="bn-ico" aria-hidden="true">🧩</span>
+      <span class="bn-txt">دسته‌بندی</span>
     </button>
-
-    <a class="bn-item" href="#" aria-label="سبد خرید">
+  
+    <a class="bn-item" data-nav="contact" href="contact.html">
+      <span class="bn-ico" aria-hidden="true">📞</span>
+      <span class="bn-txt">تماس</span>
+    </a>
+  
+    <a class="bn-item" data-nav="cart" href="#">
       <span class="bn-ico" aria-hidden="true">🛒</span>
       <span class="bn-txt">سبد</span>
-      <span class="bn-badge" id="bnCartBadge" aria-label="تعداد آیتم‌های سبد" hidden>0</span>
+      <span class="bn-badge" aria-label="تعداد سبد">0</span>
     </a>
-
-    <a class="bn-item" href="contact.html" aria-label="ارتباط با ما">
-      <span class="bn-ico" aria-hidden="true">☎️</span>
-      <span class="bn-txt">ارتباط</span>
-    </a>
-
-    <a class="bn-item" id="bnAuthLink" href="login.html" aria-label="ورود">
+  
+    <a class="bn-item" data-nav="account" href="login.html" id="bnAccount">
       <span class="bn-ico" aria-hidden="true">👤</span>
-      <span class="bn-txt" id="bnAuthText">ورود</span>
+      <span class="bn-txt" id="bnAccountText">ورود</span>
     </a>
   </nav>
-
-  <!-- =========================
-       MOBILE CATEGORIES SHEET
-       ========================= -->
-  <div class="bottom-sheet" id="mobileCatsSheet" aria-hidden="true">
-    <div class="sheet-backdrop" data-sheet-close></div>
-
+  
+  <!-- ===== Bottom Sheet: Categories ===== -->
+  <div class="bottom-sheet" id="catsSheet" aria-hidden="true">
+    <div class="sheet-backdrop" id="catsBackdrop"></div>
+  
     <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="دسته‌بندی‌ها">
       <div class="sheet-head">
         <div class="sheet-title">دسته‌بندی‌ها</div>
-        <button class="sheet-close" type="button" aria-label="بستن" data-sheet-close>✕</button>
+        <button class="sheet-close" type="button" id="catsClose" aria-label="بستن">✕</button>
       </div>
-
+  
       <div class="sheet-body">
-        <a class="sheet-link" href="services.html">پیش دبستان و دبستان</a>
+        <a class="sheet-link" href="services.html">دبستان و پیش دبستان</a>
         <a class="sheet-link" href="services.html">متوسطه اول</a>
         <a class="sheet-link" href="services.html">متوسطه دوم</a>
         <a class="sheet-link" href="services.html">کنکور تا دکتری</a>
-        <a class="sheet-link" href="services.html">کودک و نوجوان</a>
-        <a class="sheet-link" href="services.html">و …</a>
+        <a class="sheet-link" href="services.html">کلاس‌های آنلاین</a>
       </div>
     </div>
   </div>
-<footer class="site-footer" aria-label="فوتر سایت">
-    <div class="footer-waves" aria-hidden="true">
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
-        <defs>
-          <path id="wavePath" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"></path>
-        </defs>
-  
-        <g class="wave-parallax">
-          <use href="#wavePath" x="48" y="0"></use>
-          <use href="#wavePath" x="48" y="3"></use>
-          <use href="#wavePath" x="48" y="6"></use>
-          <use href="#wavePath" x="48" y="9"></use>
-        </g>
-      </svg>
-    </div>
-  
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand -->
-        <div class="footer-col footer-brand">
-          <div class="footer-brand-row">
-            <div class="footer-logo">
-              <img src="assets/images/behsaman-logo.png" alt="لوگوی بهسامان تدبیر">
-            </div>
-            <div class="footer-brand-title">
-              <div class="footer-name">به‌سایار</div>
-              <div class="footer-tag">مارکت‌پلیس آموزشی سازمانی</div>
-            </div>
-          </div>
-  
-          <p class="footer-desc">
-            خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
-          </p>
-  
-          <div class="footer-badges" aria-label="همکاری‌ها">
-            <span class="pill">گاج</span>
-            <span class="pill">قلم‌چی</span>
-            <span class="pill">خیلی سبز</span>
-            <span class="pill">پرش</span>
-          </div>
-        </div>
-  
-        <!-- Quick links -->
-        <div class="footer-col">
-          <h3 class="footer-title">لینک‌های سریع</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">صفحه اصلی</a></li>
-            <li><a href="services.html">محصولات</a></li>
-            <li><a href="about.html">درباره به‌سایار</a></li>
-            <li><a href="contact.html">تماس با ما</a></li>
-          </ul>
-        </div>
-  
-        <!-- Support -->
-        <div class="footer-col">
-          <h3 class="footer-title">پشتیبانی</h3>
-          <ul class="footer-meta">
-            <li><span class="meta-k">تلفن:</span> <a href="tel:+982100000000">۰۲۱-۰۰۰۰۰۰۰۰</a></li>
-            <li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
-            <li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
-          </ul>
-  
-          <div class="footer-actions">
-            <a class="btn btn-primary footer-cta" href="contact.html">درخواست همکاری</a>
-            <a class="btn btn-outline footer-cta" href="services.html">مشاهده محصولات</a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="footer-bottom">
-        <div class="footer-copy">© بهسامان تدبیر — به‌سایار</div>
-        <div class="footer-mini">
-          <a href="#" aria-label="قوانین و شرایط">قوانین</a>
-          <span class="dot">•</span>
-          <a href="#" aria-label="حریم خصوصی">حریم خصوصی</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+
 </body>
 </html>
