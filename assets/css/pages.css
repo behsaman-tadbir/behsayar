@@ -570,3 +570,32 @@
   color: #2563eb;
 }
 -----------------------------------------------------------------------
+
+/* =========================
+   CART PAGE (Demo-first)
+   ========================= */
+.cart-layout{
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.cart-summary{
+  position: sticky;
+  top: 92px; /* below header */
+}
+
+@media (max-width: 768px){
+  .cart-layout{
+    grid-template-columns: 1fr;
+  }
+  /* Put summary after items on mobile to avoid side overflow */
+  .cart-summary{
+    position: static;
+    order: 2;
+  }
+  .cart-items{
+    order: 1;
+  }
+}
