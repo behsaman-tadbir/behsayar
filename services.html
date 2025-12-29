@@ -50,11 +50,11 @@
               دسته‌بندی‌ها <span aria-hidden="true" class="chevron">▾</span>
 </button>
 <div class="dropdown-menu">
-<a href="services.html">پیش‌دبستان و دبستان</a>
-<a href="services.html">متوسطه اول</a>
-<a href="services.html">متوسطه دوم</a>
-<a href="services.html">کنکور و دانشگاه</a>
-<a href="services.html">کلاس‌های آنلاین</a>
+<a href="services.html?cat=pre">پیش‌دبستان و دبستان</a>
+<a href="services.html?cat=mid1">متوسطه اول</a>
+<a href="services.html?cat=mid2">متوسطه دوم</a>
+<a href="services.html?cat=konkur">کنکور و دانشگاه</a>
+<a href="services.html?cat=online">کلاس‌های آنلاین</a>
 </div>
 </li>
 <li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
@@ -71,25 +71,21 @@
 <p style="margin:0 0 14px;color:rgba(15,23,42,.72);font-weight:650;line-height:1.9;">
     این صفحه دمو است. شما می‌توانید محصولات را ببینید، اما نهایی‌سازی خرید فقط پس از ورود امکان‌پذیر است.
   </p>
-<div class="filters" style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;">
-<input aria-label="جستجو در محصولات" class="input" placeholder="جستجو در محصولات…" style="max-width:360px;" type="search"/>
-<select aria-label="فیلتر دسته‌بندی" class="input" style="max-width:220px;">
-<option>همه دسته‌ها</option>
-<option>ابتدایی</option>
-<option>متوسطه اول</option>
-<option>متوسطه دوم</option>
-<option>کنکور</option>
-</select>
-<select aria-label="مرتب‌سازی" class="input" style="max-width:220px;">
-<option>پیشنهادی</option>
-<option>جدیدترین</option>
-<option>ارزان‌ترین</option>
-<option>گران‌ترین</option>
-</select>
+
+<div class="filters services-filters">
+  <input id="productsSearch" aria-label="جستجو در محصولات" class="input" placeholder="جستجو در محصولات…" type="search"/>
+  <select id="productsCategory" aria-label="فیلتر دسته‌بندی" class="input">
+    <option value="all">همه دسته‌ها</option>
+  </select>
+  <select id="productsSort" aria-label="مرتب‌سازی" class="input">
+    <option value="suggested">پیشنهادی</option>
+    <option value="newest">جدیدترین</option>
+    <option value="cheap">ارزان‌ترین</option>
+    <option value="expensive">گران‌ترین</option>
+  </select>
 </div>
-<div class="product-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;">
-<article class="card" data-product-id="gaj-math10" style="border-radius:18px;">
-<div class="product-media"><img alt="پکیج ریاضی دهم (گاج)" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/gaj-math10.png"/></div>
+
+<div class="product-grid" id="productsGrid"></div>
 <div style="padding:12px 12px 14px;">
 <div style="font-weight:950;">پکیج ریاضی دهم (گاج)</div>
 <div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 12 جلسه • سطح متوسط</div>
@@ -117,11 +113,7 @@
     ادامه لیست محصولات در نسخه نهایی تکمیل می‌شود (مخصوص MVP نمایشی).
   </div>
 </section>
-<style>
-@media (max-width: 768px){
-  .product-grid{ grid-template-columns: 1fr !important; }
-}
-</style>
+
 </main>
 <footer aria-label="فوتر سایت" class="site-footer">
 <div aria-hidden="true" class="footer-waves">
@@ -175,7 +167,7 @@
 <h3 class="footer-title">پشتیبانی</h3>
 <ul class="footer-meta">
 <li><span class="meta-k">نشانی:</span> <span class="meta-v">نشانی دفتر مرکزی: تهران، خیابان ولی عصر (عج)، نرسیده به چهار راه طالقانی، کوچه شهید رحیم زاده، کوچه شهید رحیم زاده ۲، پلاک ۱۰، طبقه دوم</span></li>
-<li><span class="meta-k">تلفن:</span> <a href="tel:+982166953520">۰۲۱-۶۶۹۵۳۵۲۰</a></li>
+<li><span class="meta-k">تلفن:</span> <a href="tel:+982166953520"><span class="phone-ltr">021-66953520</span></a></li>
 <li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
 <li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
 </ul>
@@ -226,12 +218,11 @@
 <button aria-label="بستن" class="sheet-close" data-sheet-close="" type="button">✕</button>
 </div>
 <div class="sheet-body">
-<a class="sheet-link" href="services.html">پیش دبستان و دبستان</a>
-<a class="sheet-link" href="services.html">متوسطه اول</a>
-<a class="sheet-link" href="services.html">متوسطه دوم</a>
-<a class="sheet-link" href="services.html">کنکور تا دکتری</a>
-<a class="sheet-link" href="services.html">کودک و نوجوان</a>
-<a class="sheet-link" href="services.html">و …</a>
+<a class="sheet-link" href="services.html?cat=pre">پیش دبستان و دبستان</a>
+<a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
+<a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
+<a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
+<a class="sheet-link" href="services.html?cat=pre">کودک و نوجوان</a>
 </div>
 </div>
 </div></body>
