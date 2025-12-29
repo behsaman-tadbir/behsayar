@@ -606,14 +606,24 @@
   color: #0f172a;
 }
 .cat-circle:hover{ transform: translateY(-1px); }
-.cat-ico{
-  width: 44px;
-  height: 44px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: rgba(56, 189, 248, 0.18);
+.cat-img{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(135deg, rgba(56,189,248,.18), rgba(132,204,22,.18));
+  box-shadow: 0 10px 20px rgba(15,23,42,.10);
 }
+.cat-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.cat-ico{ display:none; }
+
 .cat-txt{
   font-weight: 900;
   font-size: 0.92rem;
@@ -648,4 +658,10 @@
   .category-circles{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #productsGrid{ grid-template-columns: 1fr; }
   #productsCategory, #productsSort{ flex: 1 1 160px; max-width: 100%; }
+}
+
+
+/* Category circles images (mobile) */
+@media (max-width: 768px){
+  .cat-img{ width:56px; height:56px; }
 }
