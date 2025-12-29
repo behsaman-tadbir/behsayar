@@ -545,7 +545,8 @@
 .site-footer .container{
   position: relative;
   z-index: 1;
-  padding-top: 10px;
+  /* فاصله بیشتر تا با موج‌ها تداخل نداشته باشد */
+  padding-top: 30px;
 }
 
 .footer-grid{
@@ -698,19 +699,16 @@
   font-weight: 900;
 }
 
-/* Ensure footer doesn't fight with mobile bottom-nav */
-@media (max-width: 768px){
-  .site-footer{
-    padding-bottom: calc(98px + env(safe-area-inset-bottom));
-  }
-  .footer-grid{
-    grid-template-columns: 1fr;
-  }
-}
+/* Mobile: فضای کافی برای موج‌ها + Bottom Nav + Safe Area */
 @media (max-width: 768px){
   .site-footer{
     padding-top: 64px;
-    padding-bottom: 98px; /* جا برای bottom nav */
+    padding-bottom: calc(98px + env(safe-area-inset-bottom));
+  }
+
+  /* روی موبایل کمی فاصله بیشتر تا مطمئن شویم با موج‌ها همپوشانی نداریم */
+  .site-footer .container{
+    padding-top: 36px;
   }
 
   .footer-grid{
