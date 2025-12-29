@@ -33,9 +33,9 @@
 <a aria-label="ثبت‌نام / ورود" class="auth-button" href="login.html" id="headerAuthLink">
 <span id="headerAuthText">ثبت‌نام / ورود</span>
 </a>
-<a class="cart-button" href="#">
+<a class="cart-button" href="cart.html">
 <span aria-hidden="true" class="cart-icon">🛒</span>
-<span class="cart-text">سبد خرید</span>
+<span class="cart-text">سبد خرید</span> <span class="cart-badge" id="headerCartBadge" aria-label="تعداد آیتم‌های سبد" hidden>0</span>
 </a>
 </div>
 </div>
@@ -66,14 +66,13 @@
 </div>
 </header>
 <main class="page-main">
-<main class="page-main">
 <section class="container" style="padding:18px 0 24px;">
 <h1 style="margin:0 0 10px;font-weight:1000;">سبد خرید</h1>
 <p class="muted" style="margin:0 0 14px;color:rgba(15,23,42,.72);font-weight:650;line-height:1.9;">
       محصولات انتخاب‌شده شما اینجاست. نهایی‌سازی خرید فقط پس از ورود امکان‌پذیر است.
     </p>
-<div class="cart-layout" style="display:grid;grid-template-columns:1.4fr .6fr;gap:14px;align-items:start;">
-<div aria-label="لیست محصولات سبد" class="cart-table" id="cartItems"></div>
+<div class="cart-layout">
+<div aria-label="لیست محصولات سبد" class="cart-table cart-items" id="cartItems"></div>
 <aside aria-label="جمع‌بندی سبد" class="card cart-summary">
 <div style="font-weight:950;margin-bottom:10px;">جمع‌بندی</div>
 <div style="display:flex;justify-content:space-between;color:rgba(15,23,42,.72);font-weight:650;">
@@ -92,7 +91,6 @@
 </aside>
 </div>
 </section>
-</main>
 </main>
 <footer aria-label="فوتر سایت" class="site-footer">
 <div aria-hidden="true" class="footer-waves">
