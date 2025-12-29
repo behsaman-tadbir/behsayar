@@ -1,43 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
   // =========================
-  // Header dropdowns (desktop) - supports multiple
+  // Header dropdown (desktop)
   // =========================
-  const dropdownToggles = Array.from(document.querySelectorAll(".nav-dropdown-toggle"));
+  const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+  const dropdownParent = dropdownToggle?.closest(".has-dropdown");
 
-  const closeAllDropdowns = () => {
-    dropdownToggles.forEach((toggle) => {
-      const parent = toggle.closest(".has-dropdown");
-      if (!parent) return;
-      parent.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
+  const closeDropdown = () => {
+    if (!dropdownParent) return;
+    dropdownParent.classList.remove("is-open");
+    dropdownToggle?.setAttribute("aria-expanded", "false");
   };
 
-  if (dropdownToggles.length) {
-    dropdownToggles.forEach((toggle) => {
-      const parent = toggle.closest(".has-dropdown");
-      if (!parent) return;
-
-      toggle.addEventListener("click", (event) => {
-        event.stopPropagation();
-
-        const isOpen = parent.classList.contains("is-open");
-        closeAllDropdowns();
-
-        if (!isOpen) {
-          parent.classList.add("is-open");
-          toggle.setAttribute("aria-expanded", "true");
-        }
-      });
+  if (dropdownToggle && dropdownParent) {
+    dropdownToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const nowOpen = dropdownParent.classList.toggle("is-open");
+      dropdownToggle.setAttribute("aria-expanded", nowOpen ? "true" : "false");
     });
 
-    document.addEventListener("click", closeAllDropdowns);
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeAllDropdowns();
+    document.addEventListener("click", (event) => {
+      if (!dropdownParent.contains(event.target)) closeDropdown();
+    });
+
+    dropdownToggle.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeDropdown();
+        dropdownToggle.focus();
+      }
     });
   }
 
-  
   // =========================
   // Auth Demo (localStorage) - Static MVP
   // =========================
@@ -914,7 +906,6 @@ function renderCheckoutPage() {
     const headerAuthLink = document.getElementById("headerAuthLink");
     const headerAuthText = document.getElementById("headerAuthText");
 
-    if (!headerAuthLink || !headerAuthText) return;
     if (headerAuthLink && headerAuthText) {
       if (loggedIn) {
         headerAuthText.textContent = "داشبورد";
@@ -934,7 +925,6 @@ function renderCheckoutPage() {
     const bnAuthLink = document.getElementById("bnAuthLink");
     const bnAuthText = document.getElementById("bnAuthText");
 
-    if (!bnAuthLink || !bnAuthText) return;
     if (bnAuthLink && bnAuthText) {
       if (loggedIn) {
         bnAuthText.textContent = "داشبورد";
