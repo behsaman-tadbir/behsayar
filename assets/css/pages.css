@@ -20,6 +20,11 @@
   color: #0f172a;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 .home-section {
   padding: 20px 0;
@@ -366,8 +371,6 @@
   align-items: baseline;
   gap: 10px;
 
-}
-
 .price-new {
   font-weight: 900;
   color: #0f172a;
@@ -476,7 +479,7 @@
   }
 }
 
-/* ------------------------------------------------------------- */
+-------------------------------------------------------------
 /* ===== Auth Pages ===== */
 .auth-card {
   max-width: 520px;
@@ -552,7 +555,7 @@
   font-weight: 900;
   color: #2563eb;
 }
-/* ----------------------------------------------------------------------- */
+-----------------------------------------------------------------------
 
 /* =========================
    CART PAGE (Demo-first)
@@ -661,18 +664,4 @@
 /* Category circles images (mobile) */
 @media (max-width: 768px){
   .cat-img{ width:56px; height:56px; }
-}
-
-/* Slider media */
-.post-media{
-  width: 100%;
-  height: 160px;
-  border-radius: 14px;
-  object-fit: cover;
-  display: block;
-  margin-bottom: 12px;
-  background: #e2e8f0;
-}
-@media (max-width: 768px){
-  .post-media{ height: 140px; }
 }
