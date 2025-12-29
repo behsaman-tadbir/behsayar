@@ -549,7 +549,40 @@ function initServicesListing(){
     if (totalEl) totalEl.textContent = money(total);
   }
 
-  function renderCheckoutPage() {
+  
+  function initCartPage() {
+    const wrap = document.getElementById("cartItems");
+    if (!wrap) return;
+    if (wrap.dataset.bound === "1") return;
+    wrap.dataset.bound = "1";
+
+    wrap.addEventListener("click", (e) => {
+      const plus = e.target.closest(".js-qty-plus");
+      const minus = e.target.closest(".js-qty-minus");
+      const remove = e.target.closest(".js-remove-item");
+      if (!plus && !minus && !remove) return;
+
+      const row = e.target.closest(".cart-item");
+      const productId = row?.dataset?.productId;
+      if (!productId) return;
+
+      let cart = loadCart();
+      const found = cart.find((x) => x.id === productId);
+
+      if (remove) {
+        cart = cart.filter((x) => x.id !== productId);
+      } else if (found) {
+        if (plus) found.qty = Number(found.qty || 1) + 1;
+        if (minus) found.qty = Math.max(1, Number(found.qty || 1) - 1);
+      }
+
+      saveCart(cart);
+      updateCartBadges();
+      renderCartPage();
+    });
+  }
+
+function renderCheckoutPage() {
     const summary = document.getElementById("checkoutSummary");
     if (!summary) return;
 
@@ -1214,6 +1247,7 @@ function initServicesListing(){
   initGlobalSearch();
   initServicesListing();
   renderCartPage();
+  initCartPage();
   renderCheckoutPage();
   hydrateProductPage();
   renderDashboards();
