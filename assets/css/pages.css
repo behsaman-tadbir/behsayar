@@ -665,3 +665,17 @@
 @media (max-width: 768px){
   .cat-img{ width:56px; height:56px; }
 }
+
+/* Slider media */
+.post-media{
+  width: 100%;
+  height: 160px;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 12px;
+  background: #e2e8f0;
+}
+@media (max-width: 768px){
+  .post-media{ height: 140px; }
+}
