@@ -481,8 +481,8 @@ function initServicesListing(){
           ${t.method==="credit" && t.installments ? `
             <div style="margin-top:10px;padding:10px;border-radius:16px;background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.18);">
               <div style="font-weight:900;margin-bottom:6px;">اقساط ماهانه (${t.installments.months} ماه)</div>
-              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;">
-                ${t.installments.schedule.map(s=>`<div style="display:flex;justify-content:space-between;gap:10px;"><span>قسط ${s.n} • ${s.dueDate}</span><b>${money(s.amount)}</b></div>`).join("")}
+              <div class="tx-installments">
+                ${t.installments.schedule.map(s=>`<div class="tx-installment-row"><span>قسط ${s.n} • ${s.dueDate}</span><b>${money(s.amount)}</b></div>`).join("")}
               </div>
             </div>
           `:``}
