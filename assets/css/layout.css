@@ -290,12 +290,14 @@
     min-width: 0;
 
     /* Mobile search: compact + app-like */
-    padding: 8px 10px;
+    padding: 6px 10px;
     border-radius: 12px;
     gap: 10px;
-  }
+  
+    min-height: 42px;
+}
   .header-search input{
-    font-size: .92rem;
+    font-size: .88rem;
     padding: 4px 0;
   }
   .search-label{
