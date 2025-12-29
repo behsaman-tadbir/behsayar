@@ -45,18 +45,270 @@ document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_TX = "bs_transactions";
 
   const CATALOG = [
-    { id:"math-boost", title:"کلاس تقویتی ریاضی", provider:"بهسایار", price: 490000, image:"assets/images/products/math-boost.png" },
-    { id:"digital-skills", title:"دوره مهارت‌های دیجیتال", provider:"بهسایار", price: 750000, image:"assets/images/products/digital-skills.png" },
-    { id:"english-teens", title:"زبان انگلیسی نوجوان", provider:"بهسایار", price: 690000, image:"assets/images/products/english-teens.png" },
-    { id:"academic-counseling", title:"مشاوره تحصیلی", provider:"بهسایار", price: 420000, image:"assets/images/products/academic-counseling.png" },
-    { id:"online-exam-grade9", title:"آزمون آنلاین پایه نهم", provider:"بهسایار", price: 280000, image:"assets/images/products/online-exam-grade9.png" },
-    { id:"online-science", title:"کلاس آنلاین علوم", provider:"بهسایار", price: 560000, image:"assets/images/products/online-science.png" },
-    { id:"public-speaking", title:"دوره مهارت سخنوری", provider:"بهسایار", price: 610000, image:"assets/images/products/public-speaking.png" },
-
-    { id:"gaj-math10", title:"پکیج ریاضی دهم", provider:"گاج", price: 1250000, image:"assets/images/products/gaj-math10.png" },
-    { id:"kheili-sabz-bio11", title:"پکیج زیست یازدهم", provider:"خیلی سبز", price: 1490000, image:"assets/images/products/kheili-sabz-bio11.png" },
-    { id:"ghalamchi-adab-konkur", title:"پکیج ادبیات کنکور", provider:"قلم‌چی", price: 1690000, image:"assets/images/products/ghalamchi-adab-konkur.png" },
+    { id:"math-boost", title:"کلاس تقویتی ریاضی", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:490000, oldPrice:720000, image:"assets/images/products/math-boost.png" },
+    { id:"digital-skills", title:"دوره مهارت‌های دیجیتال", provider:"بهسایار", category:"skills", categoryLabel:"مهارت‌ها", price:750000, oldPrice:920000, image:"assets/images/products/digital-skills.png" },
+    { id:"english-teens", title:"زبان انگلیسی نوجوان", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:690000, oldPrice:840000, image:"assets/images/products/english-teens.png" },
+    { id:"academic-counseling", title:"مشاوره تحصیلی", provider:"بهسایار", category:"skills", categoryLabel:"مهارت‌ها", price:420000, oldPrice:520000, image:"assets/images/products/academic-counseling.png" },
+    { id:"online-exam-grade9", title:"آزمون آنلاین پایه نهم", provider:"بهسایار", category:"mid1", categoryLabel:"متوسطه اول", price:280000, oldPrice:350000, image:"assets/images/products/online-exam-grade9.png" },
+    { id:"online-science", title:"کلاس آنلاین علوم", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:560000, oldPrice:690000, image:"assets/images/products/online-science.png" },
+    { id:"public-speaking", title:"دوره مهارت سخنوری", provider:"بهسایار", category:"skills", categoryLabel:"مهارت‌ها", price:610000, oldPrice:790000, image:"assets/images/products/public-speaking.png" },
+    { id:"gaj-math10", title:"پکیج ریاضی دهم", provider:"گاج", category:"mid2", categoryLabel:"متوسطه دوم", price:1250000, oldPrice:1490000, image:"assets/images/products/gaj-math10.png" },
+    { id:"kheili-sabz-bio11", title:"پکیج زیست یازدهم", provider:"خیلی سبز", category:"mid2", categoryLabel:"متوسطه دوم", price:1490000, oldPrice:1750000, image:"assets/images/products/kheili-sabz-bio11.png" },
+    { id:"ghalamchi-adab-konkur", title:"پکیج ادبیات کنکور", provider:"قلم‌چی", category:"konkur", categoryLabel:"کنکور و دانشگاه", price:1690000, oldPrice:1980000, image:"assets/images/products/ghalamchi-adab-konkur.png" },
+    { id:"porsh-physics-konkur", title:"پکیج فیزیک کنکور", provider:"پرش", category:"konkur", categoryLabel:"کنکور و دانشگاه", price:1590000, oldPrice:1890000, image:"assets/images/products/porsh-physics-konkur.png" },
+    { id:"pre-reading-1", title:"پکیج فارسی اول دبستان", provider:"بهسایار", category:"pre", categoryLabel:"پیش‌دبستان و دبستان", price:420000, oldPrice:520000, image:"assets/images/products/pre-reading-1.png" },
+    { id:"pre-math-2", title:"پکیج ریاضی دوم دبستان", provider:"بهسایار", category:"pre", categoryLabel:"پیش‌دبستان و دبستان", price:460000, oldPrice:590000, image:"assets/images/products/pre-math-2.png" },
+    { id:"pre-science-3", title:"علوم سوم دبستان (کارگاهی)", provider:"بهسایار", category:"pre", categoryLabel:"پیش‌دبستان و دبستان", price:490000, oldPrice:640000, image:"assets/images/products/pre-science-3.png" },
+    { id:"mid1-math-7", title:"ریاضی هفتم (آموزش + تمرین)", provider:"بهسایار", category:"mid1", categoryLabel:"متوسطه اول", price:560000, oldPrice:720000, image:"assets/images/products/mid1-math-7.png" },
+    { id:"mid1-arabi-8", title:"عربی هشتم (جمع‌بندی)", provider:"بهسایار", category:"mid1", categoryLabel:"متوسطه اول", price:520000, oldPrice:690000, image:"assets/images/products/mid1-arabi-8.png" },
+    { id:"mid1-farsi-9", title:"فارسی نهم (آزمون و تحلیل)", provider:"بهسایار", category:"mid1", categoryLabel:"متوسطه اول", price:590000, oldPrice:790000, image:"assets/images/products/mid1-farsi-9.png" },
+    { id:"mid2-math-10", title:"ریاضی دهم (تقویتی)", provider:"بهسایار", category:"mid2", categoryLabel:"متوسطه دوم", price:690000, oldPrice:920000, image:"assets/images/products/mid2-math-10.png" },
+    { id:"mid2-chem-11", title:"شیمی یازدهم (مسئله‌محور)", provider:"بهسایار", category:"mid2", categoryLabel:"متوسطه دوم", price:740000, oldPrice:990000, image:"assets/images/products/mid2-chem-11.png" },
+    { id:"mid2-phys-12", title:"فیزیک دوازدهم (جمع‌بندی)", provider:"بهسایار", category:"mid2", categoryLabel:"متوسطه دوم", price:790000, oldPrice:1050000, image:"assets/images/products/mid2-phys-12.png" },
+    { id:"konkur-plan", title:"برنامه‌ریزی کنکور (شخصی‌سازی)", provider:"بهسایار", category:"konkur", categoryLabel:"کنکور و دانشگاه", price:890000, oldPrice:1190000, image:"assets/images/products/konkur-plan.png" },
+    { id:"konkur-exam-pack", title:"پک آزمون آنلاین کنکور (ماهانه)", provider:"بهسایار", category:"konkur", categoryLabel:"کنکور و دانشگاه", price:350000, oldPrice:450000, image:"assets/images/products/konkur-exam-pack.png" },
+    { id:"konkur-analysis", title:"تحلیل آزمون و رفع اشکال کنکور", provider:"بهسایار", category:"konkur", categoryLabel:"کنکور و دانشگاه", price:520000, oldPrice:690000, image:"assets/images/products/konkur-analysis.png" },
+    { id:"online-shad-elem", title:"کلاس آنلاین شاد برای دبستان", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:590000, oldPrice:780000, image:"assets/images/products/online-shad-elem.png" },
+    { id:"online-private-math", title:"کلاس خصوصی آنلاین ریاضی", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:990000, oldPrice:1290000, image:"assets/images/products/online-private-math.png" },
+    { id:"online-group-english", title:"کلاس گروهی آنلاین زبان", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:720000, oldPrice:980000, image:"assets/images/products/online-group-english.png" },
+    { id:"skills-study-method", title:"روش‌های مطالعه و یادگیری سریع", provider:"بهسایار", category:"skills", categoryLabel:"مهارت‌ها", price:430000, oldPrice:590000, image:"assets/images/products/skills-study-method.png" },
+    { id:"skills-memory", title:"تقویت حافظه و تمرکز (۶ جلسه)", provider:"بهسایار", category:"skills", categoryLabel:"مهارت‌ها", price:480000, oldPrice:650000, image:"assets/images/products/skills-memory.png" },
+    { id:"skills-time", title:"مدیریت زمان و برنامه‌ریزی", provider:"بهسایار", category:"skills", categoryLabel:"مهارت‌ها", price:390000, oldPrice:520000, image:"assets/images/products/skills-time.png" }
   ];
+
+const CATEGORIES = [
+  { key:"all", label:"همه دسته‌ها" },
+  { key:"pre", label:"پیش‌دبستان و دبستان" },
+  { key:"mid1", label:"متوسطه اول" },
+  { key:"mid2", label:"متوسطه دوم" },
+  { key:"konkur", label:"کنکور و دانشگاه" },
+  { key:"online", label:"کلاس‌های آنلاین" },
+  { key:"skills", label:"مهارت‌ها" },
+];
+
+const SEARCH_PAGES = [
+  { title:"صفحه اصلی", url:"index.html", kind:"page" },
+  { title:"محصولات", url:"services.html", kind:"page" },
+  { title:"تماس با ما", url:"contact.html", kind:"page" },
+  { title:"درباره بهسایار", url:"about.html", kind:"page" },
+  { title:"اخبار", url:"news.html", kind:"page" },
+];
+
+function normalizeQuery(q){
+  return String(q||"").trim().replace(/\s+/g," ");
+}
+
+function getQueryParam(name){
+  try{
+    const u = new URL(window.location.href);
+    return u.searchParams.get(name) || "";
+  }catch{ return ""; }
+}
+
+function setQueryParam(name, value){
+  try{
+    const u = new URL(window.location.href);
+    if (!value) u.searchParams.delete(name);
+    else u.searchParams.set(name, value);
+    window.history.replaceState({}, "", u.toString());
+  }catch{}
+}
+
+function createEl(tag, attrs={}, children=[]){
+  const el = document.createElement(tag);
+  Object.entries(attrs).forEach(([k,v])=>{
+    if (k === "class") el.className = v;
+    else if (k === "html") el.innerHTML = v;
+    else if (k.startsWith("on") && typeof v === "function") el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v);
+  });
+  children.forEach((c)=> el.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+  return el;
+}
+
+// =========================
+// Global Search (Products + Pages) - Demo-first but real-feel
+// =========================
+function initGlobalSearch(){
+  const inputs = document.querySelectorAll('.header-search input[type="search"]');
+  if (!inputs.length) return;
+
+  inputs.forEach((input)=>{
+    input.setAttribute("autocomplete","off");
+    const form = input.closest("form");
+    if (!form) return;
+    form.classList.add("has-search-results");
+
+    // results panel
+    let panel = form.querySelector(".search-results");
+    if (!panel){
+      panel = createEl("div", { class:"search-results", role:"listbox", "aria-label":"نتایج جستجو", hidden:"" });
+      form.appendChild(panel);
+    }
+
+    const closePanel = ()=>{
+      panel.setAttribute("hidden","");
+      panel.innerHTML = "";
+    };
+
+    const openPanel = ()=>{
+      panel.removeAttribute("hidden");
+    };
+
+    const renderResults = (q)=>{
+      const query = normalizeQuery(q);
+      if (query.length < 2) { closePanel(); return; }
+
+      const qLower = query.toLowerCase();
+      const prodMatches = CATALOG
+        .filter(p => (p.title + " " + p.provider + " " + (p.categoryLabel||"")).toLowerCase().includes(qLower))
+        .slice(0, 6);
+
+      const pageMatches = SEARCH_PAGES
+        .filter(p => p.title.toLowerCase().includes(qLower))
+        .slice(0, 4);
+
+      panel.innerHTML = "";
+
+      if (!prodMatches.length && !pageMatches.length){
+        panel.appendChild(createEl("div",{class:"sr-empty"},["نتیجه‌ای پیدا نشد"]));
+        openPanel();
+        return;
+      }
+
+      if (prodMatches.length){
+        panel.appendChild(createEl("div",{class:"sr-group"},["محصولات"]));
+        prodMatches.forEach((p)=>{
+          const a = createEl("a",{class:"sr-item", href:`product.html?pid=${encodeURIComponent(p.id)}`, role:"option"});
+          a.appendChild(createEl("span",{class:"sr-title"},[p.title]));
+          a.appendChild(createEl("span",{class:"sr-meta"},[p.provider]));
+          panel.appendChild(a);
+        });
+      }
+
+      if (pageMatches.length){
+        panel.appendChild(createEl("div",{class:"sr-group"},["صفحات"]));
+        pageMatches.forEach((p)=>{
+          const a = createEl("a",{class:"sr-item", href:p.url, role:"option"});
+          a.appendChild(createEl("span",{class:"sr-title"},[p.title]));
+          a.appendChild(createEl("span",{class:"sr-meta"},["صفحه"]));
+          panel.appendChild(a);
+        });
+      }
+
+      openPanel();
+    };
+
+    input.addEventListener("input", (e)=> renderResults(e.target.value));
+    input.addEventListener("focus", (e)=> renderResults(e.target.value));
+
+    document.addEventListener("click", (e)=>{
+      if (!form.contains(e.target)) closePanel();
+    });
+
+    input.addEventListener("keydown", (e)=>{
+      if (e.key === "Escape") { closePanel(); input.blur(); }
+    });
+
+    form.addEventListener("submit", (e)=>{
+      // route to services with query
+      e.preventDefault();
+      const q = normalizeQuery(input.value);
+      if (!q) return;
+      window.location.href = `services.html?q=${encodeURIComponent(q)}`;
+    });
+  });
+}
+
+// =========================
+// Services page: render products + filters (category, search, sort)
+// =========================
+function initServicesListing(){
+  const grid = document.getElementById("productsGrid");
+  if (!grid) return;
+
+  const searchInput = document.getElementById("productsSearch");
+  const catSelect = document.getElementById("productsCategory");
+  const sortSelect = document.getElementById("productsSort");
+
+  // hydrate category select
+  if (catSelect && catSelect.options.length <= 1){
+    CATEGORIES.forEach((c)=>{
+      const opt = document.createElement("option");
+      opt.value = c.key;
+      opt.textContent = c.label;
+      catSelect.appendChild(opt);
+    });
+  }
+
+  const qpQ = normalizeQuery(getQueryParam("q"));
+  const qpCat = getQueryParam("cat");
+  if (searchInput && qpQ) searchInput.value = qpQ;
+  if (catSelect && qpCat) catSelect.value = qpCat;
+
+  const render = ()=>{
+    const q = normalizeQuery(searchInput?.value || "");
+    const cat = catSelect?.value || "all";
+    const sort = sortSelect?.value || "suggested";
+
+    let list = [...CATALOG];
+    if (cat && cat !== "all"){
+      list = list.filter(p => p.category === cat);
+    }
+    if (q){
+      const qLower = q.toLowerCase();
+      list = list.filter(p => (p.title + " " + p.provider + " " + (p.categoryLabel||"")).toLowerCase().includes(qLower));
+    }
+
+    if (sort === "cheap") list.sort((a,b)=> (a.price||0) - (b.price||0));
+    else if (sort === "expensive") list.sort((a,b)=> (b.price||0) - (a.price||0));
+    else if (sort === "newest") list.sort((a,b)=> (b.id||"").localeCompare(a.id||""));
+    // suggested: keep catalog order
+
+    // render
+    grid.innerHTML = "";
+    if (!list.length){
+      grid.appendChild(createEl("div",{class:"card sr-empty", style:"padding:14px;border-radius:16px;"},["محصولی مطابق فیلترها پیدا نشد."]));
+      return;
+    }
+
+    list.forEach((p)=>{
+      const card = createEl("article",{class:"product-card product-card--grid", "data-product-id":p.id});
+      const media = createEl("div",{class:"product-media"});
+      const img = createEl("img",{alt:p.title, loading:"lazy", src:p.image, onerror:"this.onerror=null;this.src='assets/images/placeholder.svg';"});
+      media.appendChild(img);
+
+      const name = createEl("div",{class:"product-name"},[p.title]);
+      const meta = createEl("div",{class:"product-meta"},[`${p.provider} • ${p.categoryLabel || ""}`]);
+      const prices = createEl("div",{class:"product-prices"});
+      prices.appendChild(createEl("span",{class:"price-new"},[money(p.price)]));
+      if (p.oldPrice && p.oldPrice > p.price){
+        prices.appendChild(createEl("span",{class:"price-old"},[money(p.oldPrice)]));
+      }
+
+      const actions = createEl("div",{class:"product-actions"});
+      actions.appendChild(createEl("a",{class:"btn btn-secondary", href:`product.html?pid=${encodeURIComponent(p.id)}`},["مشاهده"]));
+      const btn = createEl("button",{class:"btn btn-primary js-add-to-cart", type:"button", "data-product-id":p.id},["افزودن به سبد"]);
+      actions.appendChild(btn);
+
+      card.appendChild(media);
+      card.appendChild(name);
+      card.appendChild(meta);
+      card.appendChild(prices);
+      card.appendChild(actions);
+      grid.appendChild(card);
+    });
+
+    // keep URL in sync for shareable demo
+    if (q) setQueryParam("q", q); else setQueryParam("q","");
+    if (cat && cat !== "all") setQueryParam("cat", cat); else setQueryParam("cat","");
+  };
+
+  [searchInput, catSelect, sortSelect].forEach((el)=> el && el.addEventListener("input", render));
+  [catSelect, sortSelect].forEach((el)=> el && el.addEventListener("change", render));
+
+  render();
+}
 
   const catalogById = Object.fromEntries(CATALOG.map((p)=>[p.id,p]));
 
@@ -123,6 +375,8 @@ document.addEventListener("DOMContentLoaded", () => {
     else cart.push({ id: productId, qty: Math.max(1, qty) });
     saveCart(cart);
     updateCartBadges();
+  initGlobalSearch();
+  initServicesListing();
   }
 
   function setCartQty(productId, qty) {
@@ -132,17 +386,23 @@ document.addEventListener("DOMContentLoaded", () => {
     item.qty = Math.max(1, Number(qty||1));
     saveCart(cart);
     updateCartBadges();
+  initGlobalSearch();
+  initServicesListing();
   }
 
   function removeFromCart(productId) {
     const cart = loadCart().filter((x)=>x.id!==productId);
     saveCart(cart);
     updateCartBadges();
+  initGlobalSearch();
+  initServicesListing();
   }
 
   function clearCart() {
     saveCart([]);
     updateCartBadges();
+  initGlobalSearch();
+  initServicesListing();
   }
 
   function getActiveUser() {
@@ -877,6 +1137,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Cart badge
   updateCartBadges();
+  initGlobalSearch();
+  initServicesListing();
 
   // =========================
   // Home Post Slider (every 3s)
@@ -949,6 +1211,8 @@ document.addEventListener("DOMContentLoaded", () => {
   protectDashboard();
   // Cart/Checkout/Transactions demo
   updateCartBadges();
+  initGlobalSearch();
+  initServicesListing();
   renderCartPage();
   renderCheckoutPage();
   hydrateProductPage();
