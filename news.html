@@ -22,11 +22,8 @@
 </div>
 <div class="brand-name">بهسایار</div>
 <form class="header-search" role="search">
-<div class="search-label">
-<span class="label-text">جستجو</span>
-<span aria-hidden="true" class="label-icon">🔍</span>
-</div>
-<input aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search"/>
+<label class="sr-only" for="siteSearch">جستجو</label>
+<input id="siteSearch" aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search"/>
 </form>
 </div>
 <div class="user-actions">
@@ -43,9 +40,8 @@
 <div class="header-bottom">
 <nav aria-label="منوی اصلی" class="main-nav">
 <ul>
-<!-- ✅ گزینه اول: صفحه اصلی -->
 <li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
-<li class="nav-item has-dropdown">
+<li class="nav-item has-dropdown is-emph">
 <button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
               دسته‌بندی‌ها <span aria-hidden="true" class="chevron">▾</span>
 </button>
@@ -55,6 +51,18 @@
 <a href="services.html?cat=mid2">متوسطه دوم</a>
 <a href="services.html?cat=konkur">کنکور و دانشگاه</a>
 <a href="services.html?cat=online">کلاس‌های آنلاین</a>
+<a href="services.html?cat=lang">کلاس زبان</a>
+<a href="services.html?cat=computer">کلاس کامپیوتر</a>
+<a href="services.html?cat=skills">کلاس‌های مهارتی</a>
+</div>
+</li>
+<li class="nav-item has-dropdown">
+<button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
+              اخبار و مقالات <span aria-hidden="true" class="chevron">▾</span>
+</button>
+<div class="dropdown-menu">
+<a href="news.html">اخبار و رویدادها</a>
+<a href="articles.html">مقالات</a>
 </div>
 </li>
 <li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
@@ -66,22 +74,32 @@
 </div>
 </header>
 <main class="page-main">
-<main class="home-section">
-<div class="container">
-<h1 class="section-title">اخبار</h1>
-<p class="section-subtitle">آخرین اخبار و اطلاعیه‌ها در این بخش نمایش داده می‌شود.</p>
-</div>
-</main>
-<!-- ===== Mobile Bottom Navigation (<=768px) ===== -->
-<!-- ===== Bottom Sheet: Categories ===== -->
-<button aria-label="بستن" class="sheet-close" id="catsClose" type="button">✕</button>
-<div class="sheet-body">
-<a class="sheet-link" href="services.html">دبستان و پیش دبستان</a>
-<a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
-<a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
-<a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
-<a class="sheet-link" href="services.html?cat=online">کلاس‌های آنلاین</a>
-</div>
+<section class="home-section">
+  <div class="container">
+    <div class="section-head">
+      <h1 class="section-title">اخبار و رویدادها</h1>
+      <p class="section-subtitle">آخرین اخبار و اطلاعیه‌ها (نمایشی) در این بخش نمایش داده می‌شود.</p>
+    </div>
+
+    <div class="cards-grid">
+      <article class="info-card">
+        <h2 class="info-title">افتتاح رسمی نسخه نمایشی بهسایار</h2>
+        <p class="info-desc">این خبر صرفاً برای نمایش تجربه کاربری است و داده‌های واقعی ندارد.</p>
+        <a class="btn btn-outline" href="#">جزئیات</a>
+      </article>
+      <article class="info-card">
+        <h2 class="info-title">افزودن دسته‌بندی‌های جدید به سامانه</h2>
+        <p class="info-desc">کلاس زبان، کلاس کامپیوتر و کلاس‌های مهارتی به دسته‌بندی‌ها اضافه شد.</p>
+        <a class="btn btn-outline" href="#">جزئیات</a>
+      </article>
+      <article class="info-card">
+        <h2 class="info-title">بهبود ظاهر هدر و منو برای ارائه سازمانی</h2>
+        <p class="info-desc">تمرکز بر تجربه کاربری برندمحور و یکسان‌سازی هدر/فوتر در همه صفحات.</p>
+        <a class="btn btn-outline" href="#">جزئیات</a>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
 <footer aria-label="فوتر سایت" class="site-footer">
 <div aria-hidden="true" class="footer-waves">
@@ -99,7 +117,6 @@
 </div>
 <div class="container">
 <div class="footer-grid">
-<!-- Brand -->
 <div class="footer-col footer-brand">
 <div class="footer-brand-row">
 <div class="footer-logo">
@@ -111,7 +128,7 @@
 </div>
 </div>
 <p class="footer-desc">
-            خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
+            بهسایار محصول شرکت بهسامان تدبیر است؛ خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
           </p>
 <div aria-label="همکاری‌ها" class="footer-badges">
 <span class="pill">گاج</span>
@@ -120,17 +137,17 @@
 <span class="pill">پرش</span>
 </div>
 </div>
-<!-- Quick links -->
 <div class="footer-col">
 <h3 class="footer-title">لینک‌های سریع</h3>
 <ul class="footer-links">
 <li><a href="index.html">صفحه اصلی</a></li>
 <li><a href="services.html">محصولات</a></li>
+<li><a href="news.html">اخبار و رویدادها</a></li>
+<li><a href="articles.html">مقالات</a></li>
 <li><a href="about.html">درباره بهسایار</a></li>
 <li><a href="contact.html">تماس با ما</a></li>
 </ul>
 </div>
-<!-- Support -->
 <div class="footer-col">
 <h3 class="footer-title">پشتیبانی</h3>
 <ul class="footer-meta">
@@ -139,24 +156,18 @@
 <li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
 <li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
 </ul>
-<div class="footer-actions">
-<a class="btn btn-primary footer-cta" href="contact.html">درخواست همکاری</a>
-<a class="btn btn-outline footer-cta" href="services.html">مشاهده محصولات</a>
-</div>
 </div>
 </div>
 <div class="footer-bottom">
-<div class="footer-copy">© بهسامان تدبیر — بهسایار</div>
+<div class="footer-copy">قدرت گرفته از محصول بهسایار شرکت بهسامان تدبیر</div>
 <div class="footer-mini">
 <a aria-label="قوانین و شرایط" href="terms.html">قوانین</a>
-<span class="dot">•</span>
-<a aria-label="حریم خصوصی" href="privacy.html">حریم خصوصی</a>
 </div>
 </div>
 </div>
 </footer>
 <nav aria-label="نوار ابزار موبایل" class="bottom-nav">
-<a aria-label="خانه" class="bn-item is-active" href="index.html">
+<a aria-label="خانه" class="bn-item " href="index.html">
 <span aria-hidden="true" class="bn-ico">🏠</span>
 <span class="bn-txt">خانه</span>
 </a>
@@ -164,16 +175,16 @@
 <span aria-hidden="true" class="bn-ico">🗂️</span>
 <span class="bn-txt">دسته‌ها</span>
 </button>
-<a aria-label="سبد خرید" class="bn-item" href="cart.html">
+<a aria-label="سبد خرید" class="bn-item " href="cart.html">
 <span aria-hidden="true" class="bn-ico">🛒</span>
 <span class="bn-txt">سبد</span>
 <span aria-label="تعداد آیتم‌های سبد" class="bn-badge" hidden="" id="bnCartBadge">0</span>
 </a>
-<a aria-label="ارتباط با ما" class="bn-item" href="contact.html">
+<a aria-label="ارتباط با ما" class="bn-item " href="contact.html">
 <span aria-hidden="true" class="bn-ico">☎️</span>
 <span class="bn-txt">ارتباط</span>
 </a>
-<a aria-label="ورود" class="bn-item" href="login.html" id="bnAuthLink">
+<a aria-label="ورود" class="bn-item " href="login.html" id="bnAuthLink">
 <span aria-hidden="true" class="bn-ico">👤</span>
 <span class="bn-txt" id="bnAuthText">ورود</span>
 </a>
@@ -190,8 +201,13 @@
 <a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
 <a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
 <a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
-<a class="sheet-link" href="services.html?cat=pre">کودک و نوجوان</a>
+<a class="sheet-link" href="services.html?cat=online">کلاس‌های آنلاین</a>
+<a class="sheet-link" href="services.html?cat=lang">کلاس زبان</a>
+<a class="sheet-link" href="services.html?cat=computer">کلاس کامپیوتر</a>
+<a class="sheet-link" href="services.html?cat=skills">کلاس‌های مهارتی</a>
 </div>
 </div>
-</div></body>
+</div>
+
+</body>
 </html>

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html dir="rtl" lang="fa">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ثبت‌نام | بهسایار</title>
+<title>مقالات | بهسایار</title>
 <link href="assets/css/base.css" rel="stylesheet"/>
 <link href="assets/css/layout.css" rel="stylesheet"/>
 <link href="assets/css/components.css" rel="stylesheet"/>
@@ -74,54 +73,32 @@
 </div>
 </header>
 <main class="page-main">
-<main class="container" style="padding: 28px 0;">
-<section class="auth-card">
-<h1 class="auth-title">ثبت‌نام</h1>
-<p class="auth-sub">نام کاربری، رمز و اطلاعات هویتی را وارد کنید.</p>
-<form class="auth-form" id="registerForm" novalidate="">
-<label class="field">
-<span>نام کاربری</span>
-<input autocomplete="username" id="regUsername" required="" type="text"/>
-</label>
-<label class="field">
-<span>رمز عبور</span>
-<input autocomplete="new-password" id="regPassword" required="" type="password"/>
-</label>
-<label class="field">
-<span>شماره همراه</span>
-<input id="regPhone" inputmode="tel" placeholder="مثلاً 0912xxxxxxx" required="" type="tel"/>
-</label>
-<label class="field">
-<span>کد ملی</span>
-<input id="regNationalId" inputmode="numeric" placeholder="۱۰ رقم" required="" type="text"/>
-</label>
-<label class="field">
-<span>نقش</span>
-<select id="regRole" required="">
-<option value="">انتخاب کنید</option>
-<option value="student">دانش‌آموز</option>
-<option value="teacher">معلم</option>
-</select>
-</label>
-<button class="btn btn-primary" style="width:100%;" type="submit">ثبت‌نام</button>
-<p aria-live="polite" class="auth-note" id="registerMsg"></p>
-<div class="auth-links">
-<span>حساب دارید؟</span>
-<a class="link" href="login.html">ورود</a>
-</div>
-</form>
+<section class="home-section">
+  <div class="container">
+    <div class="section-head">
+      <h1 class="section-title">مقالات</h1>
+      <p class="section-subtitle">مقالات آموزشی و راهنمای تصمیم‌گیری (نمایشی)</p>
+    </div>
+
+    <div class="cards-grid">
+      <article class="info-card">
+        <h2 class="info-title">چطور از اعتبار آموزشی سازمانی بهترین استفاده را کنیم؟</h2>
+        <p class="info-desc">راهنمای کوتاه برای انتخاب هوشمندانه دوره‌ها و منابع آموزشی با توجه به هدف و مقطع.</p>
+        <a class="btn btn-outline" href="#">ادامه مطلب</a>
+      </article>
+      <article class="info-card">
+        <h2 class="info-title">مدل پرداخت اعتباری و اقساطی در بهسایار چگونه کار می‌کند؟</h2>
+        <p class="info-desc">یک توضیح ساده و واقعی‌نما از تجربه پرداخت اعتباری—بدون پرداخت واقعی (Demo-first).</p>
+        <a class="btn btn-outline" href="#">ادامه مطلب</a>
+      </article>
+      <article class="info-card">
+        <h2 class="info-title">معیارهای انتخاب منابع کنکور و آزمون آنلاین</h2>
+        <p class="info-desc">چک‌لیست سریع برای انتخاب ارائه‌دهنده‌های معتبر و منابع مناسب برای نتیجه بهتر.</p>
+        <a class="btn btn-outline" href="#">ادامه مطلب</a>
+      </article>
+    </div>
+  </div>
 </section>
-</main>
-<!-- ===== Mobile Bottom Navigation (<=768px) ===== -->
-<!-- ===== Bottom Sheet: Categories ===== -->
-<button aria-label="بستن" class="sheet-close" id="catsClose" type="button">✕</button>
-<div class="sheet-body">
-<a class="sheet-link" href="services.html">دبستان و پیش دبستان</a>
-<a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
-<a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
-<a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
-<a class="sheet-link" href="services.html?cat=online">کلاس‌های آنلاین</a>
-</div>
 </main>
 <footer aria-label="فوتر سایت" class="site-footer">
 <div aria-hidden="true" class="footer-waves">
@@ -206,7 +183,7 @@
 <span aria-hidden="true" class="bn-ico">☎️</span>
 <span class="bn-txt">ارتباط</span>
 </a>
-<a aria-label="ورود" class="bn-item is-active" href="login.html" id="bnAuthLink">
+<a aria-label="ورود" class="bn-item " href="login.html" id="bnAuthLink">
 <span aria-hidden="true" class="bn-ico">👤</span>
 <span class="bn-txt" id="bnAuthText">ورود</span>
 </a>
@@ -230,6 +207,5 @@
 </div>
 </div>
 </div>
-
 </body>
 </html>
