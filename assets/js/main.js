@@ -914,6 +914,7 @@ function renderCheckoutPage() {
     const headerAuthLink = document.getElementById("headerAuthLink");
     const headerAuthText = document.getElementById("headerAuthText");
 
+    if (!headerAuthLink || !headerAuthText) return;
     if (headerAuthLink && headerAuthText) {
       if (loggedIn) {
         headerAuthText.textContent = "داشبورد";
@@ -933,6 +934,7 @@ function renderCheckoutPage() {
     const bnAuthLink = document.getElementById("bnAuthLink");
     const bnAuthText = document.getElementById("bnAuthText");
 
+    if (!bnAuthLink || !bnAuthText) return;
     if (bnAuthLink && bnAuthText) {
       if (loggedIn) {
         bnAuthText.textContent = "داشبورد";
