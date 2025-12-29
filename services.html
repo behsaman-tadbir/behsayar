@@ -1,287 +1,237 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+
+<html dir="rtl" lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>محصولات | بهسایار</title>
-
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
-
-  <script src="assets/js/main.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>محصولات | بهسایار</title>
+<link href="assets/css/base.css" rel="stylesheet"/>
+<link href="assets/css/layout.css" rel="stylesheet"/>
+<link href="assets/css/components.css" rel="stylesheet"/>
+<link href="assets/css/pages.css" rel="stylesheet"/>
+<script defer="" src="assets/js/main.js"></script>
 </head>
-
 <body>
-
 <header class="site-header">
-  <div class="container">
-
-    <!-- ===== Header Top ===== -->
-    <div class="header-top">
-      <div class="brand-area">
-        <div class="brand-logo">
-          <img src="assets/images/behsaman-logo.png" alt="لوگوی بهسامان تدبیر">
-        </div>
-        <div class="brand-name">بهسایار</div>
-
-        <form class="header-search" role="search">
-          <div class="search-label">
-            <span class="label-text">جستجو</span>
-            <span class="label-icon" aria-hidden="true">🔍</span>
-          </div>
-          <input
-            type="search"
-            name="q"
-            placeholder="جستجوی دوره، کلاس، آزمون…"
-            aria-label="جستجو"
-          >
-        </form>
-      </div>
-
-      <div class="user-actions">
-        <a class="auth-button" id="headerAuthLink" href="login.html" aria-label="ثبت‌نام / ورود">
-          <span id="headerAuthText">ثبت‌نام / ورود</span>
-        </a>
-
-        <a class="cart-button" href="#">
-          <span class="cart-icon" aria-hidden="true">🛒</span>
-          <span class="cart-text">سبد خرید</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ===== Header Bottom / Main Nav ===== -->
-    <div class="header-bottom">
-      <nav class="main-nav" aria-label="منوی اصلی">
-        <ul>
-          <!-- ✅ گزینه اول: صفحه اصلی -->
-          <li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
-
-          <li class="nav-item has-dropdown">
-            <button class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false">
-              دسته‌بندی‌ها <span class="chevron" aria-hidden="true">▾</span>
-            </button>
-            <div class="dropdown-menu">
-              <a href="services.html">پیش‌دبستان و دبستان</a>
-              <a href="services.html">متوسطه اول</a>
-              <a href="services.html">متوسطه دوم</a>
-              <a href="services.html">کنکور و دانشگاه</a>
-              <a href="services.html">کلاس‌های آنلاین</a>
-            </div>
-          </li>
-
-          <li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">درباره بهسایار</a></li>
-        </ul>
-      </nav>
-    </div>
-
-  </div>
+<div class="container">
+<!-- ===== Header Top ===== -->
+<div class="header-top">
+<div class="brand-area">
+<div class="brand-logo">
+<img alt="لوگوی بهسامان تدبیر" src="assets/images/behsaman-logo.png"/>
+</div>
+<div class="brand-name">بهسایار</div>
+<form class="header-search" role="search">
+<div class="search-label">
+<span class="label-text">جستجو</span>
+<span aria-hidden="true" class="label-icon">🔍</span>
+</div>
+<input aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search"/>
+</form>
+</div>
+<div class="user-actions">
+<a aria-label="ثبت‌نام / ورود" class="auth-button" href="login.html" id="headerAuthLink">
+<span id="headerAuthText">ثبت‌نام / ورود</span>
+</a>
+<a class="cart-button" href="#">
+<span aria-hidden="true" class="cart-icon">🛒</span>
+<span class="cart-text">سبد خرید</span>
+</a>
+</div>
+</div>
+<!-- ===== Header Bottom / Main Nav ===== -->
+<div class="header-bottom">
+<nav aria-label="منوی اصلی" class="main-nav">
+<ul>
+<!-- ✅ گزینه اول: صفحه اصلی -->
+<li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
+<li class="nav-item has-dropdown">
+<button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
+              دسته‌بندی‌ها <span aria-hidden="true" class="chevron">▾</span>
+</button>
+<div class="dropdown-menu">
+<a href="services.html">پیش‌دبستان و دبستان</a>
+<a href="services.html">متوسطه اول</a>
+<a href="services.html">متوسطه دوم</a>
+<a href="services.html">کنکور و دانشگاه</a>
+<a href="services.html">کلاس‌های آنلاین</a>
+</div>
+</li>
+<li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">درباره بهسایار</a></li>
+</ul>
+</nav>
+</div>
+</div>
 </header>
-
 <main class="page-main">
 <section class="container" style="padding:18px 0 24px;">
-  <h1 style="margin:0 0 10px;font-weight:1000;">محصولات آموزشی</h1>
-  <p style="margin:0 0 14px;color:rgba(15,23,42,.72);font-weight:650;line-height:1.9;">
+<h1 style="margin:0 0 10px;font-weight:1000;">محصولات آموزشی</h1>
+<p style="margin:0 0 14px;color:rgba(15,23,42,.72);font-weight:650;line-height:1.9;">
     این صفحه دمو است. شما می‌توانید محصولات را ببینید، اما نهایی‌سازی خرید فقط پس از ورود امکان‌پذیر است.
   </p>
-
-  <div class="filters" style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;">
-    <input class="input" type="search" placeholder="جستجو در محصولات…" aria-label="جستجو در محصولات" style="max-width:360px;">
-    <select class="input" aria-label="فیلتر دسته‌بندی" style="max-width:220px;">
-      <option>همه دسته‌ها</option>
-      <option>ابتدایی</option>
-      <option>متوسطه اول</option>
-      <option>متوسطه دوم</option>
-      <option>کنکور</option>
-    </select>
-    <select class="input" aria-label="مرتب‌سازی" style="max-width:220px;">
-      <option>پیشنهادی</option>
-      <option>جدیدترین</option>
-      <option>ارزان‌ترین</option>
-      <option>گران‌ترین</option>
-    </select>
-  </div>
-
-  <div class="product-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;">
-    <article class="card" style="border-radius:18px;">
-      <div style="height:140px;border-radius:16px;background:rgba(56,189,248,.18);"></div>
-      <div style="padding:12px 12px 14px;">
-        <div style="font-weight:950;">پکیج ریاضی دهم (گاج)</div>
-        <div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 12 جلسه • سطح متوسط</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;">
-          <div style="font-weight:1000;">1,250,000</div>
-          <a class="btn btn-primary" href="product.html" style="padding:10px 12px;border-radius:14px;">مشاهده</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" style="border-radius:18px;">
-      <div style="height:140px;border-radius:16px;background:rgba(163,230,53,.22);"></div>
-      <div style="padding:12px 12px 14px;">
-        <div style="font-weight:950;">پکیج زیست یازدهم (خیلی سبز)</div>
-        <div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 18 جلسه • سطح پیشرفته</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;">
-          <div style="font-weight:1000;">1,980,000</div>
-          <a class="btn btn-primary" href="product.html" style="padding:10px 12px;border-radius:14px;">مشاهده</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="card" style="border-radius:18px;">
-      <div style="height:140px;border-radius:16px;background:rgba(167,139,250,.20);"></div>
-      <div style="padding:12px 12px 14px;">
-        <div style="font-weight:950;">پکیج ادبیات کنکور (قلم‌چی)</div>
-        <div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 24 جلسه • سطح جامع</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;">
-          <div style="font-weight:1000;">2,450,000</div>
-          <a class="btn btn-primary" href="product.html" style="padding:10px 12px;border-radius:14px;">مشاهده</a>
-        </div>
-      </div>
-    </article>
-  </div>
-
-  <div style="margin-top:14px;color:rgba(15,23,42,.62);font-weight:650;font-size:.92rem;">
+<div class="filters" style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px;">
+<input aria-label="جستجو در محصولات" class="input" placeholder="جستجو در محصولات…" style="max-width:360px;" type="search"/>
+<select aria-label="فیلتر دسته‌بندی" class="input" style="max-width:220px;">
+<option>همه دسته‌ها</option>
+<option>ابتدایی</option>
+<option>متوسطه اول</option>
+<option>متوسطه دوم</option>
+<option>کنکور</option>
+</select>
+<select aria-label="مرتب‌سازی" class="input" style="max-width:220px;">
+<option>پیشنهادی</option>
+<option>جدیدترین</option>
+<option>ارزان‌ترین</option>
+<option>گران‌ترین</option>
+</select>
+</div>
+<div class="product-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;">
+<article class="card" data-product-id="gaj-math10" style="border-radius:18px;">
+<div class="product-media"><img alt="پکیج ریاضی دهم (گاج)" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/gaj-math10.png"/></div>
+<div style="padding:12px 12px 14px;">
+<div style="font-weight:950;">پکیج ریاضی دهم (گاج)</div>
+<div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 12 جلسه • سطح متوسط</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;"><a class="btn btn-secondary" href="product.html?pid=gaj-math10" style="padding:10px 12px;border-radius:14px;">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="gaj-math10" style="padding:10px 14px;border-radius:14px;" type="button">افزودن به سبد</button></div>
+</div>
+</article>
+<article class="card" data-product-id="kheili-sabz-bio11" style="border-radius:18px;">
+<div class="product-media"><img alt="پکیج زیست یازدهم (خیلی سبز)" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/kheili-sabz-bio11.png"/></div>
+<div style="padding:12px 12px 14px;">
+<div style="font-weight:950;">پکیج زیست یازدهم (خیلی سبز)</div>
+<div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 18 جلسه • سطح پیشرفته</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;"><a class="btn btn-secondary" href="product.html?pid=kheili-sabz-bio11" style="padding:10px 12px;border-radius:14px;">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="kheili-sabz-bio11" style="padding:10px 14px;border-radius:14px;" type="button">افزودن به سبد</button></div>
+</div>
+</article>
+<article class="card" data-product-id="ghalamchi-adab-konkur" style="border-radius:18px;">
+<div class="product-media"><img alt="پکیج ادبیات کنکور (قلم‌چی)" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/ghalamchi-adab-konkur.png"/></div>
+<div style="padding:12px 12px 14px;">
+<div style="font-weight:950;">پکیج ادبیات کنکور (قلم‌چی)</div>
+<div style="margin-top:6px;color:rgba(15,23,42,.72);font-weight:650;font-size:.92rem;">دمو • 24 جلسه • سطح جامع</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:10px;"><a class="btn btn-secondary" href="product.html?pid=ghalamchi-adab-konkur" style="padding:10px 12px;border-radius:14px;">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="ghalamchi-adab-konkur" style="padding:10px 14px;border-radius:14px;" type="button">افزودن به سبد</button></div>
+</div>
+</article>
+</div>
+<div style="margin-top:14px;color:rgba(15,23,42,.62);font-weight:650;font-size:.92rem;">
     ادامه لیست محصولات در نسخه نهایی تکمیل می‌شود (مخصوص MVP نمایشی).
   </div>
 </section>
-
 <style>
 @media (max-width: 768px){
   .product-grid{ grid-template-columns: 1fr !important; }
 }
 </style>
 </main>
-
-<footer class="site-footer" aria-label="فوتر سایت">
-    <div class="footer-waves" aria-hidden="true">
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
-        <defs>
-          <path id="wavePath" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"></path>
-        </defs>
-  
-        <g class="wave-parallax">
-          <use href="#wavePath" x="48" y="0"></use>
-          <use href="#wavePath" x="48" y="3"></use>
-          <use href="#wavePath" x="48" y="6"></use>
-          <use href="#wavePath" x="48" y="9"></use>
-        </g>
-      </svg>
-    </div>
-  
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand -->
-        <div class="footer-col footer-brand">
-          <div class="footer-brand-row">
-            <div class="footer-logo">
-              <img src="assets/images/behsaman-logo.png" alt="لوگوی بهسامان تدبیر">
-            </div>
-            <div class="footer-brand-title">
-              <div class="footer-name">بهسایار</div>
-              <div class="footer-tag">مارکت‌پلیس آموزشی سازمانی</div>
-            </div>
-          </div>
-  
-          <p class="footer-desc">
+<footer aria-label="فوتر سایت" class="site-footer">
+<div aria-hidden="true" class="footer-waves">
+<svg class="waves" preserveaspectratio="none" viewbox="0 24 150 28" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" id="wavePath"></path>
+</defs>
+<g class="wave-parallax">
+<use href="#wavePath" x="48" y="0"></use>
+<use href="#wavePath" x="48" y="3"></use>
+<use href="#wavePath" x="48" y="6"></use>
+<use href="#wavePath" x="48" y="9"></use>
+</g>
+</svg>
+</div>
+<div class="container">
+<div class="footer-grid">
+<!-- Brand -->
+<div class="footer-col footer-brand">
+<div class="footer-brand-row">
+<div class="footer-logo">
+<img alt="لوگوی بهسامان تدبیر" src="assets/images/behsaman-logo.png"/>
+</div>
+<div class="footer-brand-title">
+<div class="footer-name">بهسایار</div>
+<div class="footer-tag">مارکت‌پلیس آموزشی سازمانی</div>
+</div>
+</div>
+<p class="footer-desc">
             خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
           </p>
-  
-          <div class="footer-badges" aria-label="همکاری‌ها">
-            <span class="pill">گاج</span>
-            <span class="pill">قلم‌چی</span>
-            <span class="pill">خیلی سبز</span>
-            <span class="pill">پرش</span>
-          </div>
-        </div>
-  
-        <!-- Quick links -->
-        <div class="footer-col">
-          <h3 class="footer-title">لینک‌های سریع</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">صفحه اصلی</a></li>
-            <li><a href="services.html">محصولات</a></li>
-            <li><a href="about.html">درباره بهسایار</a></li>
-            <li><a href="contact.html">تماس با ما</a></li>
-          </ul>
-        </div>
-  
-        <!-- Support -->
-        <div class="footer-col">
-          <h3 class="footer-title">پشتیبانی</h3>
-          <ul class="footer-meta">
-            <li><span class="meta-k">تلفن:</span> <a href="tel:+982100000000">۰۲۱-۰۰۰۰۰۰۰۰</a></li>
-            <li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
-            <li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
-          </ul>
-  
-          <div class="footer-actions">
-            <a class="btn btn-primary footer-cta" href="contact.html">درخواست همکاری</a>
-            <a class="btn btn-outline footer-cta" href="services.html">مشاهده محصولات</a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="footer-bottom">
-        <div class="footer-copy">© بهسامان تدبیر — بهسایار</div>
-        <div class="footer-mini">
-          <a href="terms.html" aria-label="قوانین و شرایط">قوانین</a>
-          <span class="dot">•</span>
-          <a href="privacy.html" aria-label="حریم خصوصی">حریم خصوصی</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-<nav class="bottom-nav" aria-label="نوار ابزار موبایل">
-    <a class="bn-item is-active" href="index.html" aria-label="خانه">
-      <span class="bn-ico" aria-hidden="true">🏠</span>
-      <span class="bn-txt">خانه</span>
-    </a>
-
-    <button class="bn-item" type="button" id="bnCatsBtn" aria-label="دسته‌بندی‌ها" aria-expanded="false">
-      <span class="bn-ico" aria-hidden="true">🗂️</span>
-      <span class="bn-txt">دسته‌ها</span>
-    </button>
-
-    <a class="bn-item" href="#" aria-label="سبد خرید">
-      <span class="bn-ico" aria-hidden="true">🛒</span>
-      <span class="bn-txt">سبد</span>
-      <span class="bn-badge" id="bnCartBadge" aria-label="تعداد آیتم‌های سبد" hidden>0</span>
-    </a>
-
-    <a class="bn-item" href="contact.html" aria-label="ارتباط با ما">
-      <span class="bn-ico" aria-hidden="true">☎️</span>
-      <span class="bn-txt">ارتباط</span>
-    </a>
-
-    <a class="bn-item" id="bnAuthLink" href="login.html" aria-label="ورود">
-      <span class="bn-ico" aria-hidden="true">👤</span>
-      <span class="bn-txt" id="bnAuthText">ورود</span>
-    </a>
-  </nav>
-
-<div class="bottom-sheet" id="mobileCatsSheet" aria-hidden="true">
-    <div class="sheet-backdrop" data-sheet-close></div>
-
-    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="دسته‌بندی‌ها">
-      <div class="sheet-head">
-        <div class="sheet-title">دسته‌بندی‌ها</div>
-        <button class="sheet-close" type="button" aria-label="بستن" data-sheet-close>✕</button>
-      </div>
-
-      <div class="sheet-body">
-        <a class="sheet-link" href="services.html">پیش دبستان و دبستان</a>
-        <a class="sheet-link" href="services.html">متوسطه اول</a>
-        <a class="sheet-link" href="services.html">متوسطه دوم</a>
-        <a class="sheet-link" href="services.html">کنکور تا دکتری</a>
-        <a class="sheet-link" href="services.html">کودک و نوجوان</a>
-        <a class="sheet-link" href="services.html">و …</a>
-      </div>
-    </div>
-
-</body>
+<div aria-label="همکاری‌ها" class="footer-badges">
+<span class="pill">گاج</span>
+<span class="pill">قلم‌چی</span>
+<span class="pill">خیلی سبز</span>
+<span class="pill">پرش</span>
+</div>
+</div>
+<!-- Quick links -->
+<div class="footer-col">
+<h3 class="footer-title">لینک‌های سریع</h3>
+<ul class="footer-links">
+<li><a href="index.html">صفحه اصلی</a></li>
+<li><a href="services.html">محصولات</a></li>
+<li><a href="about.html">درباره بهسایار</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+</div>
+<!-- Support -->
+<div class="footer-col">
+<h3 class="footer-title">پشتیبانی</h3>
+<ul class="footer-meta">
+<li><span class="meta-k">تلفن:</span> <a href="tel:+982100000000">۰۲۱-۰۰۰۰۰۰۰۰</a></li>
+<li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
+<li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
+</ul>
+<div class="footer-actions">
+<a class="btn btn-primary footer-cta" href="contact.html">درخواست همکاری</a>
+<a class="btn btn-outline footer-cta" href="services.html">مشاهده محصولات</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-copy">© بهسامان تدبیر — بهسایار</div>
+<div class="footer-mini">
+<a aria-label="قوانین و شرایط" href="terms.html">قوانین</a>
+<span class="dot">•</span>
+<a aria-label="حریم خصوصی" href="privacy.html">حریم خصوصی</a>
+</div>
+</div>
+</div>
+</footer>
+<nav aria-label="نوار ابزار موبایل" class="bottom-nav">
+<a aria-label="خانه" class="bn-item is-active" href="index.html">
+<span aria-hidden="true" class="bn-ico">🏠</span>
+<span class="bn-txt">خانه</span>
+</a>
+<button aria-expanded="false" aria-label="دسته‌بندی‌ها" class="bn-item" id="bnCatsBtn" type="button">
+<span aria-hidden="true" class="bn-ico">🗂️</span>
+<span class="bn-txt">دسته‌ها</span>
+</button>
+<a aria-label="سبد خرید" class="bn-item" href="cart.html">
+<span aria-hidden="true" class="bn-ico">🛒</span>
+<span class="bn-txt">سبد</span>
+<span aria-label="تعداد آیتم‌های سبد" class="bn-badge" hidden="" id="bnCartBadge">0</span>
+</a>
+<a aria-label="ارتباط با ما" class="bn-item" href="contact.html">
+<span aria-hidden="true" class="bn-ico">☎️</span>
+<span class="bn-txt">ارتباط</span>
+</a>
+<a aria-label="ورود" class="bn-item" href="login.html" id="bnAuthLink">
+<span aria-hidden="true" class="bn-ico">👤</span>
+<span class="bn-txt" id="bnAuthText">ورود</span>
+</a>
+</nav>
+<div aria-hidden="true" class="bottom-sheet" id="mobileCatsSheet">
+<div class="sheet-backdrop" data-sheet-close=""></div>
+<div aria-label="دسته‌بندی‌ها" aria-modal="true" class="sheet-panel" role="dialog">
+<div class="sheet-head">
+<div class="sheet-title">دسته‌بندی‌ها</div>
+<button aria-label="بستن" class="sheet-close" data-sheet-close="" type="button">✕</button>
+</div>
+<div class="sheet-body">
+<a class="sheet-link" href="services.html">پیش دبستان و دبستان</a>
+<a class="sheet-link" href="services.html">متوسطه اول</a>
+<a class="sheet-link" href="services.html">متوسطه دوم</a>
+<a class="sheet-link" href="services.html">کنکور تا دکتری</a>
+<a class="sheet-link" href="services.html">کودک و نوجوان</a>
+<a class="sheet-link" href="services.html">و …</a>
+</div>
+</div>
+</div></body>
 </html>

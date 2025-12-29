@@ -1,544 +1,476 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+
+<html dir="rtl" lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بهسایار | بهسایار</title>
-
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/pages.css">
-
-  <script src="assets/js/main.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>بهسایار | بهسایار</title>
+<link href="assets/css/base.css" rel="stylesheet"/>
+<link href="assets/css/layout.css" rel="stylesheet"/>
+<link href="assets/css/components.css" rel="stylesheet"/>
+<link href="assets/css/pages.css" rel="stylesheet"/>
+<script defer="" src="assets/js/main.js"></script>
 </head>
-
 <body>
-
 <header class="site-header">
-  <div class="container">
-
-    <!-- ===== Header Top ===== -->
-    <div class="header-top">
-      <div class="brand-area">
-        <div class="brand-logo">
-          <img src="assets/images/behsaman-logo.png" alt="لوگوی بهسامان تدبیر">
-        </div>
-        <div class="brand-name">بهسایار</div>
-
-        <form class="header-search" role="search">
-          <div class="search-label">
-            <span class="label-text">جستجو</span>
-            <span class="label-icon" aria-hidden="true">🔍</span>
-          </div>
-          <input
-            type="search"
-            name="q"
-            placeholder="جستجوی دوره، کلاس، آزمون…"
-            aria-label="جستجو"
-          >
-        </form>
-      </div>
-
-      <div class="user-actions">
-        <a class="auth-button" id="headerAuthLink" href="login.html" aria-label="ثبت‌نام / ورود">
-          <span id="headerAuthText">ثبت‌نام / ورود</span>
-        </a>
-
-        <a class="cart-button" href="#">
-          <span class="cart-icon" aria-hidden="true">🛒</span>
-          <span class="cart-text">سبد خرید</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- ===== Header Bottom / Main Nav ===== -->
-    <div class="header-bottom">
-      <nav class="main-nav" aria-label="منوی اصلی">
-        <ul>
-          <!-- ✅ گزینه اول: صفحه اصلی -->
-          <li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
-
-          <li class="nav-item has-dropdown">
-            <button class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false">
-              دسته‌بندی‌ها <span class="chevron" aria-hidden="true">▾</span>
-            </button>
-            <div class="dropdown-menu">
-              <a href="services.html">پیش‌دبستان و دبستان</a>
-              <a href="services.html">متوسطه اول</a>
-              <a href="services.html">متوسطه دوم</a>
-              <a href="services.html">کنکور و دانشگاه</a>
-              <a href="services.html">کلاس‌های آنلاین</a>
-            </div>
-          </li>
-
-          <li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">درباره بهسایار</a></li>
-        </ul>
-      </nav>
-    </div>
-
-  </div>
+<div class="container">
+<!-- ===== Header Top ===== -->
+<div class="header-top">
+<div class="brand-area">
+<div class="brand-logo">
+<img alt="لوگوی بهسامان تدبیر" src="assets/images/behsaman-logo.png"/>
+</div>
+<div class="brand-name">بهسایار</div>
+<form class="header-search" role="search">
+<div class="search-label">
+<span class="label-text">جستجو</span>
+<span aria-hidden="true" class="label-icon">🔍</span>
+</div>
+<input aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search"/>
+</form>
+</div>
+<div class="user-actions">
+<a aria-label="ثبت‌نام / ورود" class="auth-button" href="login.html" id="headerAuthLink">
+<span id="headerAuthText">ثبت‌نام / ورود</span>
+</a>
+<a class="cart-button" href="#">
+<span aria-hidden="true" class="cart-icon">🛒</span>
+<span class="cart-text">سبد خرید</span>
+</a>
+</div>
+</div>
+<!-- ===== Header Bottom / Main Nav ===== -->
+<div class="header-bottom">
+<nav aria-label="منوی اصلی" class="main-nav">
+<ul>
+<!-- ✅ گزینه اول: صفحه اصلی -->
+<li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
+<li class="nav-item has-dropdown">
+<button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
+              دسته‌بندی‌ها <span aria-hidden="true" class="chevron">▾</span>
+</button>
+<div class="dropdown-menu">
+<a href="services.html">پیش‌دبستان و دبستان</a>
+<a href="services.html">متوسطه اول</a>
+<a href="services.html">متوسطه دوم</a>
+<a href="services.html">کنکور و دانشگاه</a>
+<a href="services.html">کلاس‌های آنلاین</a>
+</div>
+</li>
+<li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">درباره بهسایار</a></li>
+</ul>
+</nav>
+</div>
+</div>
 </header>
-
-  <!-- =========================
+<!-- =========================
        SECTION 1: Ads (Rubik 2x2) + Wide Slider
        ========================= -->
-  <section class="home-section">
-    <div class="container">
-      <div class="hero-grid">
-
-        <!-- Right: Wide Slider (در RTL سمت راست می‌نشیند) -->
-        <div class="post-slider" aria-label="اسلایدر پست‌ها">
-          <div class="post-slides" id="postSlides">
-            <article class="post-slide is-active">
-              <div class="post-kicker">پیشنهاد ویژه</div>
-              <h3 class="post-title">کلاس آنلاین شاد برای دبستان</h3>
-              <p class="post-desc">آموزش تعاملی، تمرین و گزارش پیشرفت—کاملاً مناسب فضای آموزشی.</p>
-              <a class="btn btn-primary" href="services.html">مشاهده دوره‌ها</a>
-            </article>
-
-            <article class="post-slide">
-              <div class="post-kicker">اطلاعیه</div>
-              <h3 class="post-title">ثبت‌نام ترم جدید متوسطه</h3>
-              <p class="post-desc">دوره‌های تقویتی و مهارتی با شرایط اقساطی و کسر از حقوق.</p>
-              <a class="btn btn-outline" href="news.html">جزئیات خبر</a>
-            </article>
-
-            <article class="post-slide">
-              <div class="post-kicker">ویژه کنکور</div>
-              <h3 class="post-title">آمادگی کنکور تا دکتری</h3>
-              <p class="post-desc">برنامه‌ریزی هدفمند، آزمون آنلاین و تحلیل عملکرد.</p>
-              <a class="btn btn-primary" href="services.html">شروع مسیر</a>
-            </article>
-          </div>
-
-          <div class="slider-dots" id="sliderDots" aria-label="نشانگر اسلایدر"></div>
-        </div>
-
-        <!-- Left: Rubik Ads (2x2) -->
-        <aside class="ads-rubik" aria-label="تبلیغات">
-          <a class="ad-tile" href="#" title="تبلیغ 1">
-            <span class="ad-badge">Ad</span>
-            <div class="ad-title">تبلیغات ۱</div>
-            <div class="ad-sub">جایگاه برند</div>
-          </a>
-          <a class="ad-tile" href="#" title="تبلیغ 2">
-            <span class="ad-badge">Ad</span>
-            <div class="ad-title">تبلیغات ۲</div>
-            <div class="ad-sub">جایگاه برند</div>
-          </a>
-          <a class="ad-tile" href="#" title="تبلیغ 3">
-            <span class="ad-badge">Ad</span>
-            <div class="ad-title">تبلیغات ۳</div>
-            <div class="ad-sub">جایگاه برند</div>
-          </a>
-          <a class="ad-tile" href="#" title="تبلیغ 4">
-            <span class="ad-badge">Ad</span>
-            <div class="ad-title">تبلیغات ۴</div>
-            <div class="ad-sub">جایگاه برند</div>
-          </a>
-        </aside>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================
+<section class="home-section">
+<div class="container">
+<div class="hero-grid">
+<!-- Right: Wide Slider (در RTL سمت راست می‌نشیند) -->
+<div aria-label="اسلایدر پست‌ها" class="post-slider">
+<div class="post-slides" id="postSlides">
+<article class="post-slide is-active">
+<div class="post-kicker">پیشنهاد ویژه</div>
+<h3 class="post-title">کلاس آنلاین شاد برای دبستان</h3>
+<p class="post-desc">آموزش تعاملی، تمرین و گزارش پیشرفت—کاملاً مناسب فضای آموزشی.</p>
+<a class="btn btn-primary" href="services.html">مشاهده دوره‌ها</a>
+</article>
+<article class="post-slide">
+<div class="post-kicker">اطلاعیه</div>
+<h3 class="post-title">ثبت‌نام ترم جدید متوسطه</h3>
+<p class="post-desc">دوره‌های تقویتی و مهارتی با شرایط اقساطی و کسر از حقوق.</p>
+<a class="btn btn-outline" href="news.html">جزئیات خبر</a>
+</article>
+<article class="post-slide">
+<div class="post-kicker">ویژه کنکور</div>
+<h3 class="post-title">آمادگی کنکور تا دکتری</h3>
+<p class="post-desc">برنامه‌ریزی هدفمند، آزمون آنلاین و تحلیل عملکرد.</p>
+<a class="btn btn-primary" href="services.html">شروع مسیر</a>
+</article>
+</div>
+<div aria-label="نشانگر اسلایدر" class="slider-dots" id="sliderDots"></div>
+</div>
+<!-- Left: Rubik Ads (2x2) -->
+<aside aria-label="تبلیغات" class="ads-rubik">
+<a class="ad-tile" href="#" title="تبلیغ 1">
+<span class="ad-badge">Ad</span>
+<div class="ad-title">تبلیغات ۱</div>
+<div class="ad-sub">جایگاه برند</div>
+</a>
+<a class="ad-tile" href="#" title="تبلیغ 2">
+<span class="ad-badge">Ad</span>
+<div class="ad-title">تبلیغات ۲</div>
+<div class="ad-sub">جایگاه برند</div>
+</a>
+<a class="ad-tile" href="#" title="تبلیغ 3">
+<span class="ad-badge">Ad</span>
+<div class="ad-title">تبلیغات ۳</div>
+<div class="ad-sub">جایگاه برند</div>
+</a>
+<a class="ad-tile" href="#" title="تبلیغ 4">
+<span class="ad-badge">Ad</span>
+<div class="ad-title">تبلیغات ۴</div>
+<div class="ad-sub">جایگاه برند</div>
+</a>
+</aside>
+</div>
+</div>
+</section>
+<!-- =========================
        SECTION 2: Category Circles
        ========================= -->
-  <section class="home-section">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">دسته‌بندی‌ها</h2>
-        <p class="section-subtitle">سریع وارد مسیر مناسب سن و مقطع شوید.</p>
-      </div>
-
-          <div class="category-circles">
-        <a class="circle-card" href="services.html">
-          <div class="circle">
-            <img src="assets/images/placeholder.svg" alt="پیش دبستان و دبستان">
-          </div>
-          <div class="circle-label">پیش دبستان و دبستان</div>
-        </a>
-
-        <a class="circle-card" href="services.html">
-          <div class="circle">
-            <img src="assets/images/placeholder.svg" alt="متوسطه اول">
-          </div>
-          <div class="circle-label">متوسطه اول</div>
-        </a>
-
-        <a class="circle-card" href="services.html">
-          <div class="circle">
-            <img src="assets/images/placeholder.svg" alt="متوسطه دوم">
-          </div>
-          <div class="circle-label">متوسطه دوم</div>
-        </a>
-
-        <a class="circle-card" href="services.html">
-          <div class="circle">
-            <img src="assets/images/placeholder.svg" alt="کنکور تا دکتری">
-          </div>
-          <div class="circle-label">کنکور تا دکتری</div>
-        </a>
-
-        <a class="circle-card" href="services.html">
-          <div class="circle">
-            <img src="assets/images/placeholder.svg" alt="کودک و نوجوان">
-          </div>
-          <div class="circle-label">کودک و نوجوان</div>
-        </a>
-
-        <a class="circle-card" href="services.html">
-          <div class="circle">
-            <img src="assets/images/placeholder.svg" alt="سایر">
-          </div>
-          <div class="circle-label">و …</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================
+<section class="home-section">
+<div class="container">
+<div class="section-head">
+<h2 class="section-title">دسته‌بندی‌ها</h2>
+<p class="section-subtitle">سریع وارد مسیر مناسب سن و مقطع شوید.</p>
+</div>
+<div class="category-circles">
+<a class="circle-card" href="services.html">
+<div class="circle">
+<img alt="پیش دبستان و دبستان" src="assets/images/placeholder.svg"/>
+</div>
+<div class="circle-label">پیش دبستان و دبستان</div>
+</a>
+<a class="circle-card" href="services.html">
+<div class="circle">
+<img alt="متوسطه اول" src="assets/images/placeholder.svg"/>
+</div>
+<div class="circle-label">متوسطه اول</div>
+</a>
+<a class="circle-card" href="services.html">
+<div class="circle">
+<img alt="متوسطه دوم" src="assets/images/placeholder.svg"/>
+</div>
+<div class="circle-label">متوسطه دوم</div>
+</a>
+<a class="circle-card" href="services.html">
+<div class="circle">
+<img alt="کنکور تا دکتری" src="assets/images/placeholder.svg"/>
+</div>
+<div class="circle-label">کنکور تا دکتری</div>
+</a>
+<a class="circle-card" href="services.html">
+<div class="circle">
+<img alt="کودک و نوجوان" src="assets/images/placeholder.svg"/>
+</div>
+<div class="circle-label">کودک و نوجوان</div>
+</a>
+<a class="circle-card" href="services.html">
+<div class="circle">
+<img alt="سایر" src="assets/images/placeholder.svg"/>
+</div>
+<div class="circle-label">و …</div>
+</a>
+</div>
+</div>
+</section>
+<!-- =========================
        SECTION 3: Double Banners
        ========================= -->
-  <section class="home-section">
-    <div class="container">
-      <div class="double-banners">
-        <a class="banner banner-a" href="#" aria-label="بنر تبلیغاتی ۱">
-          <div class="banner-content">
-            <div class="banner-kicker">پیشنهاد شاد</div>
-            <div class="banner-title">کمپین آموزشی تابستان</div>
-            <div class="banner-sub">ثبت‌نام سریع و آسان</div>
-          </div>
-        </a>
-
-        <a class="banner banner-b" href="#" aria-label="بنر تبلیغاتی ۲">
-          <div class="banner-content">
-            <div class="banner-kicker">ویژه والدین</div>
-            <div class="banner-title">مشاوره تحصیلی و انگیزشی</div>
-            <div class="banner-sub">به‌همراه گزارش پیشرفت</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================
+<section class="home-section">
+<div class="container">
+<div class="double-banners">
+<a aria-label="بنر تبلیغاتی ۱" class="banner banner-a" href="#">
+<div class="banner-content">
+<div class="banner-kicker">پیشنهاد شاد</div>
+<div class="banner-title">کمپین آموزشی تابستان</div>
+<div class="banner-sub">ثبت‌نام سریع و آسان</div>
+</div>
+</a>
+<a aria-label="بنر تبلیغاتی ۲" class="banner banner-b" href="#">
+<div class="banner-content">
+<div class="banner-kicker">ویژه والدین</div>
+<div class="banner-title">مشاوره تحصیلی و انگیزشی</div>
+<div class="banner-sub">به‌همراه گزارش پیشرفت</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- =========================
        SECTION 4: Best Sellers Rail
        ========================= -->
-  <section class="home-section">
-    <div class="container">
-      <div class="rail">
-        <div class="rail-head rail-head--best">
-          <h2 class="rail-title">پرفروش‌ترین‌ها</h2>
-          <p class="rail-sub">محصولات محبوب کاربران در این ماه</p>
-          <a class="rail-link" href="services.html">مشاهده همه</a>
-        </div>
-
-        <div class="rail-track" tabindex="0" aria-label="لیست افقی پرفروش‌ها">
-          <!-- کارت محصول -->
-          <article class="product-card">
-            <div class="product-top">
-              <span class="product-off">٪ ۳۰</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">کلاس تقویتی ریاضی</div>
-            <div class="product-prices">
-              <span class="price-new">۹۹۰,۰۰۰</span>
-              <span class="price-old">۱,۴۲۰,۰۰۰</span>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <span class="product-off">٪ ۲۰</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">دوره مهارت‌های دیجیتال</div>
-            <div class="product-prices">
-              <span class="price-new">۷۵۰,۰۰۰</span>
-              <span class="price-old">۹۳۰,۰۰۰</span>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <span class="product-off">٪ ۴۰</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">زبان انگلیسی نوجوان</div>
-            <div class="product-prices">
-              <span class="price-new">۶۲۰,۰۰۰</span>
-              <span class="price-old">۱,۰۳۰,۰۰۰</span>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <span class="product-off">٪ ۴۰</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">زبان انگلیسی نوجوان</div>
-            <div class="product-prices">
-              <span class="price-new">۶۲۰,۰۰۰</span>
-              <span class="price-old">۱,۰۳۰,۰۰۰</span>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-top">
-              <span class="product-off">٪ ۱۵</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">مشاوره تحصیلی</div>
-            <div class="product-prices">
-              <span class="price-new">۳۹۰,۰۰۰</span>
-              <span class="price-old">۴۶۰,۰۰۰</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================
+<section class="home-section">
+<div class="container">
+<div class="rail">
+<div class="rail-head rail-head--best">
+<h2 class="rail-title">پرفروش‌ترین‌ها</h2>
+<p class="rail-sub">محصولات محبوب کاربران در این ماه</p>
+<a class="rail-link" href="services.html">مشاهده همه</a>
+</div>
+<div aria-label="لیست افقی پرفروش‌ها" class="rail-track" tabindex="0">
+<!-- کارت محصول -->
+<article class="product-card" data-product-id="math-boost">
+<div class="product-top">
+<span class="product-off">٪ ۳۰</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="کلاس تقویتی ریاضی" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/math-boost.png"/></div>
+<div class="product-name">کلاس تقویتی ریاضی</div>
+<div class="product-prices">
+<span class="price-new">۹۹۰,۰۰۰</span>
+<span class="price-old">۱,۴۲۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=math-boost">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="math-boost" type="button">افزودن به سبد</button></div></article>
+<article class="product-card" data-product-id="digital-skills">
+<div class="product-top">
+<span class="product-off">٪ ۲۰</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="دوره مهارت‌های دیجیتال" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/digital-skills.png"/></div>
+<div class="product-name">دوره مهارت‌های دیجیتال</div>
+<div class="product-prices">
+<span class="price-new">۷۵۰,۰۰۰</span>
+<span class="price-old">۹۳۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=digital-skills">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="digital-skills" type="button">افزودن به سبد</button></div></article>
+<article class="product-card" data-product-id="english-teens">
+<div class="product-top">
+<span class="product-off">٪ ۴۰</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="زبان انگلیسی نوجوان" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/english-teens.png"/></div>
+<div class="product-name">زبان انگلیسی نوجوان</div>
+<div class="product-prices">
+<span class="price-new">۶۲۰,۰۰۰</span>
+<span class="price-old">۱,۰۳۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=english-teens">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="english-teens" type="button">افزودن به سبد</button></div></article>
+<article class="product-card" data-product-id="english-teens">
+<div class="product-top">
+<span class="product-off">٪ ۴۰</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="زبان انگلیسی نوجوان" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/english-teens.png"/></div>
+<div class="product-name">زبان انگلیسی نوجوان</div>
+<div class="product-prices">
+<span class="price-new">۶۲۰,۰۰۰</span>
+<span class="price-old">۱,۰۳۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=english-teens">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="english-teens" type="button">افزودن به سبد</button></div></article>
+<article class="product-card" data-product-id="academic-counseling">
+<div class="product-top">
+<span class="product-off">٪ ۱۵</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="مشاوره تحصیلی" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/academic-counseling.png"/></div>
+<div class="product-name">مشاوره تحصیلی</div>
+<div class="product-prices">
+<span class="price-new">۳۹۰,۰۰۰</span>
+<span class="price-old">۴۶۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=academic-counseling">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="academic-counseling" type="button">افزودن به سبد</button></div></article>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
        SECTION 5: Newest Rail (Different theme)
        ========================= -->
-  <section class="home-section">
-    <div class="container">
-      <div class="rail rail--new">
-        <div class="rail-head rail-head--new">
-          <h2 class="rail-title">جدیدترین‌ها</h2>
-          <p class="rail-sub">آخرین محصولات و خدمات اضافه‌شده</p>
-          <a class="rail-link" href="services.html">مشاهده همه</a>
-        </div>
-
-        <div class="rail-track" tabindex="0" aria-label="لیست افقی جدیدترین‌ها">
-          <article class="product-card product-card--new">
-            <div class="product-top">
-              <span class="product-off">٪ ۱۰</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">آزمون آنلاین پایه نهم</div>
-            <div class="product-prices">
-              <span class="price-new">۲۹۰,۰۰۰</span>
-              <span class="price-old">۳۲۰,۰۰۰</span>
-            </div>
-          </article>
-
-          <article class="product-card product-card--new">
-            <div class="product-top">
-              <span class="product-off">٪ ۲۵</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">کلاس آنلاین علوم</div>
-            <div class="product-prices">
-              <span class="price-new">۵۴۰,۰۰۰</span>
-              <span class="price-old">۷۲۰,۰۰۰</span>
-            </div>
-          </article>
-
-          <article class="product-card product-card--new">
-            <div class="product-top">
-              <span class="product-off">٪ ۳۵</span>
-              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
-            </div>
-            <div class="product-name">دوره مهارت سخنوری</div>
-            <div class="product-prices">
-              <span class="price-new">۴۱۰,۰۰۰</span>
-              <span class="price-old">۶۳۰,۰۰۰</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================
+<section class="home-section">
+<div class="container">
+<div class="rail rail--new">
+<div class="rail-head rail-head--new">
+<h2 class="rail-title">جدیدترین‌ها</h2>
+<p class="rail-sub">آخرین محصولات و خدمات اضافه‌شده</p>
+<a class="rail-link" href="services.html">مشاهده همه</a>
+</div>
+<div aria-label="لیست افقی جدیدترین‌ها" class="rail-track" tabindex="0">
+<article class="product-card product-card--new" data-product-id="online-exam-grade9">
+<div class="product-top">
+<span class="product-off">٪ ۱۰</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="آزمون آنلاین پایه نهم" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/online-exam-grade9.png"/></div>
+<div class="product-name">آزمون آنلاین پایه نهم</div>
+<div class="product-prices">
+<span class="price-new">۲۹۰,۰۰۰</span>
+<span class="price-old">۳۲۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=online-exam-grade9">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="online-exam-grade9" type="button">افزودن به سبد</button></div></article>
+<article class="product-card product-card--new" data-product-id="online-science">
+<div class="product-top">
+<span class="product-off">٪ ۲۵</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="کلاس آنلاین علوم" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/online-science.png"/></div>
+<div class="product-name">کلاس آنلاین علوم</div>
+<div class="product-prices">
+<span class="price-new">۵۴۰,۰۰۰</span>
+<span class="price-old">۷۲۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=online-science">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="online-science" type="button">افزودن به سبد</button></div></article>
+<article class="product-card product-card--new" data-product-id="public-speaking">
+<div class="product-top">
+<span class="product-off">٪ ۳۵</span>
+<img alt="لوگوی ارائه‌دهنده" class="product-logo" src="assets/images/placeholder.svg"/>
+</div><div class="product-media"><img alt="دوره مهارت سخنوری" loading="lazy" onerror="this.onerror=null;this.src='assets/images/placeholder.svg';" src="assets/images/products/public-speaking.png"/></div>
+<div class="product-name">دوره مهارت سخنوری</div>
+<div class="product-prices">
+<span class="price-new">۴۱۰,۰۰۰</span>
+<span class="price-old">۶۳۰,۰۰۰</span>
+</div>
+<div class="product-actions"><a class="btn btn-secondary" href="product.html?pid=public-speaking">مشاهده</a><button class="btn btn-primary js-add-to-cart" data-product-id="public-speaking" type="button">افزودن به سبد</button></div></article>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
        SECTION 6: Popular Centers (Logo Rail)
        ========================= -->
-  <section class="home-section">
-    <div class="container">
-      <div class="section-head section-head--centers">
-        <h2 class="section-title">محبوب‌ترین مراکز آموزشی</h2>
-        <p class="section-subtitle">لوگو مراکز را ببینید و سریع انتخاب کنید.</p>
-      </div>
-
-      <div class="logo-rail" tabindex="0" aria-label="لوگو مراکز آموزشی">
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۱"></div>
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۲"></div>
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۳"></div>
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۴"></div>
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۵"></div>
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۶"></div>
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۷"></div>
-        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۸"></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- =========================
+<section class="home-section">
+<div class="container">
+<div class="section-head section-head--centers">
+<h2 class="section-title">محبوب‌ترین مراکز آموزشی</h2>
+<p class="section-subtitle">لوگو مراکز را ببینید و سریع انتخاب کنید.</p>
+</div>
+<div aria-label="لوگو مراکز آموزشی" class="logo-rail" tabindex="0">
+<div class="logo-chip"><img alt="مرکز ۱" src="assets/images/placeholder.svg"/></div>
+<div class="logo-chip"><img alt="مرکز ۲" src="assets/images/placeholder.svg"/></div>
+<div class="logo-chip"><img alt="مرکز ۳" src="assets/images/placeholder.svg"/></div>
+<div class="logo-chip"><img alt="مرکز ۴" src="assets/images/placeholder.svg"/></div>
+<div class="logo-chip"><img alt="مرکز ۵" src="assets/images/placeholder.svg"/></div>
+<div class="logo-chip"><img alt="مرکز ۶" src="assets/images/placeholder.svg"/></div>
+<div class="logo-chip"><img alt="مرکز ۷" src="assets/images/placeholder.svg"/></div>
+<div class="logo-chip"><img alt="مرکز ۸" src="assets/images/placeholder.svg"/></div>
+</div>
+</div>
+</section>
+<!-- =========================
        SECTION 7: About Solico Split
        ========================= -->
-  <section class="home-section home-section--about">
-    <div class="container">
-      <div class="about-split">
-        <div class="about-text">
-          <h2>درباره هلدینگ سولیکو</h2>
-          <p>
+<section class="home-section home-section--about">
+<div class="container">
+<div class="about-split">
+<div class="about-text">
+<h2>درباره هلدینگ سولیکو</h2>
+<p>
             بهسایار با هدف ارائه بهترین خدمات آموزشی و مهارتی، با شرایط ویژه برای خانواده کارکنان
             هلدینگ سولیکو طراحی شده است. تمرکز ما روی تجربه کاربری شاد، دسترسی آسان و کیفیت محتواست.
           </p>
-          <a class="btn btn-primary" href="about.html">بیشتر بدانید</a>
-        </div>
-
-        <div class="about-image">
-          <img src="assets/images/placeholder.svg" alt="تصویر شرکت سولیکو">
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- =========================
+<a class="btn btn-primary" href="about.html">بیشتر بدانید</a>
+</div>
+<div class="about-image">
+<img alt="تصویر شرکت سولیکو" src="assets/images/placeholder.svg"/>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================
        MOBILE BOTTOM NAV (<=768px)
        ========================= -->
-  <nav class="bottom-nav" aria-label="نوار ابزار موبایل">
-    <a class="bn-item is-active" href="index.html" aria-label="خانه">
-      <span class="bn-ico" aria-hidden="true">🏠</span>
-      <span class="bn-txt">خانه</span>
-    </a>
-
-    <button class="bn-item" type="button" id="bnCatsBtn" aria-label="دسته‌بندی‌ها" aria-expanded="false">
-      <span class="bn-ico" aria-hidden="true">🗂️</span>
-      <span class="bn-txt">دسته‌ها</span>
-    </button>
-
-    <a class="bn-item" href="#" aria-label="سبد خرید">
-      <span class="bn-ico" aria-hidden="true">🛒</span>
-      <span class="bn-txt">سبد</span>
-      <span class="bn-badge" id="bnCartBadge" aria-label="تعداد آیتم‌های سبد" hidden>0</span>
-    </a>
-
-    <a class="bn-item" href="contact.html" aria-label="ارتباط با ما">
-      <span class="bn-ico" aria-hidden="true">☎️</span>
-      <span class="bn-txt">ارتباط</span>
-    </a>
-
-    <a class="bn-item" id="bnAuthLink" href="login.html" aria-label="ورود">
-      <span class="bn-ico" aria-hidden="true">👤</span>
-      <span class="bn-txt" id="bnAuthText">ورود</span>
-    </a>
-  </nav>
-
-  <!-- =========================
+<nav aria-label="نوار ابزار موبایل" class="bottom-nav">
+<a aria-label="خانه" class="bn-item is-active" href="index.html">
+<span aria-hidden="true" class="bn-ico">🏠</span>
+<span class="bn-txt">خانه</span>
+</a>
+<button aria-expanded="false" aria-label="دسته‌بندی‌ها" class="bn-item" id="bnCatsBtn" type="button">
+<span aria-hidden="true" class="bn-ico">🗂️</span>
+<span class="bn-txt">دسته‌ها</span>
+</button>
+<a aria-label="سبد خرید" class="bn-item" href="cart.html">
+<span aria-hidden="true" class="bn-ico">🛒</span>
+<span class="bn-txt">سبد</span>
+<span aria-label="تعداد آیتم‌های سبد" class="bn-badge" hidden="" id="bnCartBadge">0</span>
+</a>
+<a aria-label="ارتباط با ما" class="bn-item" href="contact.html">
+<span aria-hidden="true" class="bn-ico">☎️</span>
+<span class="bn-txt">ارتباط</span>
+</a>
+<a aria-label="ورود" class="bn-item" href="login.html" id="bnAuthLink">
+<span aria-hidden="true" class="bn-ico">👤</span>
+<span class="bn-txt" id="bnAuthText">ورود</span>
+</a>
+</nav>
+<!-- =========================
        MOBILE CATEGORIES SHEET
        ========================= -->
-  <div class="bottom-sheet" id="mobileCatsSheet" aria-hidden="true">
-    <div class="sheet-backdrop" data-sheet-close></div>
-
-    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="دسته‌بندی‌ها">
-      <div class="sheet-head">
-        <div class="sheet-title">دسته‌بندی‌ها</div>
-        <button class="sheet-close" type="button" aria-label="بستن" data-sheet-close>✕</button>
-      </div>
-
-      <div class="sheet-body">
-        <a class="sheet-link" href="services.html">پیش دبستان و دبستان</a>
-        <a class="sheet-link" href="services.html">متوسطه اول</a>
-        <a class="sheet-link" href="services.html">متوسطه دوم</a>
-        <a class="sheet-link" href="services.html">کنکور تا دکتری</a>
-        <a class="sheet-link" href="services.html">کودک و نوجوان</a>
-        <a class="sheet-link" href="services.html">و …</a>
-      </div>
-    </div>
-  </div>
-  <footer class="site-footer" aria-label="فوتر سایت">
-    <div class="footer-waves" aria-hidden="true">
-      <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
-        <defs>
-          <path id="wavePath" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"></path>
-        </defs>
-  
-        <g class="wave-parallax">
-          <use href="#wavePath" x="48" y="0"></use>
-          <use href="#wavePath" x="48" y="3"></use>
-          <use href="#wavePath" x="48" y="6"></use>
-          <use href="#wavePath" x="48" y="9"></use>
-        </g>
-      </svg>
-    </div>
-  
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand -->
-        <div class="footer-col footer-brand">
-          <div class="footer-brand-row">
-            <div class="footer-logo">
-              <img src="assets/images/behsaman-logo.png" alt="لوگوی بهسامان تدبیر">
-            </div>
-            <div class="footer-brand-title">
-              <div class="footer-name">بهسایار</div>
-              <div class="footer-tag">مارکت‌پلیس آموزشی سازمانی</div>
-            </div>
-          </div>
-  
-          <p class="footer-desc">
+<div aria-hidden="true" class="bottom-sheet" id="mobileCatsSheet">
+<div class="sheet-backdrop" data-sheet-close=""></div>
+<div aria-label="دسته‌بندی‌ها" aria-modal="true" class="sheet-panel" role="dialog">
+<div class="sheet-head">
+<div class="sheet-title">دسته‌بندی‌ها</div>
+<button aria-label="بستن" class="sheet-close" data-sheet-close="" type="button">✕</button>
+</div>
+<div class="sheet-body">
+<a class="sheet-link" href="services.html">پیش دبستان و دبستان</a>
+<a class="sheet-link" href="services.html">متوسطه اول</a>
+<a class="sheet-link" href="services.html">متوسطه دوم</a>
+<a class="sheet-link" href="services.html">کنکور تا دکتری</a>
+<a class="sheet-link" href="services.html">کودک و نوجوان</a>
+<a class="sheet-link" href="services.html">و …</a>
+</div>
+</div>
+</div>
+<footer aria-label="فوتر سایت" class="site-footer">
+<div aria-hidden="true" class="footer-waves">
+<svg class="waves" preserveaspectratio="none" viewbox="0 24 150 28" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" id="wavePath"></path>
+</defs>
+<g class="wave-parallax">
+<use href="#wavePath" x="48" y="0"></use>
+<use href="#wavePath" x="48" y="3"></use>
+<use href="#wavePath" x="48" y="6"></use>
+<use href="#wavePath" x="48" y="9"></use>
+</g>
+</svg>
+</div>
+<div class="container">
+<div class="footer-grid">
+<!-- Brand -->
+<div class="footer-col footer-brand">
+<div class="footer-brand-row">
+<div class="footer-logo">
+<img alt="لوگوی بهسامان تدبیر" src="assets/images/behsaman-logo.png"/>
+</div>
+<div class="footer-brand-title">
+<div class="footer-name">بهسایار</div>
+<div class="footer-tag">مارکت‌پلیس آموزشی سازمانی</div>
+</div>
+</div>
+<p class="footer-desc">
             خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
           </p>
-  
-          <div class="footer-badges" aria-label="همکاری‌ها">
-            <span class="pill">گاج</span>
-            <span class="pill">قلم‌چی</span>
-            <span class="pill">خیلی سبز</span>
-            <span class="pill">پرش</span>
-          </div>
-        </div>
-  
-        <!-- Quick links -->
-        <div class="footer-col">
-          <h3 class="footer-title">لینک‌های سریع</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">صفحه اصلی</a></li>
-            <li><a href="services.html">محصولات</a></li>
-            <li><a href="about.html">درباره بهسایار</a></li>
-            <li><a href="contact.html">تماس با ما</a></li>
-          </ul>
-        </div>
-  
-        <!-- Support -->
-        <div class="footer-col">
-          <h3 class="footer-title">پشتیبانی</h3>
-          <ul class="footer-meta">
-            <li><span class="meta-k">تلفن:</span> <a href="tel:+982100000000">۰۲۱-۰۰۰۰۰۰۰۰</a></li>
-            <li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
-            <li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
-          </ul>
-  
-          <div class="footer-actions">
-            <a class="btn btn-primary footer-cta" href="contact.html">درخواست همکاری</a>
-            <a class="btn btn-outline footer-cta" href="services.html">مشاهده محصولات</a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="footer-bottom">
-        <div class="footer-copy">© بهسامان تدبیر — بهسایار</div>
-        <div class="footer-mini">
-          <a href="terms.html" aria-label="قوانین و شرایط">قوانین</a>
-          <span class="dot">•</span>
-          <a href="privacy.html" aria-label="حریم خصوصی">حریم خصوصی</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+<div aria-label="همکاری‌ها" class="footer-badges">
+<span class="pill">گاج</span>
+<span class="pill">قلم‌چی</span>
+<span class="pill">خیلی سبز</span>
+<span class="pill">پرش</span>
+</div>
+</div>
+<!-- Quick links -->
+<div class="footer-col">
+<h3 class="footer-title">لینک‌های سریع</h3>
+<ul class="footer-links">
+<li><a href="index.html">صفحه اصلی</a></li>
+<li><a href="services.html">محصولات</a></li>
+<li><a href="about.html">درباره بهسایار</a></li>
+<li><a href="contact.html">تماس با ما</a></li>
+</ul>
+</div>
+<!-- Support -->
+<div class="footer-col">
+<h3 class="footer-title">پشتیبانی</h3>
+<ul class="footer-meta">
+<li><span class="meta-k">تلفن:</span> <a href="tel:+982100000000">۰۲۱-۰۰۰۰۰۰۰۰</a></li>
+<li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
+<li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
+</ul>
+<div class="footer-actions">
+<a class="btn btn-primary footer-cta" href="contact.html">درخواست همکاری</a>
+<a class="btn btn-outline footer-cta" href="services.html">مشاهده محصولات</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-copy">© بهسامان تدبیر — بهسایار</div>
+<div class="footer-mini">
+<a aria-label="قوانین و شرایط" href="terms.html">قوانین</a>
+<span class="dot">•</span>
+<a aria-label="حریم خصوصی" href="privacy.html">حریم خصوصی</a>
+</div>
+</div>
+</div>
+</footer>
 </body>
 </html>
