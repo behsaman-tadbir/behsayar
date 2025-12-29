@@ -375,8 +375,6 @@ function initServicesListing(){
     else cart.push({ id: productId, qty: Math.max(1, qty) });
     saveCart(cart);
     updateCartBadges();
-  initGlobalSearch();
-  initServicesListing();
   }
 
   function setCartQty(productId, qty) {
@@ -386,23 +384,17 @@ function initServicesListing(){
     item.qty = Math.max(1, Number(qty||1));
     saveCart(cart);
     updateCartBadges();
-  initGlobalSearch();
-  initServicesListing();
   }
 
   function removeFromCart(productId) {
     const cart = loadCart().filter((x)=>x.id!==productId);
     saveCart(cart);
     updateCartBadges();
-  initGlobalSearch();
-  initServicesListing();
   }
 
   function clearCart() {
     saveCart([]);
     updateCartBadges();
-  initGlobalSearch();
-  initServicesListing();
   }
 
   function getActiveUser() {
@@ -547,6 +539,8 @@ function initServicesListing(){
 
     if (countEl) countEl.textContent = String(cartQtyTotal(cart));
     if (totalEl) totalEl.textContent = money(total);
+  
+    updateCartBadges();
   }
 
   
@@ -1170,8 +1164,6 @@ function renderCheckoutPage() {
 
     // Cart badge
   updateCartBadges();
-  initGlobalSearch();
-  initServicesListing();
 
   // =========================
   // Home Post Slider (every 3s)
@@ -1244,8 +1236,6 @@ function renderCheckoutPage() {
   protectDashboard();
   // Cart/Checkout/Transactions demo
   updateCartBadges();
-  initGlobalSearch();
-  initServicesListing();
   renderCartPage();
   initCartPage();
   renderCheckoutPage();
