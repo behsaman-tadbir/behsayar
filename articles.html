@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html dir="rtl" lang="fa">
 <head>
 <meta charset="utf-8"/>
@@ -21,8 +22,11 @@
 </div>
 <div class="brand-name">بهسایار</div>
 <form class="header-search" role="search">
-<label class="sr-only" for="siteSearch">جستجو</label>
-<input id="siteSearch" aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search"/>
+<div class="search-label">
+<span class="label-text">جستجو</span>
+
+</div>
+<input aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search"/>
 </form>
 </div>
 <div class="user-actions">
@@ -39,8 +43,9 @@
 <div class="header-bottom">
 <nav aria-label="منوی اصلی" class="main-nav">
 <ul>
+<!-- ✅ گزینه اول: صفحه اصلی -->
 <li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
-<li class="nav-item has-dropdown is-emph">
+<li class="nav-item has-dropdown">
 <button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
               دسته‌بندی‌ها <span aria-hidden="true" class="chevron">▾</span>
 </button>
@@ -50,15 +55,14 @@
 <a href="services.html?cat=mid2">متوسطه دوم</a>
 <a href="services.html?cat=konkur">کنکور و دانشگاه</a>
 <a href="services.html?cat=online">کلاس‌های آنلاین</a>
-<a href="services.html?cat=lang">کلاس زبان</a>
+
+<a href="services.html?cat=language">کلاس زبان</a>
 <a href="services.html?cat=computer">کلاس کامپیوتر</a>
 <a href="services.html?cat=skills">کلاس‌های مهارتی</a>
 </div>
 </li>
 <li class="nav-item has-dropdown">
-<button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
-              اخبار و مقالات <span aria-hidden="true" class="chevron">▾</span>
-</button>
+<button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">اخبار و مقالات <span aria-hidden="true" class="chevron">▾</span></button>
 <div class="dropdown-menu">
 <a href="news.html">اخبار و رویدادها</a>
 <a href="articles.html">مقالات</a>
@@ -72,33 +76,44 @@
 </div>
 </div>
 </header>
+
 <main class="page-main">
-<section class="home-section">
   <div class="container">
-    <div class="section-head">
-      <h1 class="section-title">مقالات</h1>
-      <p class="section-subtitle">مقالات آموزشی و راهنمای تصمیم‌گیری (نمایشی)</p>
+    <div class="page-head">
+      <h1 class="page-title">مقالات</h1>
+      <p class="page-subtitle">محتوای آموزشی و راهنماهای کاربردی — نمایشی (Demo).</p>
     </div>
 
-    <div class="cards-grid">
-      <article class="info-card">
-        <h2 class="info-title">چطور از اعتبار آموزشی سازمانی بهترین استفاده را کنیم؟</h2>
-        <p class="info-desc">راهنمای کوتاه برای انتخاب هوشمندانه دوره‌ها و منابع آموزشی با توجه به هدف و مقطع.</p>
+    <section class="cards-grid">
+      <article class="card">
+        <h3 class="card-title">راهنمای انتخاب منبع درسی برای مقاطع مختلف</h3>
+        <p class="card-text">چطور بین کتاب‌ها و دوره‌ها انتخاب کنیم؟ چند معیار ساده و قابل اتکا برای تصمیم‌گیری سریع.</p>
         <a class="btn btn-outline" href="#">ادامه مطلب</a>
       </article>
-      <article class="info-card">
-        <h2 class="info-title">مدل پرداخت اعتباری و اقساطی در بهسایار چگونه کار می‌کند؟</h2>
-        <p class="info-desc">یک توضیح ساده و واقعی‌نما از تجربه پرداخت اعتباری—بدون پرداخت واقعی (Demo-first).</p>
+      <article class="card">
+        <h3 class="card-title">مدیریت هزینه آموزش با اعتبار سازمانی</h3>
+        <p class="card-text">سناریوهای رایج سازمان‌ها برای تخصیص اعتبار، کنترل خرید و گزارش‌گیری شفاف.</p>
         <a class="btn btn-outline" href="#">ادامه مطلب</a>
       </article>
-      <article class="info-card">
-        <h2 class="info-title">معیارهای انتخاب منابع کنکور و آزمون آنلاین</h2>
-        <p class="info-desc">چک‌لیست سریع برای انتخاب ارائه‌دهنده‌های معتبر و منابع مناسب برای نتیجه بهتر.</p>
+      <article class="card">
+        <h3 class="card-title">اقساط آموزشی چگونه کار می‌کند؟</h3>
+        <p class="card-text">مقایسه پرداخت نقدی و اعتباری، و نکات مهم در طراحی تجربه کاربری پرداخت اقساطی.</p>
         <a class="btn btn-outline" href="#">ادامه مطلب</a>
       </article>
-    </div>
+    </section>
   </div>
-</section>
+</main>
+
+<!-- ===== Mobile Bottom Navigation (<=768px) ===== -->
+<!-- ===== Bottom Sheet: Categories ===== -->
+<button aria-label="بستن" class="sheet-close" id="catsClose" type="button">✕</button>
+<div class="sheet-body">
+<a class="sheet-link" href="services.html">دبستان و پیش دبستان</a>
+<a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
+<a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
+<a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
+<a class="sheet-link" href="services.html?cat=online">کلاس‌های آنلاین</a>
+</div>
 </main>
 <footer aria-label="فوتر سایت" class="site-footer">
 <div aria-hidden="true" class="footer-waves">
@@ -116,6 +131,7 @@
 </div>
 <div class="container">
 <div class="footer-grid">
+<!-- Brand -->
 <div class="footer-col footer-brand">
 <div class="footer-brand-row">
 <div class="footer-logo">
@@ -127,7 +143,7 @@
 </div>
 </div>
 <p class="footer-desc">
-            بهسایار محصول شرکت بهسامان تدبیر است؛ خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
+            خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
           </p>
 <div aria-label="همکاری‌ها" class="footer-badges">
 <span class="pill">گاج</span>
@@ -136,21 +152,21 @@
 <span class="pill">پرش</span>
 </div>
 </div>
+<!-- Quick links -->
 <div class="footer-col">
 <h3 class="footer-title">لینک‌های سریع</h3>
 <ul class="footer-links">
 <li><a href="index.html">صفحه اصلی</a></li>
 <li><a href="services.html">محصولات</a></li>
-<li><a href="news.html">اخبار و رویدادها</a></li>
-<li><a href="articles.html">مقالات</a></li>
 <li><a href="about.html">درباره بهسایار</a></li>
 <li><a href="contact.html">تماس با ما</a></li>
 </ul>
 </div>
+<!-- Support -->
 <div class="footer-col">
 <h3 class="footer-title">پشتیبانی</h3>
 <ul class="footer-meta">
-<li><span class="meta-k">نشانی:</span> <span class="meta-v">نشانی دفتر مرکزی: تهران، خیابان ولی عصر (عج)، نرسیده به چهار راه طالقانی، کوچه شهید رحیم زاده، کوچه شهید رحیم زاده ۲، پلاک ۱۰، طبقه دوم</span></li>
+<li><span class="meta-k">نشانی:</span> <span class="meta-v">تهران، خیابان ولی عصر (عج)، نرسیده به چهار راه طالقانی، کوچه شهید رحیم زاده، کوچه شهید رحیم زاده ۲، پلاک ۱۰، طبقه دوم</span></li>
 <li><span class="meta-k">تلفن:</span> <a href="tel:+982166953520"><span class="phone-ltr">021-66953520</span></a></li>
 <li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
 <li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
@@ -161,12 +177,13 @@
 <div class="footer-copy">قدرت گرفته از محصول بهسایار شرکت بهسامان تدبیر</div>
 <div class="footer-mini">
 <a aria-label="قوانین و شرایط" href="terms.html">قوانین</a>
+
 </div>
 </div>
 </div>
 </footer>
 <nav aria-label="نوار ابزار موبایل" class="bottom-nav">
-<a aria-label="خانه" class="bn-item " href="index.html">
+<a aria-label="خانه" class="bn-item is-active" href="index.html">
 <span aria-hidden="true" class="bn-ico">🏠</span>
 <span class="bn-txt">خانه</span>
 </a>
@@ -174,16 +191,16 @@
 <span aria-hidden="true" class="bn-ico">🗂️</span>
 <span class="bn-txt">دسته‌ها</span>
 </button>
-<a aria-label="سبد خرید" class="bn-item " href="cart.html">
+<a aria-label="سبد خرید" class="bn-item" href="cart.html">
 <span aria-hidden="true" class="bn-ico">🛒</span>
 <span class="bn-txt">سبد</span>
 <span aria-label="تعداد آیتم‌های سبد" class="bn-badge" hidden="" id="bnCartBadge">0</span>
 </a>
-<a aria-label="ارتباط با ما" class="bn-item " href="contact.html">
+<a aria-label="ارتباط با ما" class="bn-item" href="contact.html">
 <span aria-hidden="true" class="bn-ico">☎️</span>
 <span class="bn-txt">ارتباط</span>
 </a>
-<a aria-label="ورود" class="bn-item " href="login.html" id="bnAuthLink">
+<a aria-label="ورود" class="bn-item" href="login.html" id="bnAuthLink">
 <span aria-hidden="true" class="bn-ico">👤</span>
 <span class="bn-txt" id="bnAuthText">ورود</span>
 </a>
@@ -200,12 +217,16 @@
 <a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
 <a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
 <a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
-<a class="sheet-link" href="services.html?cat=online">کلاس‌های آنلاین</a>
-<a class="sheet-link" href="services.html?cat=lang">کلاس زبان</a>
+<a class="sheet-link" href="services.html?cat=pre">کودک و نوجوان</a>
+
+<a class="sheet-link" href="services.html?cat=language">کلاس زبان</a>
 <a class="sheet-link" href="services.html?cat=computer">کلاس کامپیوتر</a>
 <a class="sheet-link" href="services.html?cat=skills">کلاس‌های مهارتی</a>
+
+<hr class="sheet-divider"/>
+<a class="sheet-link" href="news.html">اخبار و رویدادها</a>
+<a class="sheet-link" href="articles.html">مقالات</a>
 </div>
 </div>
-</div>
-</body>
+</div></body>
 </html>
