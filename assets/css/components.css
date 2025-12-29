@@ -168,3 +168,11 @@
   text-align:right;
 }
 .installments th{font-weight:950;color:rgba(15,23,42,.78);}
+
+/* ===== LTR phone formatting inside RTL text ===== */
+.phone-ltr{
+  direction: ltr;
+  unicode-bidi: plaintext;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
