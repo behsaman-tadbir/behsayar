@@ -665,3 +665,32 @@
 @media (max-width: 768px){
   .cat-img{ width:56px; height:56px; }
 }
+
+
+/* ===== Phase 1: Hero slide media ===== */
+.post-slide .slide-media{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .22;
+}
+.post-slide .slide-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05);
+}
+.post-slide .post-title,
+.post-slide .btn{
+  position: relative;
+  z-index: 1;
+}
+.post-slide .btn{
+  margin-top: 10px;
+}
+@media (max-width: 768px){
+  .post-slider{ min-height: 240px; }
+  .post-title{ font-size: 1.15rem; }
+  .post-slide{ padding: 8px 4px; }
+}

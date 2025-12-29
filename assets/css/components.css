@@ -193,3 +193,34 @@
   display: inline-block;
   font-variant-numeric: tabular-nums;
 }
+
+
+/* ===== Phase 1: Simple article cards ===== */
+.cards-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.info-card{
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 14px 30px rgba(15,23,42,.06);
+}
+.info-title{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 950;
+  color: #0f172a;
+  line-height: 1.8;
+}
+.info-desc{
+  margin: 0 0 12px;
+  color: rgba(15,23,42,.74);
+  line-height: 1.9;
+  font-weight: 650;
+}
+@media (max-width: 900px){
+  .cards-grid{ grid-template-columns: 1fr; }
+}
