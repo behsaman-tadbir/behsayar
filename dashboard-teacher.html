@@ -8,72 +8,18 @@
 <link href="assets/css/base.css" rel="stylesheet"/>
 <link href="assets/css/layout.css" rel="stylesheet"/>
 <link href="assets/css/dashboard.css" rel="stylesheet"/>
-<script defer="" src="assets/js/main.js"></script>
 </head>
 <body>
-<header class="site-header">
-<div class="container">
-<!-- ===== Header Top ===== -->
-<div class="header-top">
-<div class="brand-area">
-<div class="brand-logo">
-<img alt="لوگوی بهسامان تدبیر" src="assets/images/behsaman-logo.png"/>
-</div>
-<div class="brand-name">بهسایار</div>
-<form class="header-search" role="search">
-<div class="search-label">
-<span class="label-text">جستجو</span>
 
-</div>
-<input aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search"/>
-</form>
-</div>
-<div class="user-actions">
-<a aria-label="ثبت‌نام / ورود" class="auth-button" href="login.html" id="headerAuthLink">
-<span id="headerAuthText">ثبت‌نام / ورود</span>
-</a>
-<a class="cart-button" href="cart.html">
-<span aria-hidden="true" class="cart-icon">🛒</span>
-<span class="cart-text">سبد خرید</span> <span class="cart-badge" id="headerCartBadge" aria-label="تعداد آیتم‌های سبد" hidden>0</span>
-</a>
-</div>
-</div>
-<!-- ===== Header Bottom / Main Nav ===== -->
-<div class="header-bottom">
-<nav aria-label="منوی اصلی" class="main-nav">
-<ul>
-<!-- ✅ گزینه اول: صفحه اصلی -->
-<li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
-<li class="nav-item has-dropdown nav-item--categories nav-item--news">
-<button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
-              دسته‌بندی‌ها <span aria-hidden="true" class="chevron">▾</span>
-</button>
-<div class="dropdown-menu">
-<a href="services.html?cat=pre">پیش‌دبستان و دبستان</a>
-<a href="services.html?cat=mid1">متوسطه اول</a>
-<a href="services.html?cat=mid2">متوسطه دوم</a>
-<a href="services.html?cat=konkur">کنکور و دانشگاه</a>
-<a href="services.html?cat=online">کلاس‌های آنلاین</a>
-
-<a href="services.html?cat=language">کلاس زبان</a>
-<a href="services.html?cat=computer">کلاس کامپیوتر</a>
-<a href="services.html?cat=skills">کلاس‌های مهارتی</a>
-</div>
-</li>
-<li class="nav-item has-dropdown">
-<button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">اخبار و مقالات <span aria-hidden="true" class="chevron">▾</span></button>
-<div class="dropdown-menu">
-<a href="news.html">اخبار و رویدادها</a>
-<a href="articles.html">مقالات</a>
-</div>
-</li>
-<li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
-<li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
-<li class="nav-item"><a class="nav-link" href="about.html">درباره بهسایار</a></li>
-</ul>
-</nav>
-</div>
-</div>
+<header class="dashboard-topbar" aria-label="نوار بالای داشبورد">
+  <div class="container dash-topbar-inner">
+    <a class="dash-brand" href="index.html" aria-label="بازگشت به صفحه اصلی">بهسایار</a>
+    <div class="dash-actions">
+      <span class="dash-role">داشبورد معلم</span>
+      
+      <a class="btn btn-ghost" href="index.html">بازگشت به سایت</a>
+    </div>
+  </div>
 </header>
 <main class="page-main">
 <div class="dashboard">
@@ -150,118 +96,7 @@
 </div>
 </section>
 </main>
-<footer aria-label="فوتر سایت" class="site-footer">
-<div aria-hidden="true" class="footer-waves">
-<svg class="waves" preserveaspectratio="none" viewbox="0 24 150 28" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<path d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z" id="wavePath"></path>
-</defs>
-<g class="wave-parallax">
-<use href="#wavePath" x="48" y="0"></use>
-<use href="#wavePath" x="48" y="3"></use>
-<use href="#wavePath" x="48" y="6"></use>
-<use href="#wavePath" x="48" y="9"></use>
-</g>
-</svg>
-</div>
-<div class="container">
-<div class="footer-grid">
-<!-- Brand -->
-<div class="footer-col footer-brand">
-<div class="footer-brand-row">
-<div class="footer-logo">
-<img alt="لوگوی بهسامان تدبیر" src="assets/images/behsaman-logo.png"/>
-</div>
-<div class="footer-brand-title">
-<div class="footer-name">بهسایار</div>
-<div class="footer-tag">مارکت‌پلیس آموزشی سازمانی</div>
-</div>
-</div>
-<p class="footer-desc">
-            خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری سازمانی — طراحی‌شده برای تجربه کاربری سریع، ساده و حرفه‌ای.
-          </p>
-<div aria-label="همکاری‌ها" class="footer-badges">
-<span class="pill">گاج</span>
-<span class="pill">قلم‌چی</span>
-<span class="pill">خیلی سبز</span>
-<span class="pill">پرش</span>
-</div>
-</div>
-<!-- Quick links -->
-<div class="footer-col">
-<h3 class="footer-title">لینک‌های سریع</h3>
-<ul class="footer-links">
-<li><a href="index.html">صفحه اصلی</a></li>
-<li><a href="services.html">محصولات</a></li>
-<li><a href="about.html">درباره بهسایار</a></li>
-<li><a href="contact.html">تماس با ما</a></li>
-</ul>
-</div>
-<!-- Support -->
-<div class="footer-col">
-<h3 class="footer-title">پشتیبانی</h3>
-<ul class="footer-meta">
-<li><span class="meta-k">نشانی:</span> <span class="meta-v">تهران، خیابان ولی عصر (عج)، نرسیده به چهار راه طالقانی، کوچه شهید رحیم زاده، کوچه شهید رحیم زاده ۲، پلاک ۱۰، طبقه دوم</span></li>
-<li><span class="meta-k">تلفن:</span> <a href="tel:+982166953520"><span class="phone-ltr">021-66953520</span></a></li>
-<li><span class="meta-k">ایمیل:</span> <a href="mailto:support@behsayar.ir">support@behsayar.ir</a></li>
-<li><span class="meta-k">ساعات:</span> شنبه تا چهارشنبه، ۹ تا ۱۸</li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<div class="footer-copy">قدرت گرفته از محصول بهسایار شرکت بهسامان تدبیر</div>
-<div class="footer-mini">
-<a aria-label="قوانین و شرایط" href="terms.html">قوانین</a>
+<script defer="" src="assets/js/main.js"></script>
 
-</div>
-</div>
-</div>
-</footer>
-<nav aria-label="نوار ابزار موبایل" class="bottom-nav">
-<a aria-label="خانه" class="bn-item is-active" href="index.html">
-<span aria-hidden="true" class="bn-ico">🏠</span>
-<span class="bn-txt">خانه</span>
-</a>
-<button aria-expanded="false" aria-label="دسته‌بندی‌ها" class="bn-item" id="bnCatsBtn" type="button">
-<span aria-hidden="true" class="bn-ico">🗂️</span>
-<span class="bn-txt">دسته‌ها</span>
-</button>
-<a aria-label="سبد خرید" class="bn-item" href="cart.html">
-<span aria-hidden="true" class="bn-ico">🛒</span>
-<span class="bn-txt">سبد</span>
-<span aria-label="تعداد آیتم‌های سبد" class="bn-badge" hidden="" id="bnCartBadge">0</span>
-</a>
-<a aria-label="ارتباط با ما" class="bn-item" href="contact.html">
-<span aria-hidden="true" class="bn-ico">☎️</span>
-<span class="bn-txt">ارتباط</span>
-</a>
-<a aria-label="ورود" class="bn-item" href="login.html" id="bnAuthLink">
-<span aria-hidden="true" class="bn-ico">👤</span>
-<span class="bn-txt" id="bnAuthText">ورود</span>
-</a>
-</nav>
-<div aria-hidden="true" class="bottom-sheet" id="mobileCatsSheet">
-<div class="sheet-backdrop" data-sheet-close=""></div>
-<div aria-label="دسته‌بندی‌ها" aria-modal="true" class="sheet-panel" role="dialog">
-<div class="sheet-head">
-<div class="sheet-title">دسته‌بندی‌ها</div>
-<button aria-label="بستن" class="sheet-close" data-sheet-close="" type="button">✕</button>
-</div>
-<div class="sheet-body">
-<a class="sheet-link" href="services.html?cat=pre">پیش دبستان و دبستان</a>
-<a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
-<a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
-<a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
-<a class="sheet-link" href="services.html?cat=pre">کودک و نوجوان</a>
-
-<a class="sheet-link" href="services.html?cat=language">کلاس زبان</a>
-<a class="sheet-link" href="services.html?cat=computer">کلاس کامپیوتر</a>
-<a class="sheet-link" href="services.html?cat=skills">کلاس‌های مهارتی</a>
-
-<hr class="sheet-divider"/>
-<a class="sheet-link" href="news.html">اخبار و رویدادها</a>
-<a class="sheet-link" href="articles.html">مقالات</a>
-</div>
-</div>
-</div></body>
+</body>
 </html>
