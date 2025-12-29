@@ -71,6 +71,29 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem(STORAGE_SESSION);
   }
 
+  function ensureDemoUsers() {
+    // Fixed demo accounts (exactly three active users)
+    const demoUsers = [
+      { username: "1001", password: "123", role: "student", name: "دانش‌آموز دمو" },
+      { username: "1002", password: "123", role: "teacher", name: "دبیر دمو" },
+      { username: "1003", password: "123", role: "admin", name: "مدیر سیستم دمو" },
+    ];
+
+    // Ensure these demo users always exist (keep other registered demo users too)
+    const existing = loadUsers();
+    const filtered = existing.filter((u) => !demoUsers.some((d) => d.username === u.username));
+    saveUsers([...filtered, ...demoUsers]);
+
+    // If a previous session doesn't match demo users, clear it.
+    const session = getSession();
+    if (session && !demoUsers.some((u) => u.username === session.username)) {
+      clearSession();
+    }
+  }
+
+  // Seed demo users immediately
+  ensureDemoUsers();
+
   function redirectByRole(role) {
     if (role === "admin") {
       location.href = "dashboard-admin.html";
@@ -229,9 +252,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Admin demo login (no register)
-      if (username.toLowerCase() === "admin" && password === "110110") {
-        setSession({ username: "admin", role: "admin" });
+      // Admin demo login (no register) — fixed demo credentials
+      if (username === "1003" && password === "123") {
+        setSession({ username: "1003", role: "admin" });
         updateAuthLinksUI(); // ✅
 
         if (msg) {
