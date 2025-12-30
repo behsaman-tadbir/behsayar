@@ -967,3 +967,248 @@
   .page-home .header-right{ display:none; } /* موبایل: هدر مینیمال + BottomNav */
   .page-home .brand-name{ font-size: 18px; }
 }
+
+
+
+/* =========================
+   Home Header (DK-inspired) - Scoped to .page-home
+   ========================= */
+.page-home .site-header .header-top--dk{
+  display:flex;
+  flex-direction:row-reverse; /* لوگو راست، جستجو وسط، ورود/آواتار چپ */
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.page-home .site-header .header-right--brand{
+  display:flex;
+  align-items:center;
+  min-width: 180px;
+}
+
+.page-home .site-header .brand-link--dk{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.page-home .site-header .brand-logo{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent !important;
+  box-shadow:none !important;
+  border:none !important;
+  padding:0 !important;
+}
+
+.page-home .site-header .brand-img{
+  width:44px;
+  height:44px;
+  object-fit:contain;
+  display:block;
+}
+
+.page-home .site-header .brand-title{
+  font-weight:900;
+  font-size:1.15rem;
+  line-height:1;
+  color:rgba(15,23,42,.95);
+  letter-spacing:-.2px;
+  background: linear-gradient(90deg, rgba(14,165,233,.95), rgba(124,58,237,.92));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.page-home .site-header .header-center{
+  flex:1 1 auto;
+  max-width: 640px;
+}
+
+.page-home .site-header .header-search--muted{
+  background:rgba(148,163,184,.15);
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:18px;
+  padding:8px 10px;
+  box-shadow:none;
+}
+
+.page-home .site-header .header-search--muted input[type="search"]{
+  background:transparent;
+  color:rgba(15,23,42,.85);
+}
+
+.page-home .site-header .header-search--muted input[type="search"]::placeholder{
+  color:rgba(15,23,42,.45);
+}
+
+.page-home .site-header .header-search--muted:focus-within{
+  border-color: rgba(14,165,233,.55);
+  box-shadow: 0 0 0 4px rgba(14,165,233,.12);
+}
+
+/* منوی اصلی کم‌رنگ‌تر (توسی) */
+.page-home .primary-nav .nav-link{
+  color: rgba(15,23,42,.62);
+  font-weight:650;
+}
+
+.page-home .primary-nav .nav-link:hover{
+  color: rgba(15,23,42,.90);
+}
+
+.page-home .primary-nav .nav-item.has-dropdown > button{
+  color: rgba(2,132,199,.98);
+  background: rgba(14,165,233,.12);
+  border: 1px solid rgba(14,165,233,.30);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight:850;
+}
+
+.page-home .primary-nav .nav-item.has-dropdown > button:hover{
+  background: rgba(14,165,233,.16);
+  border-color: rgba(14,165,233,.40);
+}
+
+/* آواتار/ورود سمت چپ */
+.page-home .user-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* User menu (desktop) */
+.page-home .user-menu__trigger{
+  background: rgba(148,163,184,.12);
+  border: 1px solid rgba(148,163,184,.35);
+  border-radius: 999px;
+  padding: 6px 8px;
+  gap:8px;
+}
+
+.page-home .user-menu__trigger:hover{
+  background: rgba(148,163,184,.16);
+}
+
+.page-home .user-menu__trigger img{
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  object-fit:cover;
+  background:#fff;
+}
+
+/* Dropdown emphasis */
+.page-home .user-menu__credit{
+  background: linear-gradient(135deg, rgba(132,204,22,.18), rgba(14,165,233,.14));
+  border: 1px solid rgba(132,204,22,.30);
+}
+
+.page-home .user-menu__credit .um-value{
+  font-weight: 950;
+}
+
+/* Mobile user sheet */
+.muser-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,.45);
+  z-index: 9998;
+}
+
+.muser-sheet{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: #fff;
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -18px 60px rgba(2,6,23,.22);
+  padding: 14px 14px calc(14px + env(safe-area-inset-bottom));
+}
+
+.muser-hd{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.muser-title{
+  font-weight: 950;
+  color: rgba(15,23,42,.92);
+}
+
+.muser-close{
+  border:1px solid rgba(148,163,184,.35);
+  background: rgba(148,163,184,.10);
+  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+}
+
+.muser-credit{
+  border-radius: 18px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(249,115,22,.16), rgba(124,58,237,.10));
+  border: 1px solid rgba(249,115,22,.28);
+  margin-bottom: 10px;
+}
+
+.muser-credit__label{
+  color: rgba(15,23,42,.55);
+  font-weight: 750;
+  margin-bottom: 4px;
+}
+
+.muser-credit__value{
+  font-weight: 1000;
+  color: rgba(15,23,42,.92);
+  font-size: 1.05rem;
+}
+
+.muser-id{
+  padding: 6px 2px 10px;
+}
+
+.muser-name{
+  font-weight: 900;
+  color: rgba(15,23,42,.9);
+}
+
+.muser-link{
+  display:block;
+  width:100%;
+  text-align:right;
+  border-radius: 16px;
+  padding: 12px 12px;
+  border: 1px solid rgba(148,163,184,.25);
+  background: rgba(148,163,184,.08);
+  color: rgba(15,23,42,.86);
+  margin-top: 8px;
+}
+
+.muser-link:active{
+  transform: translateY(1px);
+}
+
+.muser-link--danger{
+  background: rgba(239,68,68,.08);
+  border-color: rgba(239,68,68,.22);
+  color: rgba(153,27,27,.95);
+}
+
+.bn-avatar{
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  object-fit: cover;
+  display:block;
+}
+
