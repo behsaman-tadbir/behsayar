@@ -8,16 +8,73 @@
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
+  <header class="site-header">
+    <div class="container">
+      <!-- ===== Header Top ===== -->
+      <div class="header-top">
+        <div class="brand-area">
+          <div class="brand-logo">
+            <img alt="لوگوی بهسامان تدبیر" src="assets/images/behsaman-logo.png" />
+          </div>
+          <div class="brand-name">بهسایار</div>
+          <form class="header-search" role="search">
+            <div class="search-label">
+              <span class="label-text">جستجو</span>
+              <span aria-hidden="true" class="label-icon">🔍</span>
+            </div>
+            <input aria-label="جستجو" name="q" placeholder="جستجوی دوره، کلاس، آزمون…" type="search" />
+          </form>
+        </div>
+
+        <div class="user-actions">
+          <a aria-label="ثبت‌نام / ورود" class="auth-button" href="login.html" id="headerAuthLink">
+            <span id="headerAuthText">ثبت‌نام / ورود</span>
+          </a>
+          <a class="cart-button" href="cart.html">
+            <span aria-hidden="true" class="cart-icon">🛒</span>
+            <span class="cart-text">سبد خرید</span>
+            <span class="cart-badge" id="headerCartBadge" aria-label="تعداد آیتم‌های سبد" hidden>0</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== Header Bottom / Main Nav ===== -->
+      <div class="header-bottom">
+        <nav aria-label="منوی اصلی" class="main-nav">
+          <ul>
+            <li class="nav-item"><a class="nav-link" href="index.html">صفحه اصلی</a></li>
+            <li class="nav-item has-dropdown">
+              <button aria-expanded="false" class="nav-link nav-dropdown-toggle" type="button">
+                دسته‌بندی‌ها <span aria-hidden="true" class="chevron">▾</span>
+              </button>
+              <div class="dropdown-menu">
+                <a href="services.html?cat=pre">پیش‌دبستان و دبستان</a>
+                <a href="services.html?cat=mid1">متوسطه اول</a>
+                <a href="services.html?cat=mid2">متوسطه دوم</a>
+                <a href="services.html?cat=konkur">کنکور و دانشگاه</a>
+                <a href="services.html?cat=online">کلاس‌های آنلاین</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="services.html">محصولات</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">تماس با ما</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">درباره بهسایار</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
   <main class="home-section">
     <div class="container">
       <h1 class="section-title">جزئیات خدمت</h1>
       <p class="section-subtitle">اطلاعات تکمیلی این خدمت به‌زودی منتشر می‌شود.</p>
     </div>
   </main>
-  
-<footer class="site-footer site-footer--neo" aria-label="فوتر سایت">
+
+  <footer class="site-footer site-footer--neo" aria-label="فوتر سایت">
   <div class="neo-footer-bg" aria-hidden="true">
     <div class="neo-gradient-wave"></div>
     <div class="neo-grid-lines"></div>
@@ -80,23 +137,23 @@
             </div>
             <div class="neo-support-row">
               <span class="neo-k">ایمیل</span>
-              <a class="neo-v" href="mailto:support@behsayar.ir">support@behsayar.ir</a>
+              <a class="neo-v" href="mailto:support@behsaman.ir">support@behsaman.ir</a>
             </div>
             <div class="neo-support-row">
-              <span class="neo-k">ساعات</span>
-              <span class="neo-v">شنبه تا چهارشنبه، ۹ تا ۱۸</span>
+              <span class="neo-k">پشتیبانی آنلاین</span>
+              <a class="neo-v" href="https://t.me/behsayaredu">@behsayaredu</a>
             </div>
           </div>
         </div>
 
         <div class="neo-col neo-col--cta">
           <div class="neo-cta-card">
-            <div class="neo-cta-label">آماده شتاب‌دادن به آموزش؟</div>
-            <div class="neo-cta-title">داشبورد سازمانی بهسایار</div>
-            <p class="neo-cta-desc">در لحظه خدمات را مدیریت کنید، وضعیت سفارش‌ها را ببینید و گزارش‌های دقیق بگیرید.</p>
+            <div class="neo-cta-label">ویژه سازمان‌ها</div>
+            <div class="neo-cta-title">بهسایار، شریک یادگیری تیم شما</div>
+            <p class="neo-cta-desc">خرید اعتباری، گزارش‌دهی پیشرفت و پشتیبانی اختصاصی — همه در یک پلتفرم.</p>
             <div class="neo-cta-actions">
-              <a class="neo-btn neo-btn--solid" href="dashboard.html">ورود یا ثبت‌نام</a>
-              <a class="neo-btn neo-btn--ghost" href="contact.html">درخواست دمو</a>
+              <a class="neo-btn neo-btn--solid" href="contact.html">درخواست دمو</a>
+              <a class="neo-btn neo-btn--ghost" href="services.html">مشاهده خدمات</a>
             </div>
           </div>
         </div>
@@ -114,54 +171,45 @@
   </div>
 </footer>
 
-<!-- ===== Mobile Bottom Navigation (<=768px) ===== -->
-  <nav class="bottom-nav" aria-label="ناوبری پایین">
-    <a class="bn-item" data-nav="home" href="index.html">
-      <span class="bn-ico" aria-hidden="true">🏠</span>
+  <nav aria-label="نوار ابزار موبایل" class="bottom-nav">
+    <a aria-label="خانه" class="bn-item is-active" href="index.html">
+      <span aria-hidden="true" class="bn-ico">🏠</span>
       <span class="bn-txt">خانه</span>
     </a>
-  
-    <button class="bn-item" data-nav="cats" type="button" id="bnCats">
-      <span class="bn-ico" aria-hidden="true">🧩</span>
-      <span class="bn-txt">دسته‌بندی</span>
+    <button aria-expanded="false" aria-label="دسته‌بندی‌ها" class="bn-item" id="bnCatsBtn" type="button">
+      <span aria-hidden="true" class="bn-ico">🗂️</span>
+      <span class="bn-txt">دسته‌ها</span>
     </button>
-  
-    <a class="bn-item" data-nav="contact" href="contact.html">
-      <span class="bn-ico" aria-hidden="true">📞</span>
-      <span class="bn-txt">تماس</span>
-    </a>
-  
-    <a class="bn-item" data-nav="cart" href="#">
-      <span class="bn-ico" aria-hidden="true">🛒</span>
+    <a aria-label="سبد خرید" class="bn-item" href="cart.html">
+      <span aria-hidden="true" class="bn-ico">🛒</span>
       <span class="bn-txt">سبد</span>
-      <span class="bn-badge" aria-label="تعداد سبد">0</span>
+      <span aria-label="تعداد آیتم‌های سبد" class="bn-badge" hidden id="bnCartBadge">0</span>
     </a>
-  
-    <a class="bn-item" data-nav="account" href="login.html" id="bnAccount">
-      <span class="bn-ico" aria-hidden="true">👤</span>
-      <span class="bn-txt" id="bnAccountText">ورود</span>
+    <a aria-label="ارتباط با ما" class="bn-item" href="contact.html">
+      <span aria-hidden="true" class="bn-ico">☎️</span>
+      <span class="bn-txt">ارتباط</span>
+    </a>
+    <a aria-label="ورود" class="bn-item" href="login.html" id="bnAuthLink">
+      <span aria-hidden="true" class="bn-ico">👤</span>
+      <span class="bn-txt" id="bnAuthText">ورود</span>
     </a>
   </nav>
-  
-  <!-- ===== Bottom Sheet: Categories ===== -->
-  <div class="bottom-sheet" id="catsSheet" aria-hidden="true">
-    <div class="sheet-backdrop" id="catsBackdrop"></div>
-  
-    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="دسته‌بندی‌ها">
+
+  <div aria-hidden="true" class="bottom-sheet" id="mobileCatsSheet">
+    <div class="sheet-backdrop" data-sheet-close></div>
+    <div aria-label="دسته‌بندی‌ها" aria-modal="true" class="sheet-panel" role="dialog">
       <div class="sheet-head">
         <div class="sheet-title">دسته‌بندی‌ها</div>
-        <button class="sheet-close" type="button" id="catsClose" aria-label="بستن">✕</button>
+        <button aria-label="بستن" class="sheet-close" data-sheet-close type="button">✕</button>
       </div>
-  
       <div class="sheet-body">
-        <a class="sheet-link" href="services.html">دبستان و پیش دبستان</a>
-        <a class="sheet-link" href="services.html">متوسطه اول</a>
-        <a class="sheet-link" href="services.html">متوسطه دوم</a>
-        <a class="sheet-link" href="services.html">کنکور تا دکتری</a>
-        <a class="sheet-link" href="services.html">کلاس‌های آنلاین</a>
+        <a class="sheet-link" href="services.html?cat=pre">پیش دبستان و دبستان</a>
+        <a class="sheet-link" href="services.html?cat=mid1">متوسطه اول</a>
+        <a class="sheet-link" href="services.html?cat=mid2">متوسطه دوم</a>
+        <a class="sheet-link" href="services.html?cat=konkur">کنکور تا دکتری</a>
+        <a class="sheet-link" href="services.html?cat=pre">کودک و نوجوان</a>
       </div>
     </div>
   </div>
-
 </body>
 </html>
