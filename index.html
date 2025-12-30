@@ -2,96 +2,284 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>بهسایار</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>بهسایار — نسخه دمو</title>
+  <meta name="description" content="بهسایار — نسخه دمو برای نمایش تجربه کاربری (بدون پرداخت و داده واقعی)." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="images/behsaman-logo.png" />
+  <script src="app.js" defer></script>
 </head>
 
 <body class="page-home">
-  <header class="site-header">
-    <div class="container header-grid" role="banner">
-      <!-- Right: Brand -->
-      <a class="brand" href="index.html" aria-label="بهسایار">
-        <img class="brand__logo" src="images/behsaman-logo.png" alt="لوگوی بهسایار" />
-        <span class="brand__name">بهسایار</span>
-      </a>
+  <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
 
-      <!-- Center: Search (muted) -->
-      <form class="search" role="search" aria-label="جستجو">
-        <label class="sr-only" for="q">جستجو</label>
-        <input id="q" name="q" type="search" placeholder="جستجوی دوره، کلاس، آزمون…" />
-        <button type="submit" class="search__btn" aria-label="جستجو">🔍</button>
-      </form>
+  <header class="site-header" role="banner">
+    <div class="container header-top">
+      <!-- Right: brand + search -->
+      <div class="header-right" aria-label="هویت برند و جستجو">
+        <a class="brand" href="index.html" aria-label="صفحه اصلی بهسایار">
+          <img class="brand-logo" src="images/behsaman-logo.png" alt="لوگوی بهسایار" width="44" height="44" />
+          <span class="brand-name">بهسایار</span>
+        </a>
 
-      <!-- Left: Auth placeholder (no JS yet) -->
-      <div class="auth">
-        <a class="btn btn--soft" href="#" aria-disabled="true">ورود</a>
+        <form class="search" role="search" aria-label="جستجو">
+          <label class="sr-only" for="q">جستجو</label>
+          <input id="q" name="q" class="search-input" type="search" placeholder="جستجو… (دمو)" autocomplete="off" />
+          <button class="search-btn" type="submit" aria-label="جستجو">
+            <span aria-hidden="true">⌕</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Left: auth -->
+      <div class="header-left" aria-label="حساب کاربری">
+        <!-- Guest button -->
+        <button class="btn btn-primary auth-trigger" type="button" data-auth-trigger>
+          ورود
+        </button>
+
+        <!-- Logged in button -->
+        <div class="user-chip" data-user-chip hidden>
+          <img class="avatar" data-user-avatar alt="آواتار کاربر" width="34" height="34" />
+          <button class="user-chip-toggle" type="button" data-user-menu-toggle aria-expanded="false" aria-haspopup="menu">
+            <span class="sr-only">باز کردن منوی کاربر</span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+
+          <div class="menu menu-user" data-user-menu role="menu" hidden>
+            <div class="menu-head">
+              <div class="credit">
+                <span class="credit-label">اعتبار</span>
+                <span class="credit-value" data-user-credit>—</span>
+              </div>
+              <div class="meta">
+                <div class="meta-name" data-user-name>—</div>
+                <div class="meta-role" data-user-role>—</div>
+              </div>
+            </div>
+
+            <a class="menu-item" href="#" role="menuitem">سبد خرید</a>
+            <a class="menu-item" href="#" role="menuitem">پروفایل</a>
+            <a class="menu-item" href="#" role="menuitem">تغییر کلمه عبور</a>
+            <button class="menu-item is-danger" type="button" data-logout role="menuitem">خروج</button>
+          </div>
+        </div>
+
+        <!-- Auth popover -->
+        <div class="popover" data-auth-popover hidden>
+          <form class="auth-form" data-auth-form>
+            <div class="field">
+              <label class="label" for="username">نام کاربری</label>
+              <input id="username" class="input" inputmode="numeric" autocomplete="username" placeholder="مثلاً 1001" required />
+            </div>
+
+            <div class="field">
+              <label class="label" for="password">رمز عبور</label>
+              <input id="password" class="input" type="password" autocomplete="current-password" placeholder="123" required />
+            </div>
+
+            <button class="btn btn-primary w-full" type="submit">ورود</button>
+
+            <div class="auth-links">
+              <a href="#" class="link" data-open-register>ثبت‌نام</a>
+              <a href="#" class="link" data-forgot>فراموشی رمز</a>
+            </div>
+
+            <p class="hint">
+              حساب‌های دمو: <span dir="ltr">1001/123</span> ، <span dir="ltr">1002/123</span> ، <span dir="ltr">1003/123</span>
+            </p>
+          </form>
+        </div>
       </div>
     </div>
 
-    <nav class="site-nav" aria-label="منوی اصلی">
-      <div class="container">
-        <ul class="nav">
-          <li class="nav__item"><a class="nav__link nav__link--muted" href="index.html">صفحه اصلی</a></li>
-
-          <li class="nav__item nav__item--cats">
-            <a class="nav__link nav__link--cats" href="#" aria-disabled="true">دسته‌بندی‌ها <span aria-hidden="true">▾</span></a>
-            <div class="nav__dropdown" role="menu" aria-label="دسته‌بندی‌ها">
-              <a role="menuitem" href="#" aria-disabled="true">پیش‌دبستان و دبستان</a>
-              <a role="menuitem" href="#" aria-disabled="true">متوسطه اول</a>
-              <a role="menuitem" href="#" aria-disabled="true">متوسطه دوم</a>
-              <a role="menuitem" href="#" aria-disabled="true">کنکور و دانشگاه</a>
-              <a role="menuitem" href="#" aria-disabled="true">کلاس‌های آنلاین</a>
-            </div>
-          </li>
-
-          <li class="nav__item"><span class="nav__link nav__link--muted nav__link--text">اخبار و مقالات</span></li>
-          <li class="nav__item"><span class="nav__link nav__link--muted nav__link--text">تماس با ما</span></li>
-        </ul>
-      </div>
-    </nav>
+    <div class="container header-nav">
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <a class="nav-item is-strong" href="#categories">دسته‌بندی‌ها</a>
+        <a class="nav-item" href="#">خانه</a>
+        <a class="nav-item" href="#">محصولات</a>
+        <a class="nav-item" href="#">ارتباط با ما</a>
+        <a class="nav-item" href="#">تماس با ما</a>
+        <a class="nav-item" href="#">اخبار و مقالات</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="site-main">
+  <main id="main">
     <section class="hero">
-      <div class="container hero__card">
-        <div class="hero__badge">دموی MVP</div>
-        <h1 class="hero__title">بهسایار؛ مارکت‌پلیس آموزشی سازمانی</h1>
-        <p class="hero__desc">
-          خرید آموزش و خدمات آموزشی با مدل نقدی یا اعتباری/اقساطی — تجربه‌ی ساده، سریع و حرفه‌ای (کاملاً دمو).
-        </p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#" aria-disabled="true">مشاهده محصولات</a>
-          <a class="btn btn--ghost" href="#" aria-disabled="true">راهنمای استفاده</a>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 class="hero-title">آموزش، خرید اعتباری و تجربه‌ی حرفه‌ای — در یک محصول واحد</h1>
+          <p class="hero-subtitle">
+            این نسخه صرفاً برای نمایش تجربه کاربری است. پرداخت و داده‌های واقعی در آن وجود ندارد.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-cta" href="#categories">شروع با دسته‌بندی‌ها</a>
+            <a class="btn btn-ghost" href="#">مشاهده محصولات (دمو)</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="کارت اطلاعات">
+          <div class="stat">
+            <div class="stat-k">اعتبار سازمانی</div>
+            <div class="stat-v">پیش‌فرض دمو</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">خرید اقساطی</div>
+            <div class="stat-v">بدون پرداخت واقعی</div>
+          </div>
+          <div class="stat">
+            <div class="stat-k">گزارش آموزشی</div>
+            <div class="stat-v">در نقشه راه</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">دسته‌بندی‌ها</h2>
+          <p class="section-subtitle">همان دسته‌بندی‌های هدر — یکپارچه و ساده.</p>
+        </div>
+
+        <div class="cat-grid" role="list">
+          <a class="cat-card" href="#" role="listitem">
+            <img class="cat-img" src="images/categories/language.svg" alt="کلاس زبان" width="96" height="96" />
+            <div class="cat-name">کلاس زبان</div>
+          </a>
+
+          <a class="cat-card" href="#" role="listitem">
+            <img class="cat-img" src="images/categories/computer.svg" alt="کلاس کامپیوتر" width="96" height="96" />
+            <div class="cat-name">کلاس کامپیوتر</div>
+          </a>
+
+          <a class="cat-card" href="#" role="listitem">
+            <img class="cat-img" src="images/categories/skills.svg" alt="کلاس‌های مهارتی" width="96" height="96" />
+            <div class="cat-name">کلاس‌های مهارتی</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">ریل نمونه (دمو)</h2>
+          <p class="section-subtitle">برای تست اسکرول افقی فقط همینجا.</p>
+        </div>
+
+        <div class="rail" aria-label="فهرست نمونه">
+          <article class="card">
+            <h3 class="card-title">کلاس زبان — مقدماتی</h3>
+            <p class="card-text">نمونه کارت محصول. بدون اطلاعات واقعی.</p>
+            <button class="btn btn-primary">افزودن به سبد (دمو)</button>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">کلاس کامپیوتر — پایه</h3>
+            <p class="card-text">نمونه کارت محصول. بدون اطلاعات واقعی.</p>
+            <button class="btn btn-primary">افزودن به سبد (دمو)</button>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">مهارتی — پروژه محور</h3>
+            <p class="card-text">نمونه کارت محصول. بدون اطلاعات واقعی.</p>
+            <button class="btn btn-primary">افزودن به سبد (دمو)</button>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" aria-label="فوتر سایت">
-    <div class="footer-bg" aria-hidden="true"></div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">بهسایار</div>
+        <div class="footer-note">قدرت گرفته از محصول بهسایار شرکت بهسامان تدبیر</div>
+      </div>
 
-    <div class="container footer-surface">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="footer-name">بهسایار</div>
-          <p class="footer-desc">
-            قدرت گرفته از محصول بهسایار شرکت بهسامان تدبیر
-          </p>
-        </div>
-
-        <div class="footer-contact" aria-label="راه‌های ارتباطی">
-          <div class="footer-item">
-            <span class="k">تلفن</span>
-            <span class="v phone-ltr">021-66953520</span>
-          </div>
-          <div class="footer-item">
-            <span class="k">ایمیل</span>
-            <span class="v">support@behsayar.ir</span>
-          </div>
-        </div>
+      <div class="footer-links">
+        <a class="footer-link" href="#">تماس</a>
+        <a class="footer-link" href="#">ارتباط با ما</a>
+        <a class="footer-link" href="#">اخبار و مقالات</a>
       </div>
     </div>
   </footer>
+
+  <!-- Mobile bottom bar -->
+  <div class="bottom-bar" role="navigation" aria-label="ناوبری پایین">
+    <a class="bb-item" href="index.html" aria-current="page">
+      <span class="bb-ic" aria-hidden="true">⌂</span>
+      <span class="bb-t">خانه</span>
+    </a>
+
+    <a class="bb-item" href="#categories">
+      <span class="bb-ic" aria-hidden="true">≡</span>
+      <span class="bb-t">دسته‌ها</span>
+    </a>
+
+    <button class="bb-item bb-auth" type="button" data-mobile-auth-trigger>
+      <img class="bb-avatar" data-mobile-avatar alt="آواتار" width="24" height="24" hidden />
+      <span class="bb-ic" data-mobile-auth-icon aria-hidden="true">⎆</span>
+      <span class="bb-t" data-mobile-auth-label>ورود</span>
+      <span class="bb-chev" aria-hidden="true">▾</span>
+    </button>
+  </div>
+
+  <!-- Mobile auth sheet -->
+  <div class="sheet" data-mobile-auth-sheet hidden>
+    <div class="sheet-card" role="dialog" aria-modal="true" aria-label="حساب کاربری">
+      <div class="sheet-handle" aria-hidden="true"></div>
+
+      <div class="sheet-body" data-mobile-guest>
+        <h3 class="sheet-title">ورود به سامانه</h3>
+        <form class="auth-form" data-mobile-auth-form>
+          <div class="field">
+            <label class="label" for="m-username">نام کاربری</label>
+            <input id="m-username" class="input" inputmode="numeric" autocomplete="username" placeholder="مثلاً 1001" required />
+          </div>
+
+          <div class="field">
+            <label class="label" for="m-password">رمز عبور</label>
+            <input id="m-password" class="input" type="password" autocomplete="current-password" placeholder="123" required />
+          </div>
+
+          <button class="btn btn-primary w-full" type="submit">ورود</button>
+
+          <div class="auth-links">
+            <a href="#" class="link" data-open-register>ثبت‌نام</a>
+            <a href="#" class="link" data-forgot>فراموشی رمز</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="sheet-body" data-mobile-user hidden>
+        <div class="sheet-user">
+          <img class="avatar avatar-lg" data-mobile-user-avatar alt="آواتار کاربر" width="52" height="52" />
+          <div class="sheet-meta">
+            <div class="sheet-name" data-mobile-user-name>—</div>
+            <div class="sheet-role" data-mobile-user-role>—</div>
+          </div>
+          <div class="sheet-credit">
+            <div class="credit-label">اعتبار</div>
+            <div class="credit-value" data-mobile-user-credit>—</div>
+          </div>
+        </div>
+
+        <div class="sheet-actions">
+          <a class="menu-item" href="#">سبد خرید</a>
+          <a class="menu-item" href="#">پروفایل</a>
+          <a class="menu-item" href="#">تغییر کلمه عبور</a>
+          <button class="menu-item is-danger" type="button" data-mobile-logout>خروج</button>
+        </div>
+      </div>
+
+      <button class="sheet-close" type="button" data-sheet-close aria-label="بستن">×</button>
+    </div>
+  </div>
+
+  <div class="backdrop" data-backdrop hidden></div>
 </body>
 </html>
