@@ -30,3 +30,8 @@
 - همه‌ی صفحات HTML (برای فوتر جدید و اصلاح nested main)
 - `CHANGELOG.md` (این فایل)
 
+
+
+## 2025-12-30 (Patch)
+- Footer – Visual refresh: cheerful gradient/glass surface, improved spacing, nicer hover states, softer animated blobs (respects prefers-reduced-motion).
+- assets/css/layout.css updated accordingly.
