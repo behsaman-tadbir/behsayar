@@ -233,46 +233,47 @@
 <!-- =========================
        MOBILE AUTH SHEET
        ========================= -->
-<div class="bottom-sheet" id="mobileAuthSheet" aria-hidden="true" hidden>
+<div aria-hidden="true" class="bottom-sheet" id="mobileAuthSheet">
   <div class="sheet-backdrop" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="ورود به سامانه">
-    <div class="sheet-handle" aria-hidden="true"></div>
-    <div class="sheet-header">
-      <div class="sheet-title">ورود</div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="حساب کاربری">
+    <div class="sheet-head">
+      <div class="sheet-title">حساب کاربری</div>
       <button class="sheet-close" type="button" data-sheet-close aria-label="بستن">✕</button>
     </div>
+    <div class="sheet-body">
+      <!-- Logged out -->
+      <form class="auth-form" id="mobileLoginForm">
+        <div class="auth-row">
+          <label class="auth-label" for="mobileLoginUsername">نام کاربری</label>
+          <input class="auth-input" id="mobileLoginUsername" autocomplete="username" inputmode="numeric" placeholder="مثلاً student" required>
+        </div>
+        <div class="auth-row">
+          <label class="auth-label" for="mobileLoginPassword">رمز عبور</label>
+          <input class="auth-input" id="mobileLoginPassword" type="password" autocomplete="current-password" placeholder="مثلاً 1234" required>
+        </div>
+        <p class="auth-msg" id="mobileLoginMsg" role="status" aria-live="polite"></p>
+        <button class="btn btn-primary auth-submit" type="submit">ورود</button>
+        <div class="auth-links">
+          <a href="register.html">ثبت‌نام</a>
+          <a href="login.html">فراموشی رمز عبور</a>
+        </div>
+      </form>
 
-    <form class="auth-form auth-form--sheet" id="mobileLoginForm">
-      <div class="auth-row">
-        <label class="auth-label" for="mobileLoginUsername">نام کاربری</label>
-        <input class="auth-input" id="mobileLoginUsername" autocomplete="username" inputmode="numeric" placeholder="مثلاً 1001" required />
+      <!-- Logged in -->
+      <div id="mobileAccountActions" hidden>
+        <div class="um-head" style="margin-bottom:10px;">
+          <div class="um-credit" id="mobileUserCredit">اعتبار: ۰</div>
+          <div class="um-name" id="mobileUserName">—</div>
+          <div class="um-meta" id="mobileUserMeta">—</div>
+        </div>
+        <a class="user-menu__link" href="cart.html">سبد خرید</a>
+        <a class="user-menu__link" href="dashboard.html">پروفایل</a>
+        <a class="user-menu__link" href="dashboard.html#password">تغییر کلمه عبور</a>
+        <button class="user-menu__logout" id="mobileUserLogout" type="button">خروج</button>
       </div>
-      <div class="auth-row">
-        <label class="auth-label" for="mobileLoginPassword">رمز عبور</label>
-        <input class="auth-input" id="mobileLoginPassword" type="password" autocomplete="current-password" placeholder="مثلاً 123" required />
-      </div>
-      <p class="auth-msg" id="mobileLoginMsg" role="status" aria-live="polite"></p>
-      <button class="btn btn-primary auth-submit" type="submit">ورود</button>
-      <div class="auth-links">
-        <a href="register.html">ثبت‌نام</a>
-        <a href="login.html">فراموشی رمز عبور</a>
-      </div>
-    </form>
-
-    <div class="sheet-divider"></div>
-
-    <div class="account-actions" id="mobileAccountActions" hidden>
-      <div class="um-head um-head--sheet">
-        <div class="um-credit" id="mobileUserCredit">۰</div>
-        <div class="um-name" id="mobileUserName">—</div>
-        <div class="um-meta" id="mobileUserMeta">—</div>
-      </div>
-      <a class="user-menu__link" id="mobileUserCart" href="cart.html">سبد خرید</a>
-      <a class="user-menu__link" id="mobileUserProfile" href="dashboard.html">پروفایل</a>
-      <a class="user-menu__link" id="mobileUserPassword" href="dashboard.html#password">تغییر کلمه عبور</a>
-      <button class="user-menu__logout" id="mobileUserLogout" type="button">خروج</button>
     </div>
   </div>
 </div>
+
 </body>
 </html>
