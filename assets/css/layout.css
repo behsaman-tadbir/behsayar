@@ -815,3 +815,210 @@
 @media (max-width: 768px){
   .search-results{ border-radius: 14px; }
 }
+
+/* =========================
+   Footer (NEO / Animated) — Behsayar
+   - No columns, no quick links
+   - Only contact + brand
+   - Animated cheerful background (always on)
+   ========================= */
+
+.site-footer--neo{
+  position: relative;
+  margin-top: 42px;
+  padding: 38px 0 calc(18px);
+  overflow: hidden;
+  border-top: 1px solid rgba(15,23,42,.08);
+  color: #0f172a;
+}
+
+/* animated background */
+.site-footer--neo .neo-footer-bg{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg,
+    rgba(56,189,248,.28),
+    rgba(163,230,53,.22),
+    rgba(251,146,60,.20),
+    rgba(167,139,250,.22)
+  );
+  background-size: 220% 220%;
+  animation: neoGradient 14s ease-in-out infinite;
+}
+
+/* blobs */
+.site-footer--neo .neo-blob{
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 999px;
+  filter: blur(38px);
+  opacity: .75;
+  transform: translate3d(0,0,0);
+  mix-blend-mode: multiply;
+}
+
+.site-footer--neo .neo-blob--a{
+  right: -220px;
+  top: -280px;
+  background: radial-gradient(circle at 30% 30%, rgba(56,189,248,.95), rgba(56,189,248,0) 62%);
+  animation: neoBlobA 12s ease-in-out infinite;
+}
+
+.site-footer--neo .neo-blob--b{
+  left: -240px;
+  top: 10px;
+  background: radial-gradient(circle at 40% 35%, rgba(163,230,53,.88), rgba(163,230,53,0) 62%);
+  animation: neoBlobB 16s ease-in-out infinite;
+}
+
+.site-footer--neo .neo-blob--c{
+  left: 12%;
+  bottom: -340px;
+  background: radial-gradient(circle at 45% 45%, rgba(167,139,250,.80), rgba(167,139,250,0) 65%),
+              radial-gradient(circle at 55% 40%, rgba(251,146,60,.64), rgba(251,146,60,0) 60%);
+  animation: neoBlobC 18s ease-in-out infinite;
+}
+
+/* unified surface */
+.site-footer--neo .neo-footer-surface{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+
+  background: rgba(255,255,255,.80);
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 22px;
+  box-shadow: 0 22px 70px rgba(15,23,42,.10);
+  backdrop-filter: blur(10px);
+
+  padding: 16px 16px 10px;
+}
+
+/* head */
+.site-footer--neo .neo-footer-head{
+  display: grid;
+  gap: 10px;
+  padding: 6px 6px 12px;
+  border-bottom: 1px dashed rgba(15,23,42,.14);
+}
+
+.site-footer--neo .neo-brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-footer--neo .neo-mark{
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: transparent;
+  border: none;
+}
+
+.site-footer--neo .neo-name{
+  font-weight: 1000;
+  font-size: 1.08rem;
+  letter-spacing: -.2px;
+}
+
+.site-footer--neo .neo-tag{
+  margin-top: 2px;
+  font-size: .84rem;
+  font-weight: 750;
+  color: rgba(15,23,42,.70);
+}
+
+.site-footer--neo .neo-desc{
+  margin: 0;
+  color: rgba(15,23,42,.78);
+  font-weight: 650;
+  line-height: 1.95;
+}
+
+/* contact rows */
+.site-footer--neo .neo-contact{
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+  padding: 4px 6px 8px;
+}
+
+.site-footer--neo .neo-contact-row{
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: rgba(255,255,255,.74);
+}
+
+.site-footer--neo .neo-k{
+  font-weight: 950;
+  color: rgba(15,23,42,.78);
+}
+
+.site-footer--neo .neo-v{
+  font-weight: 750;
+  color: rgba(15,23,42,.78);
+  line-height: 1.9;
+  text-decoration: none;
+}
+
+.site-footer--neo a.neo-v:hover{
+  text-decoration: underline;
+}
+
+/* bottom */
+.site-footer--neo .neo-footer-bottom{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(15,23,42,.10);
+}
+
+.site-footer--neo .neo-copy{
+  font-weight: 850;
+  color: rgba(15,23,42,.78);
+}
+
+/* mobile */
+@media (max-width: 768px){
+  .site-footer--neo{
+    padding-bottom: calc(98px + env(safe-area-inset-bottom));
+  }
+  .site-footer--neo .neo-footer-surface{
+    padding: 14px 12px 10px;
+  }
+  .site-footer--neo .neo-contact-row{
+    grid-template-columns: 72px 1fr;
+    padding: 10px 10px;
+  }
+}
+
+/* animations */
+@keyframes neoGradient{
+  0%{ background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+@keyframes neoBlobA{
+  0%{ transform: translate(0,0) scale(1); }
+  50%{ transform: translate(-42px, 42px) scale(1.06); }
+  100%{ transform: translate(0,0) scale(1); }
+}
+@keyframes neoBlobB{
+  0%{ transform: translate(0,0) scale(1); }
+  50%{ transform: translate(64px, -32px) scale(1.05); }
+  100%{ transform: translate(0,0) scale(1); }
+}
+@keyframes neoBlobC{
+  0%{ transform: translate(0,0) scale(1); }
+  50%{ transform: translate(-30px, -66px) scale(1.08); }
+  100%{ transform: translate(0,0) scale(1); }
+}
