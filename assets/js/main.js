@@ -1065,6 +1065,7 @@ function renderCheckoutPage() {
   }
 
   function ensureHeaderMenu() {
+    const isHome = document.body.classList.contains("page-home");
     const actions = document.querySelector(".user-actions");
     if (!actions) return null;
     let menu = document.getElementById("headerUserMenu");
@@ -1089,6 +1090,11 @@ function renderCheckoutPage() {
       this.src = "assets/images/placeholder.svg";
     };
     trigger.appendChild(avatar);
+    if (isHome) {
+      trigger.appendChild(createEl("span", { class: "user-menu__label", id: "userMenuLabel" }, ["حساب"]));
+      trigger.appendChild(createEl("span", { class: "user-menu__credit-badge", id: "userMenuCreditBadge" }, ["اعتبار: 0"]));
+    }
+
     trigger.appendChild(createEl("span", { class: "user-menu__chevron", "aria-hidden": "true" }, ["▾"]));
 
     const dropdown = createEl("div", { class: "user-menu__dropdown", id: "userMenuDropdown", hidden: "" });
@@ -1148,6 +1154,10 @@ function renderCheckoutPage() {
       avatar.src = profile.avatar;
     }
     if (credit) credit.textContent = `${money(wallet?.available || 0)} تومان`;
+    const badge = menu.querySelector("#userMenuCreditBadge");
+    if (badge) badge.textContent = `اعتبار: ${money(wallet?.available || 0)}`;
+    const label = menu.querySelector("#userMenuLabel");
+    if (label) label.textContent = "ورود به سامانه";
     if (nameEl) nameEl.textContent = profile?.name || profile?.username || "کاربر";
     if (metaEl)
       metaEl.textContent = profile?.role === "admin" ? "مدیر سیستم" : profile?.role === "teacher" ? "دبیر / ولی" : "دانش‌آموز";
