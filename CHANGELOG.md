@@ -35,3 +35,8 @@
 ## 2025-12-30 (Patch)
 - Footer – Visual refresh: cheerful gradient/glass surface, improved spacing, nicer hover states, softer animated blobs (respects prefers-reduced-motion).
 - assets/css/layout.css updated accordingly.
+
+## 2025-12-30 — JS Modularization + Script/CSS path sync
+- Split `assets/js/main.js` into small vanilla modules (`bs-core`, `bs-session`, `bs-ui-*`, `bs-feature-*`, `app.js`).
+- Updated all HTML pages to load the new scripts (no framework, no bundler).
+- Removed legacy `assets/js/main.js` and `assets/js/auth.js` to prevent drift.
