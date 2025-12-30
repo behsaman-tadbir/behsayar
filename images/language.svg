@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="g" cx="30%" cy="30%">
+      <stop offset="0%" stop-color="#76d5ff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+  <rect width="256" height="256" rx="128" fill="url(#g)"/>
+  <circle cx="128" cy="128" r="92" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="10"/>
+  <text x="128" y="142" font-size="28" font-family="Vazirmatn, system-ui, sans-serif" text-anchor="middle" fill="rgba(17,24,39,0.88)">زبان</text>
+</svg>
