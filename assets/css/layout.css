@@ -561,10 +561,10 @@
 }
 
 .footer-col{
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 0;
+  background: rgba(15,23,42,.03);
+  border: 1px solid rgba(15,23,42,.06);
+  border-radius: 18px;
+  padding: 16px 16px 14px;
 }
 
 .footer-brand-row{
@@ -578,11 +578,11 @@
   width: 44px;
   height: 44px;
   border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,.10);
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: transparent;
-  border: none;
 }
 .footer-logo img{
   width: 34px;

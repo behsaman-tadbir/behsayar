@@ -370,6 +370,7 @@
   display: flex;
   align-items: baseline;
   gap: 10px;
+}
 
 .price-new {
   font-weight: 900;
@@ -479,7 +480,6 @@
   }
 }
 
--------------------------------------------------------------
 /* ===== Auth Pages ===== */
 .auth-card {
   max-width: 520px;
@@ -555,7 +555,6 @@
   font-weight: 900;
   color: #2563eb;
 }
------------------------------------------------------------------------
 
 /* =========================
    CART PAGE (Demo-first)
@@ -664,4 +663,95 @@
 /* Category circles images (mobile) */
 @media (max-width: 768px){
   .cat-img{ width:56px; height:56px; }
+}
+
+/* =========================
+   BEHSAYAR 01 PATCH (Home)
+   - Category circles centered (desktop) + horizontal scroll (mobile)
+   - Centers logo rail: single row + horizontal scroll + smaller chips
+   - Hero grid on mobile: ads first, then slider full width
+   - About split: image on the left (desktop), stacked cleanly (mobile)
+   ========================= */
+
+/* 1) Hero: use grid areas for predictable order */
+.hero-grid{
+  grid-template-areas: "slider ads";
+}
+.post-slider{ grid-area: slider; }
+.ads-rubik{ grid-area: ads; }
+
+@media (max-width: 768px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ads"
+      "slider";
+    gap: 14px;
+  }
+  .post-slider{
+    width: 100%;
+    padding: 16px;
+    min-height: 300px;
+  }
+}
+
+/* 2) Category circles: centered (desktop), horizontal scroll (mobile) */
+.category-circles{
+  grid-template-columns: repeat(5, minmax(0, 190px));
+  justify-content: center;
+}
+
+@media (max-width: 768px){
+  .category-circles{
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 6px 4px 10px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .cat-circle{
+    flex: 0 0 auto;
+    min-width: 160px;
+    scroll-snap-align: start;
+  }
+}
+
+/* 3) Popular centers: one row, smaller chips, horizontal scroll if overflow */
+.logo-rail{
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+.logo-chip{
+  min-width: 110px;
+  height: 56px;
+  border-radius: 16px;
+  scroll-snap-align: start;
+}
+.logo-chip img{
+  width: auto;
+  height: auto;
+  max-width: 78px;
+  max-height: 34px;
+}
+
+/* 4) About split: force image left on desktop; stack cleanly on mobile */
+.about-split{
+  grid-template-areas: "text image";
+}
+.about-text{ grid-area: text; }
+.about-image{ grid-area: image; }
+
+@media (max-width: 992px){
+  .about-split{
+    grid-template-areas:
+      "image"
+      "text";
+  }
+  .about-image img{
+    height: 220px;
+  }
 }
