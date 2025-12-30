@@ -1,18 +1,91 @@
-/* behsayar - bs-ui-bottomnav.js
- * Bottom nav: categories sheet + auth sheet + cart badge + avatar label.
- */
+/* bs-ui-bottomnav.js — mobile bottom navigation + mobile auth sheet */
 (() => {
   "use strict";
+
   const BS = (window.BS = window.BS || {});
-  const { qs, on } = BS;
-  const { session } = BS;
+  const { qs, qsa, on, onDelegate, formatFaNumber } = BS.core;
+  const { login, logout, isLoggedIn, getCurrentUser, getCartCount } = BS.session;
   const sheets = BS.ui?.sheets;
+
+  BS.ui = BS.ui || {};
+  BS.ui.bottomnav = BS.ui.bottomnav || {};
+  const api = BS.ui.bottomnav;
+
+  const roleLabel = (role) => {
+    switch (role) {
+      case "student": return "دانش‌آموز / اولیا";
+      case "teacher": return "معلم";
+      case "admin": return "مدیر سیستم";
+      default: return "کاربر";
+    }
+  };
+
+  const syncCartBadge = () => {
+    const badge = qs("#bnCartBadge");
+    if (!badge) return;
+    const count = getCartCount();
+    if (count > 0) {
+      badge.hidden = false;
+      badge.textContent = String(count);
+    } else {
+      badge.hidden = true;
+      badge.textContent = "0";
+    }
+  };
+
+  const syncBottomAuth = () => {
+    const btn = qs("#bnAuthBtn");
+    const txt = qs("#bnAuthText");
+    if (!btn || !txt) return;
+
+    const ico = btn.querySelector(".bn-ico");
+    const logged = isLoggedIn();
+
+    if (!logged) {
+      txt.textContent = "ورود";
+      if (ico) {
+        ico.innerHTML = "👤";
+      }
+      return;
+    }
+
+    const user = getCurrentUser();
+    txt.textContent = "حساب";
+    if (ico) {
+      const src = user?.avatar || "assets/images/placeholder.svg";
+      ico.innerHTML = `<img class="bn-avatar" src="${src}" alt="آواتار">`;
+    }
+  };
+
+  const syncMobileSheetUser = () => {
+    const loggedOutForm = qs("#mobileLoginForm");
+    const loggedInBox = qs("#mobileUserBox");
+
+    if (!loggedOutForm || !loggedInBox) return;
+
+    const logged = isLoggedIn();
+    loggedOutForm.hidden = logged;
+    loggedInBox.hidden = !logged;
+
+    if (!logged) return;
+
+    const user = getCurrentUser();
+    if (!user) return;
+
+    const credit = qs("#mobileUserCredit");
+    const name = qs("#mobileUserName");
+    const meta = qs("#mobileUserMeta");
+
+    if (credit) credit.textContent = "اعتبار: " + formatFaNumber(user.credit);
+    if (name) name.textContent = user.fullName || user.username || "—";
+    if (meta) meta.textContent = roleLabel(user.role);
+  };
 
   const bindCatsSheet = () => {
     const btn = qs("#bnCatsBtn");
     const sheet = qs("#mobileCatsSheet");
     if (!btn || !sheet || !sheets) return;
-    on(btn, "click", () => sheets.toggleSheet(sheet));
+    on(btn, "click", () => sheets.open(sheet));
   };
 
   const bindAuthSheet = () => {
@@ -20,96 +93,50 @@
     const sheet = qs("#mobileAuthSheet");
     if (!btn || !sheet || !sheets) return;
 
-    const loginForm = qs("#mobileLoginForm", sheet);
-    const loginMsg = qs("#mobileLoginMsg", sheet);
+    on(btn, "click", () => {
+      sheets.open(sheet);
+      // keep sync every time it opens
+      syncMobileSheetUser();
+    });
 
-    const loggedOutView = loginForm; // form itself
-    const loggedInView = qs("#mobileAccountActions", sheet);
+    // Login submit inside sheet
+    const form = qs("#mobileLoginForm");
+    const msg = qs("#mobileLoginMsg");
+    on(form, "submit", (e) => {
+      e.preventDefault();
+      const username = qs("#mobileLoginUsername")?.value || "";
+      const password = qs("#mobileLoginPassword")?.value || "";
+      const res = login({ username, password });
 
-    const creditEl = qs("#mobileUserCredit", sheet);
-    const nameEl = qs("#mobileUserName", sheet);
-    const metaEl = qs("#mobileUserMeta", sheet);
-    const logoutBtn = qs("#mobileUserLogout", sheet);
-
-    const iconSpan = qs(".bn-ico", btn);
-    const txtSpan = qs("#bnAuthText", btn);
-
-    const showLoggedOut = () => {
-      if (loggedOutView) loggedOutView.hidden = false;
-      if (loggedInView) loggedInView.hidden = true;
-      if (btn) btn.setAttribute("aria-label", "ورود");
-    };
-
-    const showLoggedIn = () => {
-      if (loggedOutView) loggedOutView.hidden = true;
-      if (loggedInView) loggedInView.hidden = false;
-      if (btn) btn.setAttribute("aria-label", "حساب");
-    };
-
-    const sync = () => {
-      const user = session.getCurrentUser();
-
-      if (!user) {
-        if (txtSpan) txtSpan.textContent = "ورود";
-        if (iconSpan) iconSpan.textContent = "👤";
+      if (!res.ok) {
+        if (msg) msg.textContent = res.message || "ورود ناموفق بود.";
         return;
       }
-
-      if (txtSpan) txtSpan.textContent = "حساب";
-      if (iconSpan) {
-        iconSpan.innerHTML = `<img class="bn-avatar" alt="آواتار" src="${user.avatar || "assets/images/placeholder.svg"}">`;
-      }
-
-      if (creditEl) creditEl.textContent = "اعتبار: " + session.formatIRR(user.credit) + " ریال";
-      if (nameEl) nameEl.textContent = user.fullName || "";
-      if (metaEl) metaEl.textContent = user.title || "";
-    };
-
-    on(btn, "click", () => {
-      sheets.openSheet(sheet);
-      const user = session.getCurrentUser();
-      user ? showLoggedIn() : showLoggedOut();
-      sync();
+      if (msg) msg.textContent = "";
+      form.reset();
+      syncBottomAuth();
+      syncMobileSheetUser();
+      // Keep the sheet open to show account menu immediately (better UX)
     });
 
-    if (loginForm && loginForm.dataset.bsBound !== "1") {
-      loginForm.dataset.bsBound = "1";
-      on(loginForm, "submit", (e) => {
-        e.preventDefault();
-        const u = qs("#mobileLoginUsername")?.value?.trim();
-        const p = qs("#mobileLoginPassword")?.value?.trim();
-        const res = session.login(u, p);
-        if (!res.ok) {
-          if (loginMsg) loginMsg.textContent = res.error;
-          return;
-        }
-        if (loginMsg) loginMsg.textContent = "";
-        showLoggedIn();
-        sync();
-      });
-    }
-
-    on(logoutBtn, "click", (e) => {
-      e.preventDefault();
-      session.clearSession();
-      showLoggedOut();
-      sync();
+    const logoutBtn = qs("#mobileUserLogout");
+    on(logoutBtn, "click", () => {
+      logout();
+      syncBottomAuth();
+      syncMobileSheetUser();
     });
-
-    BS.events.on("bs:session", sync);
-    sync();
   };
 
-  const syncCartBadge = () => {
-    const badge = qs("#bnCartBadge");
-    if (!badge) return;
-    const n = session.getCartCount();
-    badge.textContent = String(n);
-    badge.hidden = n <= 0;
+  api.sync = () => {
+    syncCartBadge();
+    syncBottomAuth();
+    syncMobileSheetUser();
   };
 
-  BS.events.on("bs:session", syncCartBadge);
-
-  BS.ui = BS.ui || {};
-  BS.ui.bottomnav = { bindCatsSheet, bindAuthSheet, syncCartBadge };
+  api.bindAll = () => {
+    bindCatsSheet();
+    bindAuthSheet();
+    syncCartBadge();
+    syncBottomAuth();
+  };
 })();

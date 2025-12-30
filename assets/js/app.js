@@ -1,35 +1,37 @@
-/* behsayar - app.js
- * Bootstraps modules. Keep this file tiny.
- */
+/* app.js — bootstrap (keep tiny, no product logic here) */
 (() => {
   "use strict";
+
   const BS = (window.BS = window.BS || {});
-  const { ui, features, forms } = BS;
+  const { ready } = BS.core;
 
   const boot = () => {
-    // Global dismiss + sheet closers
-    ui?.sheets?.bindSheetClosers?.(document);
-    ui?.sheets?.bindGlobalDismiss?.();
+    BS.session.ensureSeedData();
 
-    // Header / bottom nav
-    ui?.header?.bindCategoriesDropdown?.();
-    ui?.header?.bindHeaderAuth?.();
-    ui?.bottomnav?.bindCatsSheet?.();
-    ui?.bottomnav?.bindAuthSheet?.();
-    ui?.bottomnav?.syncCartBadge?.();
+    // Base UI helpers
+    BS.ui?.sheets?.bindSheetClosers?.(document);
 
-    // Page forms
-    forms?.bindLoginPage?.();
-    forms?.bindRegisterPage?.();
+    // Bind interactions
+    BS.ui?.header?.bindAll?.();
+    BS.ui?.bottomnav?.bindAll?.();
+    BS.forms?.bindAll?.();
 
-    // Features
-    features?.slider?.initHomeSlider?.();
-    features?.dashboard?.protectDashboard?.();
+    // Initial UI sync
+    BS.ui?.header?.syncAuthUI?.();
+    BS.ui?.bottomnav?.sync?.();
+
+    // Features (guarded)
+    BS.features?.dashboard?.protectDashboard?.();
+    BS.features?.slider?.initHomeSlider?.();
+
+    // Sync across tabs
+    window.addEventListener("storage", (e) => {
+      if (e.key === "bs_session" || e.key === "bs_cart" || e.key === "bs_users") {
+        BS.ui?.header?.syncAuthUI?.();
+        BS.ui?.bottomnav?.sync?.();
+      }
+    });
   };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else {
-    boot();
-  }
+  ready(boot);
 })();

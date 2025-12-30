@@ -1,122 +1,191 @@
-/* behsayar - bs-ui-header.js
- * Desktop header: categories dropdown, inline login popover, user menu dropdown.
- */
+/* bs-ui-header.js — header interactions (desktop) */
 (() => {
   "use strict";
+
   const BS = (window.BS = window.BS || {});
-  const { qs, qsa, on } = BS;
-  const { session } = BS;
+  const { qs, qsa, on, onDelegate, setExpanded, formatFaNumber } = BS.core;
+  const { login, logout, isLoggedIn, getCurrentUser } = BS.session;
 
-  const bindCategoriesDropdown = () => {
-    const btn = qs(".nav-dropdown-toggle");
-    const panel = qs(".dropdown-panel");
-    if (!btn || !panel) return;
+  BS.ui = BS.ui || {};
+  BS.ui.header = BS.ui.header || {};
+  const api = BS.ui.header;
 
-    const setOpen = (open) => {
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-      panel.hidden = !open;
-      panel.dataset.dismissableOpen = open ? "1" : "0";
+  const roleLabel = (role) => {
+    switch (role) {
+      case "student": return "دانش‌آموز / اولیا";
+      case "teacher": return "معلم";
+      case "admin": return "مدیر سیستم";
+      default: return "کاربر";
+    }
+  };
+
+  // ----- Auth popover (logged out) -----
+  const bindHeaderLoginPopover = () => {
+    const btn = qs("#headerLoginBtn");
+    const pop = qs("#headerAuthPopover");
+    const form = qs("#headerLoginForm");
+    const msg = qs("#headerLoginMsg");
+
+    if (!btn || !pop) return;
+
+    const open = () => {
+      pop.hidden = false;
+      setExpanded(btn, true);
+      // focus first input
+      const first = qs("input", pop);
+      setTimeout(() => first?.focus?.(), 0);
     };
 
-    // mark dismissable
-    panel.dataset.dismissableOpen = "0";
+    const close = () => {
+      pop.hidden = true;
+      setExpanded(btn, false);
+      msg && (msg.textContent = "");
+      form?.reset?.();
+    };
 
     on(btn, "click", (e) => {
       e.preventDefault();
-      setOpen(panel.hidden);
+      pop.hidden ? open() : close();
     });
 
-    qsa("a", panel).forEach((a) => on(a, "click", () => setOpen(false)));
+    on(document, "keydown", (e) => {
+      if (e.key === "Escape" && !pop.hidden) close();
+    });
+
+    // Click outside closes
+    on(document, "click", (e) => {
+      if (pop.hidden) return;
+      const t = e.target;
+      if (pop.contains(t) || btn.contains(t)) return;
+      close();
+    });
+
+    // Submit login
+    on(form, "submit", (e) => {
+      e.preventDefault();
+      const username = qs("#headerLoginUsername")?.value || "";
+      const password = qs("#headerLoginPassword")?.value || "";
+      const res = login({ username, password });
+
+      if (!res.ok) {
+        if (msg) msg.textContent = res.message || "ورود ناموفق بود.";
+        return;
+      }
+
+      close();
+      api.syncAuthUI();
+    });
   };
 
-  const bindHeaderAuth = () => {
-    const authBtn = qs("#headerAuthBtn");
-    const pop = qs("#headerAuthPopover");
-    const form = qs("#headerInlineLoginForm");
-    const msg = qs("#headerLoginMsg");
-
-    const userMenu = qs("#headerUserMenu");
-    const trig = qs("#userMenuTrigger");
+  // ----- User menu (logged in) -----
+  const bindUserMenu = () => {
+    const wrap = qs("#headerUserMenu");
+    const trigger = qs("#userMenuTrigger");
     const dd = qs("#userMenuDropdown");
-    const avatarImg = qs("#userMenuAvatar");
-
-    const creditEl = qs("#userMenuCredit");
-    const nameEl = qs("#userMenuName");
-    const metaEl = qs("#userMenuMeta");
     const logoutBtn = qs("#userMenuLogout");
 
-    const setPopoverOpen = (open) => {
-      if (!pop) return;
-      pop.hidden = !open;
-      pop.dataset.dismissableOpen = open ? "1" : "0";
-      if (authBtn) authBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    };
+    if (!wrap || !trigger || !dd) return;
 
-    const setUserMenuOpen = (open) => {
-      if (!dd) return;
-      dd.hidden = !open;
-      dd.dataset.dismissableOpen = open ? "1" : "0";
-      if (trig) trig.setAttribute("aria-expanded", open ? "true" : "false");
+    const open = () => {
+      dd.hidden = false;
+      setExpanded(trigger, true);
     };
+    const close = () => {
+      dd.hidden = true;
+      setExpanded(trigger, false);
+    };
+    const toggle = () => (dd.hidden ? open() : close());
 
-    // Toggle inline login popover
-    on(authBtn, "click", (e) => {
+    on(trigger, "click", (e) => {
       e.preventDefault();
-      if (!pop) return;
-      setPopoverOpen(pop.hidden);
+      toggle();
     });
 
-    // Toggle user dropdown
-    on(trig, "click", (e) => {
-      e.preventDefault();
-      if (!dd) return;
-      setUserMenuOpen(dd.hidden);
+    // outside click
+    on(document, "click", (e) => {
+      const t = e.target;
+      if (dd.hidden) return;
+      if (wrap.contains(t)) return;
+      close();
     });
 
-    // Inline login submit
-    if (form && form.dataset.bsBound !== "1") {
-      form.dataset.bsBound = "1";
-      on(form, "submit", (e) => {
-        e.preventDefault();
-        const u = qs("#headerLoginUsername")?.value?.trim();
-        const p = qs("#headerLoginPassword")?.value?.trim();
-        const res = session.login(u, p);
-        if (!res.ok) {
-          if (msg) msg.textContent = res.error;
-          return;
-        }
-        if (msg) msg.textContent = "";
-        setPopoverOpen(false);
-      });
-    }
-
-    // Logout
-    on(logoutBtn, "click", (e) => {
-      e.preventDefault();
-      session.clearSession();
-      setUserMenuOpen(false);
+    on(document, "keydown", (e) => {
+      if (e.key === "Escape" && !dd.hidden) close();
     });
 
-    const sync = () => {
-      const user = session.getCurrentUser();
-      const loggedIn = !!user;
-
-      if (authBtn) authBtn.hidden = loggedIn;
-      if (pop) setPopoverOpen(false);
-      if (userMenu) userMenu.hidden = !loggedIn;
-
-      if (!loggedIn) return;
-
-      if (avatarImg) avatarImg.src = user.avatar || "assets/images/placeholder.svg";
-      if (creditEl) creditEl.textContent = "اعتبار: " + session.formatIRR(user.credit) + " ریال";
-      if (nameEl) nameEl.textContent = user.fullName || "";
-      if (metaEl) metaEl.textContent = user.title || "";
-    };
-
-    BS.events.on("bs:session", sync);
-    sync();
+    on(logoutBtn, "click", () => {
+      logout();
+      close();
+      api.syncAuthUI();
+    });
   };
 
-  BS.ui = BS.ui || {};
-  BS.ui.header = { bindCategoriesDropdown, bindHeaderAuth };
+  // ----- Categories dropdown (desktop nav) -----
+  const bindCategoriesDropdown = () => {
+    const toggleBtn = qs(".nav-dropdown-toggle");
+    const panel = toggleBtn?.closest(".has-dropdown")?.querySelector(".dropdown-panel");
+
+    if (!toggleBtn || !panel) return;
+
+    const open = () => {
+      panel.hidden = false;
+      setExpanded(toggleBtn, true);
+    };
+    const close = () => {
+      panel.hidden = true;
+      setExpanded(toggleBtn, false);
+    };
+    const toggle = () => (panel.hidden ? open() : close());
+
+    on(toggleBtn, "click", (e) => {
+      e.preventDefault();
+      toggle();
+    });
+
+    on(document, "click", (e) => {
+      const t = e.target;
+      if (panel.hidden) return;
+      if (panel.contains(t) || toggleBtn.contains(t)) return;
+      close();
+    });
+
+    on(document, "keydown", (e) => {
+      if (e.key === "Escape" && !panel.hidden) close();
+    });
+  };
+
+  // ----- Sync UI based on session -----
+  api.syncAuthUI = () => {
+    const loginBtn = qs("#headerLoginBtn");
+    const pop = qs("#headerAuthPopover");
+    const userMenu = qs("#headerUserMenu");
+
+    if (!loginBtn || !userMenu) return;
+
+    const logged = isLoggedIn();
+    loginBtn.hidden = logged;
+    pop && (pop.hidden = true);
+    userMenu.hidden = !logged;
+
+    if (!logged) return;
+
+    const user = getCurrentUser();
+    if (!user) return;
+
+    const avatar = qs("#userMenuAvatar");
+    const credit = qs("#userMenuCredit");
+    const name = qs("#userMenuName");
+    const meta = qs("#userMenuMeta");
+
+    if (avatar) avatar.src = user.avatar || "assets/images/placeholder.svg";
+    if (credit) credit.textContent = formatFaNumber(user.credit) + " اعتبار";
+    if (name) name.textContent = user.fullName || user.username || "—";
+    if (meta) meta.textContent = roleLabel(user.role);
+  };
+
+  api.bindAll = () => {
+    bindHeaderLoginPopover();
+    bindUserMenu();
+    bindCategoriesDropdown();
+  };
 })();

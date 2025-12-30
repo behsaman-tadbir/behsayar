@@ -1,30 +1,28 @@
-/* behsayar - bs-feature-dashboard.js
- * Demo dashboard protection.
- */
+/* bs-feature-dashboard.js — lightweight route protection for dashboard pages */
 (() => {
   "use strict";
+
   const BS = (window.BS = window.BS || {});
-  const { session } = BS;
+  const { qs } = BS.core;
+  const { isLoggedIn, getCurrentUser } = BS.session;
+
+  BS.features = BS.features || {};
+  BS.features.dashboard = BS.features.dashboard || {};
 
   const protectDashboard = () => {
-    const isDash = document.body?.classList?.contains("page-dashboard");
-    if (!isDash) return;
+    // Detect dashboard pages by body class or presence of dashboard root
+    const isDashboard = document.body.classList.contains("page-dashboard") || !!qs("[data-dashboard]");
+    if (!isDashboard) return;
 
-    const sess = session.getSession();
-    if (!sess?.role) {
+    if (!isLoggedIn()) {
       window.location.href = "login.html";
       return;
     }
 
-    const role = sess.role;
-    const page = document.body.dataset.role || "";
-    if (page && page !== role) {
-      // redirect to correct dashboard for role
-      const map = { student: "dashboard.html", teacher: "dashboard-teacher.html", admin: "dashboard-admin.html" };
-      window.location.href = map[role] || "dashboard.html";
-    }
+    // Optionally enforce role-based access later (demo)
+    const user = getCurrentUser();
+    if (!user) window.location.href = "login.html";
   };
 
-  BS.features = BS.features || {};
-  BS.features.dashboard = { protectDashboard };
+  BS.features.dashboard.protectDashboard = protectDashboard;
 })();

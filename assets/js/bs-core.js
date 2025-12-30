@@ -1,53 +1,58 @@
-/* behsayar - bs-core.js
- * Tiny utilities + global namespace.
- * No deps. Safe for static hosting.
- */
+/* bs-core.js — tiny utilities used across the site (no dependencies) */
 (() => {
   "use strict";
+
   const BS = (window.BS = window.BS || {});
+  BS.core = BS.core || {};
 
-  // DOM helpers
-  BS.qs = (sel, root = document) => root.querySelector(sel);
-  BS.qsa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  BS.on = (el, evt, fn, opts) => el && el.addEventListener(evt, fn, opts);
+  const core = BS.core;
 
-  BS.createEl = (tag, attrs = {}, children = []) => {
-    const el = document.createElement(tag);
-    Object.entries(attrs).forEach(([k, v]) => {
-      if (v === null || v === undefined) return;
-      if (k === "class") el.className = v;
-      else if (k === "dataset") Object.entries(v).forEach(([dk, dv]) => (el.dataset[dk] = dv));
-      else if (k in el) el[k] = v;
-      else el.setAttribute(k, String(v));
-    });
-    children.forEach((c) => el.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
-    return el;
+  core.qs = (sel, root = document) => root.querySelector(sel);
+  core.qsa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  core.on = (el, evt, handler, opts) => el && el.addEventListener(evt, handler, opts);
+  core.off = (el, evt, handler, opts) => el && el.removeEventListener(evt, handler, opts);
+
+  // Event delegation: on(document, 'click', '.btn', (e, target)=>{})
+  core.onDelegate = (root, evt, selector, handler, opts) => {
+    if (!root) return;
+    root.addEventListener(
+      evt,
+      (e) => {
+        const target = e.target?.closest?.(selector);
+        if (target && root.contains(target)) handler(e, target);
+      },
+      opts
+    );
   };
 
-  BS.safeJSONParse = (str, fallback) => {
+  core.ready = (fn) => {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn, { once: true });
+    else fn();
+  };
+
+  core.safeJsonParse = (str, fallback) => {
     try { return JSON.parse(str); } catch { return fallback; }
   };
 
-  // Storage helpers (namespaced)
-  BS.store = {
-    get(key, fallback = null) {
-      return BS.safeJSONParse(localStorage.getItem(key), fallback);
-    },
-    set(key, value) {
-      localStorage.setItem(key, JSON.stringify(value));
-    },
-    del(key) {
-      localStorage.removeItem(key);
-    },
+  core.formatFaNumber = (value) => {
+    // keep it minimal; if Intl is missing, fall back
+    try { return new Intl.NumberFormat("fa-IR").format(Number(value || 0)); }
+    catch { return String(value || 0); }
   };
 
-  // Simple event bus (optional)
-  BS.events = {
-    on(name, fn) {
-      document.addEventListener(name, fn);
-    },
-    emit(name, detail) {
-      document.dispatchEvent(new CustomEvent(name, { detail }));
-    },
+  core.isMobile = () => window.matchMedia("(max-width: 768px)").matches;
+
+  core.setExpanded = (btn, isExpanded) => {
+    if (!btn) return;
+    btn.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+  };
+
+  core.focusFirst = (container) => {
+    if (!container) return;
+    const focusable = container.querySelector(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    focusable?.focus?.();
   };
 })();
