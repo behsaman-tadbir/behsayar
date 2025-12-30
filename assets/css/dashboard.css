@@ -166,3 +166,61 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============ Profile-style dashboards ============ */
+.profile-page {
+  background: #f8fafc;
+}
+
+.profile-layout {
+  display: grid;
+  gap: 16px;
+  padding: 18px 0 24px;
+}
+
+.profile-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 18px;
+}
+
+.profile-identity { display: flex; align-items: center; gap: 12px; }
+.profile-avatar-wrap { width: 70px; height: 70px; }
+.profile-avatar { width: 70px; height: 70px; border-radius: 50%; border: 3px solid #22c55e; object-fit: cover; }
+.profile-name { font-size: 1.2rem; font-weight: 900; }
+.profile-meta { color: rgba(15,23,42,.7); font-weight: 700; display: flex; gap: 8px; align-items: center; }
+.profile-meta--sub { color: rgba(15,23,42,.55); font-size: .9rem; }
+.profile-cta { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.credit-card {
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+  color: #fff;
+  border-radius: 18px;
+}
+.credit-top { display:flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.credit-label { font-weight: 800; }
+.credit-amount { font-size: 2rem; font-weight: 1000; }
+.credit-meta { opacity: .95; font-weight: 700; margin-top: 4px; }
+.credit-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+.profile-actions-card .chip-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.chip-btn { padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(15,23,42,.12); background: rgba(15,23,42,.04); font-weight: 800; cursor: pointer; text-decoration: none; color: inherit; }
+.card-desc { color: rgba(15,23,42,.7); font-weight: 700; margin-top: 10px; }
+.card-head { display:flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.card-title { font-weight: 900; }
+.card-subtitle { color: rgba(15,23,42,.7); font-weight: 700; font-size: .95rem; }
+
+.finances-card .transactions { margin-top: 4px; }
+.tracker { margin-top: 12px; border-radius: 14px; border: 1px solid rgba(15,23,42,.08); background: #fff; padding: 10px; }
+.tracker-row { display:flex; justify-content: space-between; align-items: center; padding: 6px 0; font-weight: 800; }
+
+.policy-options { display: grid; gap: 8px; margin-top: 10px; }
+.policy-option { padding: 10px; border-radius: 12px; border: 1px solid rgba(15,23,42,.12); background: rgba(15,23,42,.03); font-weight: 800; }
+
+@media (max-width: 768px) {
+  .profile-hero { flex-direction: column; align-items: flex-start; }
+  .profile-cta { width: 100%; }
+  .credit-amount { font-size: 1.6rem; }
+}
