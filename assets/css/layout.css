@@ -750,3 +750,220 @@
   100%{ transform: translate3d(0,0,0) scale(1) rotate(0deg); }
 }
 
+
+
+/* =========================================================
+   HOME ONLY: Digikala-like header hierarchy
+   - Logo/brand centered and dominant
+   - Categories button is primary emphasis
+   - Search + main menu are secondary
+   ========================================================= */
+.page-home .header-top--dk{
+  display:grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:center;
+  gap: 14px;
+  padding-block: 10px;
+}
+
+.page-home .header-left{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.page-home .header-right{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  min-width: 0;
+}
+
+.page-home .brand-area--center{ justify-content:center; }
+.page-home .brand-link{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  text-decoration:none;
+  padding: 6px 10px;
+  border-radius: 16px;
+}
+
+.page-home .brand-link:hover{
+  background: rgba(255,255,255,0.55);
+}
+
+.page-home .brand-name{
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.page-home .header-search{
+  max-width: 440px;
+  width: min(440px, 100%);
+  opacity: 0.92;
+}
+
+.page-home .header-search input{
+  background: rgba(255,255,255,0.85);
+}
+
+.page-home .header-search:focus-within{
+  opacity: 1;
+}
+
+/* Make main nav links quieter, categories louder */
+.page-home .main-nav .nav-link{
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+.page-home .main-nav .nav-item:first-child .nav-link,
+.page-home .main-nav .nav-item:first-child button{
+  background: linear-gradient(135deg, rgba(163,230,53,0.35), rgba(56,189,248,0.25));
+  border: 1px solid rgba(15,23,42,0.10);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.10);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.page-home .main-nav .nav-item:first-child .nav-link:hover,
+.page-home .main-nav .nav-item:first-child button:hover{
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   HOME ONLY: User avatar dropdown (auth)
+   Works with existing JS injection (#headerUserMenu)
+   ========================================================= */
+.page-home .user-actions{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.page-home .user-menu{
+  position: relative;
+}
+
+.page-home .user-menu__trigger{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,0.12);
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.10);
+  cursor: pointer;
+}
+
+.page-home .user-menu__trigger:hover{
+  background: rgba(255,255,255,0.92);
+}
+
+.page-home .user-menu__avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(56,189,248,0.35);
+}
+
+.page-home .user-menu__label{
+  font-weight: 900;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.page-home .user-menu__credit-badge{
+  display:inline-flex;
+  align-items:center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(249,115,22,0.16);
+  border: 1px solid rgba(249,115,22,0.22);
+  font-weight: 900;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.page-home .user-menu__chevron{
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.page-home .user-menu__dropdown{
+  position:absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 260px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(15,23,42,0.12);
+  box-shadow: 0 22px 60px rgba(15,23,42,0.18);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+}
+
+.page-home .user-menu__credit{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(249,115,22,0.18), rgba(163,230,53,0.14));
+  border: 1px solid rgba(15,23,42,0.08);
+  margin-bottom: 10px;
+}
+
+.page-home .user-menu__credit .um-label{
+  opacity: 0.85;
+  font-weight: 800;
+}
+
+.page-home .user-menu__credit .um-value{
+  font-weight: 950;
+}
+
+.page-home .user-menu__identity{
+  padding: 6px 4px 10px;
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+  margin-bottom: 10px;
+}
+
+.page-home .user-menu__link{
+  width: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration:none;
+  border: 1px solid transparent;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.page-home .user-menu__link:hover{
+  background: rgba(56,189,248,0.10);
+  border-color: rgba(56,189,248,0.18);
+}
+
+@media (max-width: 768px){
+  .page-home .header-top--dk{
+    grid-template-columns: 1fr auto;
+  }
+  .page-home .header-right{ display:none; } /* موبایل: هدر مینیمال + BottomNav */
+  .page-home .brand-name{ font-size: 18px; }
+}
