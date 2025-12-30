@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_USERS = "bs_users";
   const STORAGE_SESSION = "bs_session";
   const STORAGE_CART = "bs_cart";
+  const STORAGE_PRODUCTS = "bs_custom_products";
+  const STORAGE_PLANS = "bs_installment_plans";
 
   // =========================
   // Catalog + Cart + Wallet + Transactions (Demo-first)
@@ -44,7 +46,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_WALLETS = "bs_wallets";
   const STORAGE_TX = "bs_transactions";
 
-  const CATALOG = [
+  const DEMO_USERS = [
+    {
+      username: "1001",
+      password: "123",
+      role: "student",
+      name: "علی حسینی",
+      nationalId: "0016598255",
+      fatherName: "حسین",
+      avatar: "assets/images/avatars/1001.png",
+      phone: "09120010001",
+    },
+    {
+      username: "1002",
+      password: "123",
+      role: "teacher",
+      name: "حسین حسینی",
+      nationalId: "0025478844",
+      fatherName: "پدر علی",
+      avatar: "assets/images/avatars/1002.png",
+      phone: "09120010002",
+      children: ["1001"],
+    },
+    {
+      username: "1003",
+      password: "123",
+      role: "admin",
+      name: "علیرضا داداشی",
+      nationalId: "0012345678",
+      avatar: "assets/images/avatars/1003.png",
+      phone: "09120010003",
+    },
+  ];
+
+  const BASE_CATALOG = [
     { id:"math-boost", title:"کلاس تقویتی ریاضی", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:490000, oldPrice:720000, image:"assets/images/products/math-boost.png" },
     { id:"digital-skills", title:"دوره مهارت‌های دیجیتال", provider:"بهسایار", category:"skills", categoryLabel:"مهارت‌ها", price:750000, oldPrice:920000, image:"assets/images/products/digital-skills.png" },
     { id:"english-teens", title:"زبان انگلیسی نوجوان", provider:"بهسایار", category:"online", categoryLabel:"کلاس‌های آنلاین", price:690000, oldPrice:840000, image:"assets/images/products/english-teens.png" },
@@ -93,6 +128,35 @@ const SEARCH_PAGES = [
   { title:"درباره بهسایار", url:"about.html", kind:"page" },
   { title:"اخبار", url:"news.html", kind:"page" },
 ];
+
+  function loadCustomProducts() {
+    return loadJSON(STORAGE_PRODUCTS, []);
+  }
+
+  function saveCustomProducts(list) {
+    saveJSON(STORAGE_PRODUCTS, list);
+  }
+
+  let catalogData = [];
+  let catalogById = {};
+
+  function refreshCatalog() {
+    const goodsIds = new Set([
+      "gaj-math10",
+      "kheili-sabz-bio11",
+      "ghalamchi-adab-konkur",
+      "porsh-physics-konkur",
+    ]);
+    const normalize = (p) => ({
+      ...p,
+      kind: p.kind || (goodsIds.has(p.id) ? "goods" : "service"),
+    });
+    const custom = loadCustomProducts();
+    catalogData = [...BASE_CATALOG, ...custom].map(normalize);
+    catalogById = Object.fromEntries(catalogData.map((p) => [p.id, p]));
+  }
+
+  refreshCatalog();
 
 function normalizeQuery(q){
   return String(q||"").trim().replace(/\s+/g," ");
@@ -160,7 +224,7 @@ function initGlobalSearch(){
       if (query.length < 2) { closePanel(); return; }
 
       const qLower = query.toLowerCase();
-      const prodMatches = CATALOG
+      const prodMatches = catalogData
         .filter(p => (p.title + " " + p.provider + " " + (p.categoryLabel||"")).toLowerCase().includes(qLower))
         .slice(0, 6);
 
@@ -251,7 +315,7 @@ function initServicesListing(){
     const cat = catSelect?.value || "all";
     const sort = sortSelect?.value || "suggested";
 
-    let list = [...CATALOG];
+    let list = [...catalogData];
     if (cat && cat !== "all"){
       list = list.filter(p => p.category === cat);
     }
@@ -309,8 +373,6 @@ function initServicesListing(){
 
   render();
 }
-
-  const catalogById = Object.fromEntries(CATALOG.map((p)=>[p.id,p]));
 
   const money = (n) => {
     const num = Number(n || 0);
@@ -777,7 +839,8 @@ function renderCheckoutPage() {
 
   function renderDashboards() {
     const user = getActiveUser();
-    // student dashboard wallet + transactions
+    const profile = user ? getUserProfile(user.username) : null;
+
     const walletAvailable = document.getElementById("walletAvailable");
     const walletLimit = document.getElementById("walletLimit");
     if (user && walletAvailable && walletLimit) {
@@ -786,14 +849,27 @@ function renderCheckoutPage() {
       walletLimit.textContent = money(w.limit);
     }
 
+    if (profile) {
+      const avatarEl = document.getElementById("profileAvatar");
+      if (avatarEl && profile.avatar) avatarEl.src = profile.avatar;
+      const nameEl = document.getElementById("profileName");
+      if (nameEl) nameEl.textContent = profile.name || profile.username;
+      const nationalEl = document.getElementById("profileNationalId");
+      if (nationalEl) nationalEl.textContent = profile.nationalId ? `کد ملی ${profile.nationalId}` : "کد ملی —";
+      const fatherEl = document.getElementById("profileFather");
+      if (fatherEl) fatherEl.textContent = profile.fatherName ? `نام پدر: ${profile.fatherName}` : "نام پدر —";
+      const phoneEl = document.getElementById("profilePhone");
+      if (phoneEl) phoneEl.textContent = profile.phone ? `شماره همراه: ${profile.phone}` : "شماره همراه —";
+    }
+
     const myTxEl = document.getElementById("myTransactions");
     if (user && myTxEl) {
-      const txs = listTransactions().filter(t=>t.username===user.username);
+      const txs = listTransactions().filter((t) => t.username === user.username);
       renderTransactions(myTxEl, txs, "user");
 
       const clearBtn = document.getElementById("clearMyTransactionsBtn");
-      clearBtn?.addEventListener("click", ()=>{
-        const all = listTransactions().filter(t=>t.username!==user.username);
+      clearBtn?.addEventListener("click", () => {
+        const all = listTransactions().filter((t) => t.username !== user.username);
         saveTransactions(all);
         renderTransactions(myTxEl, [], "user");
       });
@@ -801,8 +877,14 @@ function renderCheckoutPage() {
 
     const teacherTx = document.getElementById("teacherTransactions");
     if (user && teacherTx) {
-      const txs = listTransactions().filter(t=>t.username===user.username);
+      const txs = listTransactions().filter((t) => t.username === user.username);
       renderTransactions(teacherTx, txs, "user");
+    }
+
+    const childTx = document.getElementById("childTransactions");
+    if (user && childTx && profile?.children?.length) {
+      const txs = listTransactions().filter((t) => profile.children.includes(t.username));
+      renderTransactions(childTx, txs, "user");
     }
 
     const adminTx = document.getElementById("adminTransactions");
@@ -829,15 +911,11 @@ function renderCheckoutPage() {
 
 
   function loadUsers() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_USERS)) || [];
-    } catch {
-      return [];
-    }
+    return loadJSON(STORAGE_USERS, []);
   }
 
   function saveUsers(users) {
-    localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
+    saveJSON(STORAGE_USERS, users);
   }
 
   function setSession(user) {
@@ -846,6 +924,8 @@ function renderCheckoutPage() {
       JSON.stringify({
         username: user.username,
         role: user.role,
+        name: user.name,
+        avatar: user.avatar,
       })
     );
   }
@@ -862,28 +942,115 @@ function renderCheckoutPage() {
     localStorage.removeItem(STORAGE_SESSION);
   }
 
+  function getUserProfile(username) {
+    if (!username) return null;
+    const all = loadUsers();
+    return (
+      all.find((u) => u.username === username) ||
+      DEMO_USERS.find((u) => u.username === username) ||
+      null
+    );
+  }
+
+  function getGuardianFor(username) {
+    const all = loadUsers();
+    const guardian = all.find((u) => Array.isArray(u.children) && u.children.includes(username));
+    if (guardian) return guardian;
+    return DEMO_USERS.find((u) => Array.isArray(u.children) && u.children.includes(username)) || null;
+  }
+
   function ensureDemoUsers() {
-    // Fixed demo accounts (exactly three active users)
-    const demoUsers = [
-      { username: "1001", password: "123", role: "student", name: "دانش‌آموز دمو" },
-      { username: "1002", password: "123", role: "teacher", name: "دبیر دمو" },
-      { username: "1003", password: "123", role: "admin", name: "مدیر سیستم دمو" },
-    ];
-
-    // Ensure these demo users always exist (keep other registered demo users too)
     const existing = loadUsers();
-    const filtered = existing.filter((u) => !demoUsers.some((d) => d.username === u.username));
-    saveUsers([...filtered, ...demoUsers]);
+    const filtered = existing.filter((u) => !DEMO_USERS.some((d) => d.username === u.username));
+    saveUsers([...filtered, ...DEMO_USERS]);
 
-    // If a previous session doesn't match demo users, clear it.
     const session = getSession();
-    if (session && !demoUsers.some((u) => u.username === session.username)) {
+    const merged = loadUsers();
+    if (session && !merged.some((u) => u.username === session.username)) {
       clearSession();
     }
   }
 
-  // Seed demo users immediately
+  function seedDemoWallets() {
+    const wallets = loadJSON(STORAGE_WALLETS, {});
+    DEMO_USERS.forEach((u) => {
+      if (!wallets[u.username]) {
+        const presets = {
+          student: { limit: 8000000, available: 4200000 },
+          teacher: { limit: 12000000, available: 6500000 },
+          admin: { limit: 20000000, available: 14500000 },
+        };
+        wallets[u.username] = presets[u.role] || { limit: 20000000, available: 20000000 };
+      }
+    });
+    saveJSON(STORAGE_WALLETS, wallets);
+  }
+
+  function ensureSeedTransactions() {
+    const existing = listTransactions();
+    if (existing && existing.length) return;
+
+    const samples = [
+      {
+        id: newTxId(),
+        username: "1001",
+        role: "student",
+        method: "credit",
+        items: [
+          { id: "math-boost", qty: 1, unitPrice: catalogById["math-boost"]?.price || 490000 },
+          { id: "online-exam-grade9", qty: 1, unitPrice: catalogById["online-exam-grade9"]?.price || 280000 },
+        ],
+        total: 770000,
+        createdAt: formatDateISO(new Date()),
+        status: "confirmed",
+        installments: { months: 3, schedule: buildInstallmentSchedule(770000, 3) },
+      },
+      {
+        id: newTxId(),
+        username: "1002",
+        role: "teacher",
+        method: "online",
+        items: [
+          { id: "digital-skills", qty: 1, unitPrice: catalogById["digital-skills"]?.price || 750000 },
+          { id: "public-speaking", qty: 1, unitPrice: catalogById["public-speaking"]?.price || 610000 },
+        ],
+        total: 1360000,
+        createdAt: formatDateISO(new Date(new Date().setDate(new Date().getDate() - 3))),
+        status: "paid",
+      },
+      {
+        id: newTxId(),
+        username: "1001",
+        role: "student",
+        method: "online",
+        items: [{ id: "skills-memory", qty: 1, unitPrice: catalogById["skills-memory"]?.price || 480000 }],
+        total: 480000,
+        createdAt: formatDateISO(new Date(new Date().setDate(new Date().getDate() - 12))),
+        status: "paid",
+      },
+      {
+        id: newTxId(),
+        username: "1002",
+        role: "teacher",
+        method: "credit",
+        items: [
+          { id: "online-group-english", qty: 1, unitPrice: catalogById["online-group-english"]?.price || 720000 },
+          { id: "pre-reading-1", qty: 1, unitPrice: catalogById["pre-reading-1"]?.price || 420000 },
+        ],
+        total: 1140000,
+        createdAt: formatDateISO(new Date(new Date().setDate(new Date().getDate() - 20))),
+        status: "confirmed",
+        installments: { months: 4, schedule: buildInstallmentSchedule(1140000, 4) },
+      },
+    ];
+
+    saveTransactions(samples);
+  }
+
+  // Seed demo data immediately
   ensureDemoUsers();
+  seedDemoWallets();
+  ensureSeedTransactions();
 
   function redirectByRole(role) {
     if (role === "admin") {
@@ -897,24 +1064,129 @@ function renderCheckoutPage() {
     location.href = "dashboard.html";
   }
 
+  function ensureHeaderMenu() {
+    const actions = document.querySelector(".user-actions");
+    if (!actions) return null;
+    let menu = document.getElementById("headerUserMenu");
+    if (menu) return menu;
+
+    menu = createEl("div", { class: "user-menu", id: "headerUserMenu", hidden: "" });
+    const trigger = createEl("button", {
+      type: "button",
+      class: "user-menu__trigger",
+      id: "userMenuTrigger",
+      "aria-expanded": "false",
+      "aria-label": "حساب کاربری",
+    });
+    const avatar = createEl("img", {
+      class: "user-menu__avatar",
+      id: "userMenuAvatar",
+      src: "assets/images/placeholder.svg",
+      alt: "آواتار کاربر",
+    });
+    avatar.onerror = function () {
+      this.onerror = null;
+      this.src = "assets/images/placeholder.svg";
+    };
+    trigger.appendChild(avatar);
+    trigger.appendChild(createEl("span", { class: "user-menu__chevron", "aria-hidden": "true" }, ["▾"]));
+
+    const dropdown = createEl("div", { class: "user-menu__dropdown", id: "userMenuDropdown", hidden: "" });
+    dropdown.innerHTML = `
+      <div class="user-menu__credit" id="userMenuCreditBox">
+        <div class="um-label">اعتبار</div>
+        <div class="um-value" id="userMenuCredit">0</div>
+      </div>
+      <div class="user-menu__identity">
+        <div class="um-name" id="userMenuName">کاربر بهسایار</div>
+        <div class="um-meta" id="userMenuMeta">—</div>
+      </div>
+      <a class="user-menu__link" id="userMenuProfile" href="dashboard.html">پروفایل</a>
+      <button class="user-menu__link" type="button" id="userMenuPassword">تغییر کلمه عبور</button>
+      <button class="user-menu__link" type="button" id="userMenuLogout">خروج</button>
+    `;
+
+    menu.appendChild(trigger);
+    menu.appendChild(dropdown);
+    actions.prepend(menu);
+
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = !dropdown.hasAttribute("hidden");
+      if (isOpen) {
+        dropdown.setAttribute("hidden", "");
+        trigger.setAttribute("aria-expanded", "false");
+      } else {
+        dropdown.removeAttribute("hidden");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    document.addEventListener("click", (ev) => {
+      if (!menu.contains(ev.target)) {
+        dropdown.setAttribute("hidden", "");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    return menu;
+  }
+
+  function updateUserMenu(profile, wallet) {
+    const menu = ensureHeaderMenu();
+    if (!menu) return;
+    menu.hidden = false;
+    const avatar = menu.querySelector("#userMenuAvatar");
+    const credit = menu.querySelector("#userMenuCredit");
+    const nameEl = menu.querySelector("#userMenuName");
+    const metaEl = menu.querySelector("#userMenuMeta");
+    const profileLink = menu.querySelector("#userMenuProfile");
+    const passwordBtn = menu.querySelector("#userMenuPassword");
+    const logoutBtn = menu.querySelector("#userMenuLogout");
+
+    if (avatar && profile?.avatar) {
+      avatar.src = profile.avatar;
+    }
+    if (credit) credit.textContent = `${money(wallet?.available || 0)} تومان`;
+    if (nameEl) nameEl.textContent = profile?.name || profile?.username || "کاربر";
+    if (metaEl)
+      metaEl.textContent = profile?.role === "admin" ? "مدیر سیستم" : profile?.role === "teacher" ? "دبیر / ولی" : "دانش‌آموز";
+    if (profileLink) {
+      if (profile?.role === "admin") profileLink.href = "dashboard-admin.html";
+      else if (profile?.role === "teacher") profileLink.href = "dashboard-teacher.html";
+      else profileLink.href = "dashboard.html";
+    }
+    passwordBtn?.addEventListener("click", () => {
+      alert("تغییر کلمه عبور در این نسخه نمایشی است.");
+    });
+    logoutBtn?.addEventListener("click", () => {
+      clearSession();
+      updateAuthLinksUI();
+      location.href = "index.html";
+    });
+  }
+
   // ✅ این تابع، هم هدر و هم BottomNav را آپدیت می‌کند
   function updateAuthLinksUI() {
     const session = getSession();
     const loggedIn = !!(session && session.username);
+    const profile = loggedIn ? getUserProfile(session.username) : null;
+    const wallet = loggedIn ? ensureWalletFor(session.username) : null;
 
     // -------- Desktop Header Auth Button --------
     const headerAuthLink = document.getElementById("headerAuthLink");
     const headerAuthText = document.getElementById("headerAuthText");
+    const headerMenu = ensureHeaderMenu();
 
     if (headerAuthLink && headerAuthText) {
       if (loggedIn) {
-        headerAuthText.textContent = "داشبورد";
-        headerAuthLink.setAttribute("aria-label", "داشبورد");
-
-        if (session.role === "admin") headerAuthLink.href = "dashboard-admin.html";
-        else if (session.role === "teacher") headerAuthLink.href = "dashboard-teacher.html";
-        else headerAuthLink.href = "dashboard.html";
+        headerAuthLink.style.display = "none";
+        headerAuthLink.setAttribute("aria-hidden", "true");
+        updateUserMenu(profile, wallet);
       } else {
+        if (headerMenu) headerMenu.hidden = true;
+        headerAuthLink.style.display = "inline-flex";
+        headerAuthLink.removeAttribute("aria-hidden");
         headerAuthText.textContent = "ثبت‌نام / ورود";
         headerAuthLink.href = "login.html";
         headerAuthLink.setAttribute("aria-label", "ثبت‌نام / ورود");
@@ -927,8 +1199,8 @@ function renderCheckoutPage() {
 
     if (bnAuthLink && bnAuthText) {
       if (loggedIn) {
-        bnAuthText.textContent = "داشبورد";
-        bnAuthLink.setAttribute("aria-label", "داشبورد");
+        bnAuthText.textContent = "حساب";
+        bnAuthLink.setAttribute("aria-label", "پروفایل کاربری");
 
         if (session.role === "admin") bnAuthLink.href = "dashboard-admin.html";
         else if (session.role === "teacher") bnAuthLink.href = "dashboard-teacher.html";
@@ -1040,21 +1312,6 @@ function renderCheckoutPage() {
 
       if (!username || !password) {
         if (msg) msg.textContent = "نام کاربری و رمز عبور را وارد کنید.";
-        return;
-      }
-
-      // Admin demo login (no register) — fixed demo credentials
-      if (username === "1003" && password === "123") {
-        setSession({ username: "1003", role: "admin" });
-        updateAuthLinksUI(); // ✅
-
-        if (msg) {
-          msg.style.color = "#166534";
-          msg.textContent = "ورود مدیر سیستم موفق. انتقال...";
-        }
-        setTimeout(() => {
-          location.href = "dashboard-admin.html";
-        }, 400);
         return;
       }
 

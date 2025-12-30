@@ -66,39 +66,83 @@
 </div>
 </div>
 </header>
-<main class="page-main">
-<section class="container" style="padding:18px 0 24px;">
-<h1 style="margin:0 0 10px;font-weight:1000;">داشبورد دانش‌آموز</h1>
-<p style="margin:0 0 14px;color:rgba(15,23,42,.72);font-weight:650;line-height:1.9;">
-      این داشبورد نمایشی است. تراکنش‌ها و اعتبار فقط برای نمایش تجربه کاربری هستند.
-    </p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-<div class="card" style="border-radius:18px;padding:14px;">
-<div style="font-weight:950;margin-bottom:6px;">اعتبار سازمانی</div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
-<span class="pill">موجودی: <b id="walletAvailable">0</b></span>
-<span class="pill">سقف: <b id="walletLimit">0</b></span>
-</div>
-<div style="margin-top:10px;color:rgba(15,23,42,.72);font-weight:650;line-height:1.9;">
-          با پرداخت اعتباری، مبلغ سفارش از موجودی کسر می‌شود و برنامه اقساط ثبت می‌گردد.
+<main class="page-main profile-page">
+  <section class="container profile-layout">
+    <div class="profile-hero card">
+      <div class="profile-identity">
+        <div class="profile-avatar-wrap">
+          <img id="profileAvatar" class="profile-avatar" src="assets/images/avatars/1001.png" alt="آواتار کاربر"/>
         </div>
-</div>
-<div class="card" style="border-radius:18px;padding:14px;">
-<div style="font-weight:950;margin-bottom:6px;">میانبرها</div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;">
-<a class="btn btn-secondary" href="services.html" style="padding:10px 12px;border-radius:14px;">محصولات</a>
-<a class="btn btn-primary" href="cart.html" style="padding:10px 14px;border-radius:14px;">سبد خرید</a>
-</div>
-</div>
-</div>
-<div class="card" style="border-radius:18px;padding:14px;margin-top:14px;">
-<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;">
-<div style="font-weight:950;">مالی / تراکنش‌ها</div>
-<button class="btn btn-secondary" id="clearMyTransactionsBtn" style="padding:8px 12px;border-radius:14px;" type="button">پاکسازی نمایشی</button>
-</div>
-<div id="myTransactions" style="margin-top:10px;"></div>
-</div>
-</section>
+        <div>
+          <div class="profile-name" id="profileName">دانش‌آموز</div>
+          <div class="profile-meta">
+            <span id="profileNationalId">کد ملی —</span>
+            <span class="dot">•</span>
+            <span id="profileFather">نام پدر —</span>
+          </div>
+          <div class="profile-meta profile-meta--sub" id="profilePhone">شماره همراه —</div>
+        </div>
+      </div>
+      <div class="profile-cta">
+        <a class="btn btn-primary" href="services.html">خرید جدید</a>
+        <button class="btn btn-ghost" type="button" id="btnEditProfile">ویرایش اطلاعات</button>
+      </div>
+    </div>
+
+    <div class="credit-card card">
+      <div class="credit-top">
+        <div class="credit-label">اعتبار سازمانی</div>
+        <span class="badge success">فعال</span>
+      </div>
+      <div class="credit-amount" id="walletAvailable">0</div>
+      <div class="credit-meta">سقف اعتبار: <span id="walletLimit">0</span></div>
+      <div class="credit-actions">
+        <button class="btn btn-light" type="button" id="btnAddCredit">افزودن اعتبار دستی</button>
+        <button class="btn btn-secondary" type="button" id="btnTrackInstallments">رهگیری اقساط</button>
+      </div>
+    </div>
+
+    <div class="card profile-actions-card">
+      <div class="card-head">
+        <div>
+          <div class="card-title">پرونده دانش‌آموز</div>
+          <div class="card-subtitle">مشاهده پرونده و ویرایش اطلاعات در یک نگاه</div>
+        </div>
+      </div>
+      <div class="chip-row">
+        <button class="chip-btn" type="button" id="btnViewFile">مشاهده پرونده</button>
+        <button class="chip-btn" type="button" id="btnEditInfo">ویرایش اطلاعات</button>
+        <a class="chip-btn" href="cart.html">سبد خرید</a>
+        <a class="chip-btn" href="services.html">محصولات</a>
+      </div>
+      <p class="card-desc">رابطه‌ای شاد و حرفه‌ای برای پیگیری امور مالی، مشاهده سوابق و مدیریت اقساط.</p>
+    </div>
+
+    <div class="card finances-card">
+      <div class="card-head">
+        <div>
+          <div class="card-title">بخش مالی</div>
+          <div class="card-subtitle">تراکنش‌ها + رهگیری</div>
+        </div>
+        <button class="btn btn-ghost" id="clearMyTransactionsBtn" type="button">پاکسازی نمایشی</button>
+      </div>
+      <div id="myTransactions" class="transactions"></div>
+      <div class="tracker">
+        <div class="tracker-row">
+          <span>سفارش ثبت شد</span>
+          <b>✅</b>
+        </div>
+        <div class="tracker-row">
+          <span>در انتظار تایید مالی</span>
+          <b>در حال بررسی</b>
+        </div>
+        <div class="tracker-row">
+          <span>ارسال/دسترسی فعال</span>
+          <b>نمایشی</b>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 <footer class="site-footer site-footer--neo" aria-label="فوتر سایت">
   <div class="neo-footer-bg" aria-hidden="true">
