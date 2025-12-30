@@ -1091,11 +1091,9 @@ function renderCheckoutPage() {
     };
     trigger.appendChild(avatar);
     if (isHome) {
-      trigger.appendChild(createEl("span", { class: "user-menu__label", id: "userMenuLabel" }, ["حساب"]));
-      trigger.appendChild(createEl("span", { class: "user-menu__credit-badge", id: "userMenuCreditBadge" }, ["اعتبار: 0"]));
+      // در صفحه اصلی: فقط آواتار + فلش (دیجی‌کالایی و مینیمال)
     }
-
-    trigger.appendChild(createEl("span", { class: "user-menu__chevron", "aria-hidden": "true" }, ["▾"]));
+trigger.appendChild(createEl("span", { class: "user-menu__chevron", "aria-hidden": "true" }, ["▾"]));
 
     const dropdown = createEl("div", { class: "user-menu__dropdown", id: "userMenuDropdown", hidden: "" });
     dropdown.innerHTML = `
@@ -1138,7 +1136,94 @@ function renderCheckoutPage() {
     return menu;
   }
 
-  function updateUserMenu(profile, wallet) {
+  
+  // =========================
+  // Mobile User Sheet (BottomNav Account)
+  // فقط برای صفحه اصلی: آواتار در BottomNav + شیت گزینه‌ها
+  // =========================
+  function ensureMobileUserSheet() {
+    const isHome = document.body.classList.contains("page-home");
+    if (!isHome) return null;
+
+    let overlay = document.getElementById("mobileUserOverlay");
+    let sheet = document.getElementById("mobileUserSheet");
+    if (overlay && sheet) return { overlay, sheet };
+
+    overlay = createEl("div", { class: "muser-overlay", id: "mobileUserOverlay", hidden: "" });
+    sheet = createEl("div", { class: "muser-sheet", id: "mobileUserSheet", hidden: "" });
+
+    sheet.innerHTML = `
+      <div class="muser-hd">
+        <div class="muser-title">حساب کاربری</div>
+        <button type="button" class="muser-close" aria-label="بستن">✕</button>
+      </div>
+
+      <div class="muser-credit">
+        <div class="muser-credit__label">اعتبار</div>
+        <div class="muser-credit__value" id="mUserCredit">0</div>
+      </div>
+
+      <div class="muser-id">
+        <div class="muser-name" id="mUserName">—</div>
+      </div>
+
+      <a class="muser-link" id="mUserProfile" href="dashboard.html">پروفایل</a>
+      <button class="muser-link" type="button" id="mUserPassword">تغییر کلمه عبور</button>
+      <button class="muser-link muser-link--danger" type="button" id="mUserLogout">خروج</button>
+    `;
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(sheet);
+
+    const close = () => {
+      overlay.setAttribute("hidden", "");
+      sheet.setAttribute("hidden", "");
+      document.body.classList.remove("sheet-open");
+    };
+
+    overlay.addEventListener("click", close);
+    sheet.querySelector(".muser-close")?.addEventListener("click", close);
+
+    // Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !sheet.hasAttribute("hidden")) close();
+    });
+
+    return { overlay, sheet };
+  }
+
+  function openMobileUserSheet(profile, wallet) {
+    const ref = ensureMobileUserSheet();
+    if (!ref) return;
+    const { overlay, sheet } = ref;
+
+    const credit = sheet.querySelector("#mUserCredit");
+    const nameEl = sheet.querySelector("#mUserName");
+    const profileLink = sheet.querySelector("#mUserProfile");
+    const pwd = sheet.querySelector("#mUserPassword");
+    const logout = sheet.querySelector("#mUserLogout");
+
+    if (credit) credit.textContent = `${money(wallet?.available || 0)} تومان`;
+    if (nameEl) nameEl.textContent = profile?.name || profile?.username || "کاربر";
+    if (profileLink) {
+      if (profile?.role === "admin") profileLink.href = "dashboard-admin.html";
+      else if (profile?.role === "teacher") profileLink.href = "dashboard-teacher.html";
+      else profileLink.href = "dashboard.html";
+    }
+    pwd?.addEventListener("click", () => alert("تغییر کلمه عبور در این نسخه نمایشی است."));
+    logout?.addEventListener("click", (e) => {
+      e.preventDefault();
+      clearSession();
+      updateAuthLinksUI();
+      location.href = "index.html";
+    });
+
+    overlay.removeAttribute("hidden");
+    sheet.removeAttribute("hidden");
+    document.body.classList.add("sheet-open");
+  }
+
+function updateUserMenu(profile, wallet) {
     const menu = ensureHeaderMenu();
     if (!menu) return;
     menu.hidden = false;
@@ -1156,9 +1241,7 @@ function renderCheckoutPage() {
     if (credit) credit.textContent = `${money(wallet?.available || 0)} تومان`;
     const badge = menu.querySelector("#userMenuCreditBadge");
     if (badge) badge.textContent = `اعتبار: ${money(wallet?.available || 0)}`;
-    const label = menu.querySelector("#userMenuLabel");
-    if (label) label.textContent = "ورود به سامانه";
-    if (nameEl) nameEl.textContent = profile?.name || profile?.username || "کاربر";
+        if (nameEl) nameEl.textContent = profile?.name || profile?.username || "کاربر";
     if (metaEl)
       metaEl.textContent = profile?.role === "admin" ? "مدیر سیستم" : profile?.role === "teacher" ? "دبیر / ولی" : "دانش‌آموز";
     if (profileLink) {
@@ -1208,19 +1291,47 @@ function renderCheckoutPage() {
     const bnAuthText = document.getElementById("bnAuthText");
 
     if (bnAuthLink && bnAuthText) {
+      const bnIco = bnAuthLink.querySelector(".bn-ico");
+      const isMobile = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+
+      // پاک‌سازی handler قبلی
+      if (bnAuthLink.__userWired) {
+        // noop
+      }
+
       if (loggedIn) {
         bnAuthText.textContent = "حساب";
-        bnAuthLink.setAttribute("aria-label", "پروفایل کاربری");
+        bnAuthLink.setAttribute("aria-label", "حساب کاربری");
 
+        // آواتار کوچک داخل BottomNav
+        if (bnIco) {
+          const src = profile?.avatar || "assets/images/placeholder.svg";
+          bnIco.innerHTML = `<img class="bn-avatar" alt="آواتار" src="${src}"/>`;
+          const img = bnIco.querySelector("img");
+          if (img) img.onerror = () => (img.src = "assets/images/placeholder.svg");
+        }
+
+        // در موبایل: بجای رفتن به داشبورد، شیت باز شود (رفتار اپ‌محور)
+        // در دسکتاپ: همان لینک نقش‌محور
         if (session.role === "admin") bnAuthLink.href = "dashboard-admin.html";
         else if (session.role === "teacher") bnAuthLink.href = "dashboard-teacher.html";
         else bnAuthLink.href = "dashboard.html";
+
+        if (isMobile && !bnAuthLink.__userWired) {
+          bnAuthLink.__userWired = true;
+          bnAuthLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            openMobileUserSheet(profile, wallet);
+          });
+        }
       } else {
         bnAuthText.textContent = "ورود";
         bnAuthLink.href = "login.html";
         bnAuthLink.setAttribute("aria-label", "ورود");
+        if (bnIco) bnIco.textContent = "👤";
       }
     }
+  }
   }
 
   // اگر دکمه خروج در داشبوردها وجود داشت
